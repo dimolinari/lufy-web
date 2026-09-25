@@ -1,0 +1,63 @@
+:root{--tinta:#1f1b16;--oro:#c9a45c;--oro-osc:#8a6a2a;--papel:#fbf8f2;--texto:#222;--suave:#5a5348;--borde:#e3dccd;--enlace:#7a4f00;--max:68rem}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{overflow-wrap:break-word;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:1.0625rem;line-height:1.65;color:var(--texto);background:var(--papel)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--enlace);text-underline-offset:.15em}
+a:hover{color:#4d3200}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--oro);outline-offset:2px}
+.saltar{position:absolute;left:-999px;top:0;background:#fff;padding:.5rem 1rem;z-index:10}
+.saltar:focus{left:.5rem;top:.5rem}
+header.sitio{background:var(--tinta);color:#f4ecdc}
+.barra{max-width:var(--max);margin:0 auto;padding:.75rem 1.25rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;justify-content:space-between}
+.marca{color:#f4ecdc;text-decoration:none;font-family:Georgia,"Times New Roman",serif;font-size:1.5rem;letter-spacing:.25em;font-weight:700}
+.marca span{color:var(--oro)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.1rem}
+nav a{color:#f4ecdc;text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current=page]{border-bottom-color:var(--oro);color:#fff}
+main{max-width:var(--max);margin:0 auto;padding:1.5rem 1.25rem 3rem}
+.estrecho{max-width:46rem}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.25;color:var(--tinta)}
+h1{font-size:clamp(1.8rem,4.5vw,2.6rem);margin:.6em 0 .4em}
+h2{font-size:1.55rem;margin:2em 0 .5em;padding-top:.3em;border-top:1px solid var(--borde)}
+h3{font-size:1.2rem;margin:1.5em 0 .3em}
+.entradilla{font-size:1.2rem;color:var(--suave)}
+.meta{color:var(--suave);font-size:.95rem}
+.hero{background:var(--tinta);color:#f4ecdc;border-radius:.75rem;padding:2rem 1.5rem;margin-top:1rem;display:grid;gap:1.5rem;grid-template-columns:1fr}
+.hero h1{color:#fff;margin-top:0}
+.hero p{color:#e9dfcb}
+.hero a:not(.btn){color:var(--oro)}
+@media(min-width:760px){.hero{grid-template-columns:1.4fr 1fr;padding:2.5rem}.dos{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}.libro-cab{display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:2rem;align-items:start}}
+.portada{border-radius:.35rem;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:300px}
+.hero .portada{max-width:240px;justify-self:center}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.2rem 0}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:.5rem;text-decoration:none;font-weight:600;border:2px solid var(--oro);line-height:1.3}
+.btn-principal{background:var(--oro);color:var(--tinta)}
+.btn-principal:hover{background:#dcb96f;color:var(--tinta)}
+.btn-secundario{background:transparent;color:var(--enlace);border-color:var(--oro-osc)}
+.hero .btn-secundario{color:#f4ecdc;border-color:var(--oro)}
+.btn-secundario:hover{background:rgba(201,164,92,.15)}
+.tarjeta{background:#fff;border:1px solid var(--borde);border-radius:.75rem;padding:1.25rem 1.4rem;margin:1.25rem 0}
+.tarjeta h2,.tarjeta h3{border-top:0;margin-top:.2em;padding-top:0}
+.aviso{background:#fff7e3;border-left:4px solid var(--oro);padding:.8rem 1rem;border-radius:.25rem;margin:1.2rem 0}
+.reglas{padding-left:1.2rem}
+.reglas li{margin:.45rem 0}
+.capitulos{list-style:none;padding:0;counter-reset:cap}
+.capitulos li{background:#fff;border:1px solid var(--borde);border-radius:.6rem;padding:.9rem 1.1rem;margin:.75rem 0}
+.capitulos h3{margin:.1em 0 .2em;font-size:1.1rem}
+.capitulos .periodo{color:var(--oro-osc);font-size:.9rem;font-weight:600}
+.capitulos p{margin:.3em 0 0}
+.tabla{overflow-x:auto;margin:1rem 0}
+table{overflow-wrap:normal;border-collapse:collapse;width:100%;font-size:.95rem;background:#fff}
+caption{text-align:left;font-weight:600;padding:.4rem 0;color:var(--tinta)}
+th,td{border:1px solid var(--borde);padding:.45rem .6rem;text-align:left;vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+thead th{background:#f3ecdd}
+figure{margin:1.5rem 0}
+figure img{border:1px solid var(--borde);border-radius:.4rem;background:#fff}
+figcaption{font-size:.92rem;color:var(--suave);margin-top:.4rem}
+.fuente{font-size:.92rem;color:var(--suave)}
+footer.sitio{background:var(--tinta);color:#d9cfbb;font-size:.92rem}
+footer.sitio .barra{display:block;padding:1.5rem 1.25rem}
+footer.sitio a{color:var(--oro)}
+footer.sitio p{margin:.3rem 0}
