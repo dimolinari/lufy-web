@@ -3,7 +3,7 @@
 Web estática de Lufy: el libro «El verdadero poder político. Ecuador 1972–2023» y hilos con datos oficiales del Ecuador.
 
 - Sitio: https://dimolinari.github.io/lufy-web/
-- HTML y CSS estáticos, sin JavaScript, sin cookies, sin analítica.
+- HTML y CSS estáticos, sin cookies, sin analítica y sin rastreadores. La meta «Cerebro para Lufy» se lee con un script local (`assets/js/meta.js`) desde `data/meta.json`.
 - Publicación: GitHub Pages desde la rama `main` (carpeta raíz).
 - La tarjeta para compartir está en `assets/img/og.svg` (dibujo original) y `assets/img/og.png` (el mismo dibujo, exportado).
 
@@ -17,5 +17,9 @@ Web estática de Lufy: el libro «El verdadero poder político. Ecuador 1972–2
 - El contenido principal es gratis. Solo se publican datos oficiales verificados. No hay acusaciones: cada hallazgo va con CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.
 
 Reglas de contenido, con más detalle: `historia.html`.
+
+## Meta «Cerebro para Lufy»
+
+La cifra recaudada vive solo en `data/meta.json`. Para actualizarla, cambia `raised_usd` y la fecha `updated` (`AAAA-MM-DD`). `goal_usd` es la meta. No inventes montos, donantes ni conteos.
 
 © 2026 Lufy.

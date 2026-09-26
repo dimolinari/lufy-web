@@ -270,6 +270,25 @@ p{margin:.7rem 0}
 .b-vino-r{background:repeating-linear-gradient(135deg,#3d1820 0 7px,#f3eee4 7px 10px)}
 .b-tinta{background:var(--tinta)}
 .b-punto{background:radial-gradient(circle,#1a120f 1.5px,transparent 1.7px) 0 0/7px 7px, #e7dfd0}
+.cifra-meta{
+  font-family:var(--serif);
+  font-size:clamp(1.65rem,3.2vw,2.2rem);
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.03em;
+  line-height:1.1;
+  color:var(--tinta);
+  margin:.15rem 0 .55rem;
+}
+.cifra-meta-sm{font-size:clamp(1.2rem,2.5vw,1.5rem);margin-bottom:.4rem}
+.meta-pista{height:1.05rem;border:1px solid var(--borde)}
+.meta-pista-sm{height:.68rem}
+.meta-home{border-left:4px solid var(--oro)}
+.meta-home h2{margin-top:.15rem}
+#cerebro{scroll-margin-top:8.5rem}
+@media(prefers-reduced-motion:no-preference){
+  .meta-pista .relleno{transition:width .35s ease}
+}
 
 .rejilla{display:grid;gap:.85rem}
 .tarjeta{
