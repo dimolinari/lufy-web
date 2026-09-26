@@ -285,6 +285,7 @@ p{margin:.7rem 0}
 .meta-pista-sm{height:.68rem}
 .meta-home{border-left:4px solid var(--oro)}
 .meta-home h2{margin-top:.15rem}
+#cerebro{scroll-margin-top:8.5rem}
 @media(prefers-reduced-motion:no-preference){
   .meta-pista .relleno{transition:width .35s ease}
 }
