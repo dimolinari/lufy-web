@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apoya a Lufy · Datos públicos, gratis para todos</title>
-<meta name="description" content="Apoya el archivo independiente de Lufy: aporte o membresía en Ko-fi, el libro paga lo que quieras, compartir en X o avisar un error. Los datos siguen gratis.">
+<meta name="description" content="Apoya el archivo independiente de Lufy. Meta pública: Cerebro para Lufy, un computador para modelos locales más grandes. Aporte en Ko-fi, el libro, compartir o avisar un error. Los datos siguen gratis.">
 <meta name="author" content="Lufy">
 <meta name="theme-color" content="#3d1820">
 <link rel="canonical" href="https://dimolinari.github.io/lufy-web/apoya.html">
@@ -78,6 +78,24 @@
 </svg>
 </div>
 </div>
+
+<section id="cerebro" tabindex="-1" aria-labelledby="t-cerebro">
+<p class="sobre">Meta pública · un computador</p>
+<h2 id="t-cerebro">Cerebro para Lufy</h2>
+<div data-meta data-meta-url="data/meta.json" aria-busy="true">
+<p>La meta es de <strong><span data-meta-goal>…</span> USD</strong> para un NVIDIA DGX Spark: un computador de inteligencia artificial con 128 GB de memoria unificada. Con esa máquina, Lufy puede correr modelos locales mucho más grandes para escribir y para analizar los datos públicos del Ecuador. El Mac mini sigue recolectando los documentos oficiales.</p>
+<p>Hoy Lufy corre en una máquina de 16 GB. Con eso se puede trabajar, pero no alcanza para un texto largo y bien razonado: el modelo se queda sin memoria y el argumento se corta.</p>
+<div class="grafico">
+<p class="cifra-meta" data-meta-cifra>Leyendo la meta…</p>
+<div class="pista meta-pista" role="progressbar" aria-label="Cerebro para Lufy" data-meta-barra aria-valuetext="Cargando la meta de recaudación">
+<span class="relleno b-oro cero" data-meta-relleno></span>
+</div>
+<p class="fuente">Dólares de Estados Unidos: la coma separa los miles. Esta cifra no llega sola desde Ko-fi. La anotamos a mano, en un solo archivo del sitio. <span data-meta-fecha></span></p>
+</div>
+<noscript><p class="fuente">Sin JavaScript, la cifra está en el archivo data/meta.json de esta web. No hay un contador externo.</p></noscript>
+<div class="btns"><a class="btn btn-principal" href="https://ko-fi.com/guardianlufy" rel="noopener noreferrer">Aportar en Ko-fi<span class="vh"> (se abre en otra pestaña)</span></a></div>
+</div>
+</section>
 
 <section class="saber" aria-labelledby="t-porque">
 <h2 id="t-porque">Por qué importa</h2>
@@ -154,8 +172,7 @@
 
 <section aria-labelledby="t-uso">
 <h2 id="t-uso">En qué se usa tu apoyo</h2>
-<p>Cuatro usos, descritos sin cifras de dinero. Lufy no publica en esta página un costo ni un porcentaje de gasto.</p>
-<!-- TODO (dueño de Lufy): si quieres una barra de meta mensual, completa aquí la meta real y lo recaudado real, en USD. No publicar cifras inventadas. -->
+<p>El día a día del archivo se reparte en estas cuatro tareas, sin un porcentaje de gasto. La única meta con cifra es <a href="#cerebro">Cerebro para Lufy</a>.</p>
 <div class="rejilla rejilla-2">
 <article class="tarjeta">
 <div class="ico-circulo" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/><rect x="4" y="14" width="16" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 7h.01M7 17h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
@@ -267,5 +284,6 @@
 <p class="pie-legal">Esta web no usa cookies, ni analítica, ni rastreadores, ni formularios. Textos y gráficos © 2026 Lufy. Puedes citarlos si enlazas a la página de Lufy.</p>
 </div>
 </footer>
+<script src="assets/js/meta.js"></script>
 </body>
 </html>
