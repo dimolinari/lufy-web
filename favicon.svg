@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#1f1b16"/><text x="32" y="45" font-family="Georgia,serif" font-size="40" font-weight="700" text-anchor="middle" fill="#c9a45c">L</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="12" fill="#3d1820"/>
+<g fill="none" stroke="#d4b36a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M32 12v26"/>
+<path d="M20 46h24"/>
+<path d="M16 20h32"/>
+<path d="M16 20l-6 14h12z"/>
+<path d="M48 20l-6 14h12z"/>
+</g>
+</svg>

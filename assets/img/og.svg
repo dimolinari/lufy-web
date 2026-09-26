@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#3d1820"/>
+<rect x="28" y="28" width="1144" height="574" rx="24" fill="none" stroke="#d4b36a" stroke-opacity=".4" stroke-width="3"/>
+<g fill="none" stroke="#d4b36a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M210 168v230"/>
+<path d="M156 422h108"/>
+<path d="M108 206h204"/>
+<path d="M108 206l-30 66h60z"/>
+<path d="M312 206l-30 66h60z"/>
+</g>
+<circle cx="210" cy="168" r="12" fill="#d4b36a"/>
+<rect x="360" y="188" width="132" height="176" rx="12" fill="#fffdf8"/>
+<rect x="378" y="214" width="64" height="9" rx="3" fill="#d4b36a"/>
+<rect x="378" y="236" width="96" height="7" rx="2" fill="#e7dfd0"/>
+<rect x="378" y="254" width="86" height="7" rx="2" fill="#e7dfd0"/>
+<rect x="378" y="272" width="98" height="7" rx="2" fill="#e7dfd0"/>
+<rect x="378" y="290" width="72" height="7" rx="2" fill="#e7dfd0"/>
+<circle cx="456" cy="328" r="20" fill="none" stroke="#d4b36a" stroke-width="3"/>
+<text x="456" y="335" text-anchor="middle" font-family="Liberation Serif, Georgia, serif" font-size="18" font-weight="700" fill="#3d1820">L</text>
+<text x="540" y="250" font-family="Liberation Serif, Georgia, serif" font-size="78" font-weight="700" fill="#f3eee4">LUF<tspan fill="#d4b36a">Y</tspan></text>
+<text x="540" y="330" font-family="Liberation Serif, Georgia, serif" font-size="32" fill="#f3eee4">Datos p&#250;blicos del Ecuador,</text>
+<text x="540" y="376" font-family="Liberation Serif, Georgia, serif" font-size="32" fill="#f3eee4">con fuente.</text>
+<text x="540" y="448" font-family="Liberation Sans, sans-serif" font-size="22" fill="#f0d48a">Archivo independiente. Gratis para todos.</text>
+<rect x="540" y="484" width="96" height="6" rx="3" fill="#d4b36a"/>
+</svg>

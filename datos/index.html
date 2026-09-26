@@ -3,18 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Datos: artículos con cifras oficiales · Lufy</title>
-<meta name="description" content="Artículos de datos de Lufy con cifras oficiales del Ecuador, enlaces a la fuente, gráficos y metodología.">
+<title>Datos: hilos con cifras oficiales · Lufy</title>
+<meta name="description" content="Hilos de datos de Lufy con cifras oficiales del Ecuador. Cada hilo trae resumen, sellos, fuente y método. El primero: la campaña electoral de 2025.">
+<meta name="author" content="Lufy">
+<meta name="theme-color" content="#3d1820">
 <link rel="canonical" href="https://dimolinari.github.io/lufy-web/datos/index.html">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_EC">
 <meta property="og:site_name" content="Lufy">
-<meta property="og:title" content="Datos: artículos con cifras oficiales · Lufy">
-<meta property="og:description" content="Artículos de datos de Lufy con cifras oficiales del Ecuador, enlaces a la fuente, gráficos y metodología.">
+<meta property="og:title" content="Datos: hilos con cifras oficiales · Lufy">
+<meta property="og:description" content="Hilos de datos de Lufy con cifras oficiales del Ecuador. Cada cifra lleva su línea de fuente.">
 <meta property="og:url" content="https://dimolinari.github.io/lufy-web/datos/index.html">
-<meta property="og:image" content="https://dimolinari.github.io/lufy-web/assets/img/og.jpg">
+<meta property="og:image" content="https://dimolinari.github.io/lufy-web/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lufy: datos públicos del Ecuador, con fuente. Archivo independiente y gratis.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Datos: hilos con cifras oficiales · Lufy">
+<meta name="twitter:description" content="Hilos de datos de Lufy con cifras oficiales del Ecuador. Cada cifra lleva su línea de fuente.">
+<meta name="twitter:image" content="https://dimolinari.github.io/lufy-web/assets/img/og.png">
+<meta name="twitter:image:alt" content="Lufy: datos públicos del Ecuador, con fuente. Archivo independiente y gratis.">
+<meta name="twitter:site" content="@dimolinari18">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -22,30 +32,86 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="sitio">
 <div class="barra">
-<a class="marca" href="../index.html" aria-label="Lufy, inicio">LUF<span>Y</span></a>
-<nav aria-label="Principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../libro.html">El libro</a></li><li><a href="../historia.html">Nuestra historia</a></li><li><a href="../datos/index.html" aria-current="page">Datos</a></li><li><a href="../apoya.html">Apoya</a></li></ul></nav>
+<a class="marca" href="../index.html" aria-label="Lufy, inicio"><svg class="marca-ico" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M16 5v16M10 25h12M7 9h18M7 9l-3.2 7h6.4zM25 9l-3.2 7h6.4z"/></svg>LUF<span>Y</span></a>
+<nav aria-label="Principal"><ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="index.html" aria-current="page">Datos</a></li>
+<li><a href="../libro.html">Libro</a></li>
+<li><a href="../apoya.html">Apoya a Lufy</a></li>
+</ul></nav>
 </div>
 </header>
 <main id="contenido">
 
-<div class="estrecho">
+<p class="sobre">Hilos de datos</p>
 <h1>Datos</h1>
-<p class="entradilla">Artículos con cifras de fuentes oficiales. Cada cifra lleva su enlace, cada gráfico su fuente y cada artículo su nota de método.</p>
+<p class="entradilla">Cada hilo es una página viva de Lufy: un resumen corto, cifras grandes con sello, qué muestra el dato y qué no, la ficha de verificación y la línea de fuente. Te quedas en Lufy para comprobarlo.</p>
+
+<section class="saber" aria-labelledby="t-leer">
+<h2 id="t-leer">Cómo leer un hilo</h2>
+<ol>
+<li><span class="n">1</span><span><span class="sello sello-ok">Confirmado</span> lo documenta una fuente oficial.</span></li>
+<li><span class="n">2</span><span><span class="sello sello-abierto">Abierto</span> no hay datos suficientes. No inventamos el número.</span></li>
+<li><span class="n">3</span><span><span class="sello sello-indicio">Indicio</span> y <span class="sello sello-hip">Hipótesis</span> no cierran un caso: indican qué falta.</span></li>
+<li><span class="n">4</span><span>La línea de fuente dice institución, documento y fecha. Si hay copia archivada, abre ese archivo y su huella SHA-256.</span></li>
+</ol>
+</section>
+
 <article class="tarjeta">
-<p class="meta">25 de septiembre de 2026 · Elecciones · Fuente: CNE</p>
-<h2><a href="financiamiento-campana-cne-2025.html">¿Cuánto declararon las organizaciones políticas en la campaña 2025? Los datos del CNE</a></h2>
-<p>Ingresos y gastos que cada organización declaró al CNE para las Elecciones Generales 2025: binomio presidencial (1.ª y 2.ª vuelta), comparación con el presupuesto presentado y con el límite legal, y lo que se puede decir (y lo que no) de todas las dignidades.</p>
-<p><a href="financiamiento-campana-cne-2025.html">Leer el artículo →</a></p>
+<p class="meta">25 de septiembre de 2026 · Elecciones Generales 2025</p>
+<h2><a href="financiamiento-campana-cne-2025.html">¿Cuánto declararon las organizaciones políticas en la campaña 2025?</a></h2>
+<p>Ingresos y gastos que cada organización declaró para las Elecciones Generales 2025: binomio presidencial (1.ª y 2.ª vuelta), comparación con el presupuesto presentado y con el límite legal, y por qué no hay un total nacional.</p>
+<div class="cifras">
+<article class="cifra">
+<p class="meta"><span class="sello sello-ok">Confirmado</span></p>
+<strong>$596.455,65</strong>
+<p>Ingresos declarados, 1.ª vuelta, 12 organizaciones con reportes completos.</p>
 </article>
-<p class="fuente">Próximos temas: contratación pública (SERCOP), presupuesto del Estado y Seccionales 2026, siempre con datos agregados y oficiales.</p>
+<article class="cifra">
+<p class="meta"><span class="sello sello-ok">Confirmado</span></p>
+<strong>$534.609,69</strong>
+<p>Gasto declarado («TOTAL GASTOS», sin IVA), las mismas 12 organizaciones.</p>
+</article>
+<article class="cifra">
+<p class="meta"><span class="sello sello-abierto">Abierto</span></p>
+<strong>Sin total nacional</strong>
+<p>2.497 de 6.457 PDF son escaneos sin texto. No inventamos el resto.</p>
+</article>
 </div>
+<p class="fuente">Fuente: Consejo Nacional Electoral, Transparencia del Financiamiento Político, procesos 132 y 133, consultado el 25 de septiembre de 2026.</p>
+<!-- TODO: enlazar la copia archivada en Lufy (SHA-256) cuando exista en el repositorio. -->
+<p><a href="financiamiento-campana-cne-2025.html">Abrir el hilo</a> · <a href="cne-elecciones-generales-2025.csv" download>Descargar CSV</a></p>
+</article>
+
+<p class="fuente">Próximos hilos, cuando el dato esté verificado: contratación pública, estados financieros, accionistas y sanciones. Hasta entonces, el único hilo publicado es el de la campaña 2025. Los conteos del archivo, a septiembre de 2026, están en <a href="../apoya.html#t-archivo">Apoya a Lufy</a>.</p>
+
+<section class="apoyo-mini" aria-labelledby="t-apoyo">
+<h2 id="t-apoyo">Estos hilos son gratis</h2>
+<p>Si te sirven, puedes apoyar el archivo. El dato no se esconde detrás de un pago.</p>
+<div class="btns"><a class="btn btn-principal" href="../apoya.html">Apoya a Lufy</a></div>
+</section>
 
 </main>
 <footer class="sitio">
-<div class="barra">
-<p><strong>Lufy</strong> · Proyecto independiente de datos públicos e historia política del Ecuador.</p>
-<p>Esta web no usa cookies, ni analítica, ni rastreadores, ni formularios. <a href="../privacidad.html">Aviso de privacidad</a> · <a href="../historia.html#correcciones">Correcciones</a> · <a href="https://ko-fi.com/guardianlufy">Ko-fi</a></p>
-<p>Textos y gráficos: © 2026 Lufy. Puedes citarlos y compartirlos con enlace a esta web. Las cifras son de fuentes oficiales y cada una lleva su enlace.</p>
+<div class="barra pie">
+<div>
+<p class="marca-pie">LUF<span>Y</span></p>
+<p>Proyecto independiente de datos públicos del Ecuador. Solo cifras oficiales verificadas, gratis para todos.</p>
+</div>
+<nav aria-label="En el sitio"><ul>
+<li><a href="../index.html">Inicio</a></li>
+<li><a href="index.html">Datos</a></li>
+<li><a href="../libro.html">Libro</a></li>
+<li><a href="../apoya.html">Apoya a Lufy</a></li>
+<li><a href="../historia.html">Nuestra historia</a></li>
+<li><a href="../privacidad.html">Privacidad</a></li>
+<li><a href="../historia.html#correcciones">Correcciones</a></li>
+</ul></nav>
+<div>
+<p><a href="https://ko-fi.com/guardianlufy" rel="noopener noreferrer">Ko-fi<span class="vh"> (se abre en otra pestaña)</span></a></p>
+<p><a href="https://x.com/dimolinari18" rel="noopener noreferrer">Lufy en X (@dimolinari18)<span class="vh"> (se abre en otra pestaña)</span></a></p>
+</div>
+<p class="pie-legal">Esta web no usa cookies, ni analítica, ni rastreadores, ni formularios. Textos y gráficos © 2026 Lufy. Puedes citarlos si enlazas a la página de Lufy.</p>
 </div>
 </footer>
 </body>
