@@ -18,6 +18,10 @@ Web estática de Lufy: el libro «El verdadero poder político. Ecuador 1972–2
 
 Reglas de contenido, con más detalle: `historia.html`.
 
+## App para Apple
+
+La app nativa (iPhone, iPad y Mac) está en `apple/`. El índice que comparten el sitio y la app es `data/contenido.json`. Cómo generarla y firmarla: `apple/README.md`. Las páginas HTML no cambian.
+
 ## Meta «Cerebro para Lufy»
 
 La cifra recaudada vive solo en `data/meta.json`. Para actualizarla, cambia `raised_usd` y la fecha `updated` (`AAAA-MM-DD`). `goal_usd` es la meta. No inventes montos, donantes ni conteos.
