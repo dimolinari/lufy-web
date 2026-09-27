@@ -9,7 +9,15 @@
     "voiceId": ""
   },
   "storeKit": {
-    "premiumProductIds": []
+    "subscriptionsEnabled": false,
+    "premiumProductIds": [],
+    "subscriptionProductIds": [
+      "com.lufy.aprende.plus.monthly",
+      "com.lufy.aprende.plus.yearly"
+    ]
+  },
+  "share": {
+    "inviteURL": ""
   },
   "asambleaFeed": {
     "manifestURL": ""

@@ -19,7 +19,7 @@ struct RootView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var library: Library?
     @State private var repository: LearnerRepository?
-    @State private var premium = PremiumStore(productIDs: [])
+    @State private var premium = PremiumStore(productIDs: [], subscriptionsEnabled: false)
     @State private var player = LessonPlayer()
     @State private var asamblea = AsambleaStore()
     @State private var errorMessage: String?
@@ -50,7 +50,10 @@ struct RootView: View {
                 let brand = try Brand.bundled()
                 let catalog = try ContentLoader.loadBundled()
                 let figures = try FigureLibrary.loadBundled()
-                let store = PremiumStore(productIDs: brand.storeKit.premiumProductIds)
+                let store = PremiumStore(
+                    productIDs: brand.storeKit.activeProductIDs,
+                    subscriptionsEnabled: brand.storeKit.subscriptionsEnabled
+                )
                 await store.refresh()
                 premium = store
                 repository = LearnerRepository(context: modelContext)
@@ -146,13 +149,28 @@ struct PathView: View {
     }
 
     private var progressStrip: some View {
-        HStack(spacing: 12) {
-            stat(title: "Racha", value: "\(repository.state.streak.current)", detail: "días")
-            stat(title: "Experiencia", value: "\(repository.state.totalXP)", detail: "XP")
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 12) {
+                stat(title: "Racha", value: "\(repository.state.streak.current)", detail: "días")
+                stat(title: "Experiencia", value: "\(repository.state.totalXP)", detail: "XP")
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Racha de \(repository.state.streak.current) días. \(repository.state.totalXP) puntos de experiencia.")
+            VStack(alignment: .leading, spacing: 8) {
+                if let streakCard = ShareCardBuilder.streak(
+                    days: repository.state.streak.current,
+                    appName: library.brand.appName,
+                    inviteURL: library.brand.inviteURL
+                ) {
+                    ShareStoryButton(card: streakCard, title: "Compartir racha")
+                }
+                ShareStoryButton(
+                    card: ShareCardBuilder.invite(appName: library.brand.appName, inviteURL: library.brand.inviteURL),
+                    title: "Invitar"
+                )
+            }
         }
         .padding(.horizontal, 20)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("Racha de \(repository.state.streak.current) días. \(repository.state.totalXP) puntos de experiencia.")
     }
 
     private func stat(title: String, value: String, detail: String) -> some View {
@@ -355,7 +373,7 @@ struct PathView: View {
                     Text(planned.summary)
                         .font(.subheadline)
                         .foregroundStyle(LufyColor.muted)
-                    Text(planned.access == .premium ? "Próximamente · curso extra" : "Próximamente")
+                    Text(OfferingCaption.planned(planned))
                         .font(.caption)
                         .foregroundStyle(LufyColor.gold)
                 }

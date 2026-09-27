@@ -18,11 +18,55 @@ public struct AsambleaFeedBrand: Codable, Equatable, Sendable {
     }
 }
 
-public struct StoreKitBrand: Codable, Equatable, Sendable {
-    public var premiumProductIds: [String]
+public struct ShareBrand: Codable, Equatable, Sendable {
+    public var inviteURL: String
 
-    public init(premiumProductIds: [String]) {
+    public init(inviteURL: String) {
+        self.inviteURL = inviteURL
+    }
+}
+
+public struct StoreKitBrand: Equatable, Sendable {
+    public var premiumProductIds: [String]
+    public var subscriptionsEnabled: Bool
+    public var subscriptionProductIds: [String]
+
+    public init(
+        premiumProductIds: [String],
+        subscriptionsEnabled: Bool = false,
+        subscriptionProductIds: [String] = []
+    ) {
         self.premiumProductIds = premiumProductIds
+        self.subscriptionsEnabled = subscriptionsEnabled
+        self.subscriptionProductIds = subscriptionProductIds
+    }
+
+    /// Con el interruptor apagado no hay productos activos, aunque el archivo
+    /// ya traiga identificadores de prueba.
+    public var activeProductIDs: [String] {
+        guard subscriptionsEnabled else { return [] }
+        if !subscriptionProductIds.isEmpty { return subscriptionProductIds }
+        return premiumProductIds
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case premiumProductIds, subscriptionsEnabled, subscriptionProductIds
+    }
+}
+
+extension StoreKitBrand: Codable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        premiumProductIds = try container.decodeIfPresent([String].self, forKey: .premiumProductIds) ?? []
+        subscriptionsEnabled = try container.decodeIfPresent(Bool.self, forKey: .subscriptionsEnabled) ?? false
+        subscriptionProductIds = try container.decodeIfPresent([String].self, forKey: .subscriptionProductIds) ?? []
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(premiumProductIds, forKey: .premiumProductIds)
+        try container.encode(subscriptionsEnabled, forKey: .subscriptionsEnabled)
+        try container.encode(subscriptionProductIds, forKey: .subscriptionProductIds)
     }
 }
 
@@ -36,6 +80,7 @@ public struct Brand: Codable, Equatable, Sendable {
     public var developmentTeam: String
     public var elevenlabs: ElevenLabsBrand
     public var storeKit: StoreKitBrand
+    public var share: ShareBrand?
     public var asambleaFeed: AsambleaFeedBrand?
 
     public init(
@@ -46,6 +91,7 @@ public struct Brand: Codable, Equatable, Sendable {
         developmentTeam: String,
         elevenlabs: ElevenLabsBrand,
         storeKit: StoreKitBrand,
+        share: ShareBrand? = nil,
         asambleaFeed: AsambleaFeedBrand? = nil
     ) {
         self.appName = appName
@@ -55,7 +101,12 @@ public struct Brand: Codable, Equatable, Sendable {
         self.developmentTeam = developmentTeam
         self.elevenlabs = elevenlabs
         self.storeKit = storeKit
+        self.share = share
         self.asambleaFeed = asambleaFeed
+    }
+
+    public var inviteURL: String {
+        share?.inviteURL.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     }
 
     public var asambleaManifestURL: URL? {

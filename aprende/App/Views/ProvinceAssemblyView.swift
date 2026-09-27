@@ -29,6 +29,15 @@ struct ProvinceAssemblyView: View {
                         .background(LufyColor.card)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
+                ShareStoryButton(
+                    card: ShareCardBuilder.provinceVote(
+                        district: selection,
+                        directory: asamblea.directory,
+                        appName: library.brand.appName,
+                        inviteURL: library.brand.inviteURL
+                    ),
+                    title: "Compartir cómo votó"
+                )
                 NavigationLink(value: SpatialLink.hemicycle) {
                     Text("Ver el hemiciclo en 3D")
                         .font(.subheadline.weight(.semibold))

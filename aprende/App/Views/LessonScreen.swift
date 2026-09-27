@@ -309,6 +309,9 @@ struct ResultView: View {
                 ForEach(outcome.grades) { grade in
                     gradeRow(grade)
                 }
+                if outcome.passed, let learned = learnedCard {
+                    ShareStoryButton(card: learned, title: "Compartir lo que aprendí")
+                }
                 if outcome.passed {
                     Button("Volver al camino", action: onClose)
                         .buttonStyle(WineButtonStyle())
@@ -325,6 +328,18 @@ struct ResultView: View {
             }
             .padding(20)
         }
+    }
+
+    private var learnedCard: ShareCard? {
+        guard outcome.passed,
+              let figure = lesson.resolvedFigures.first(where: { $0.kind == "chart" }),
+              let dataset = library.figures.dataset(id: figure.ref)
+        else { return nil }
+        return ShareCardBuilder.learnedToday(
+            dataset: dataset,
+            appName: library.brand.appName,
+            inviteURL: library.brand.inviteURL
+        )
     }
 
     private func gradeRow(_ grade: QuestionGrade) -> some View {
@@ -370,7 +385,7 @@ struct PaywallView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text(courseTitle)
                         .font(.system(.title2, design: .serif))
-                    Text("Este curso es opcional y de pago. Las lecciones del núcleo siguen gratis, sin cuenta.")
+                    Text("Este curso queda fuera del núcleo. La suscripción lo abre, junto con las lecciones del dato más reciente y los audiolibros narrados. Las lecciones publicadas siguen gratis, sin cuenta.")
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                     if let message = premium.statusMessage {
@@ -378,13 +393,20 @@ struct PaywallView: View {
                             .font(.subheadline)
                             .foregroundStyle(LufyColor.warn)
                     }
-                    if premium.isConfigured, let product = premium.products.first {
-                        Button("Comprar por \(product.displayPrice)") {
-                            Task { await premium.purchase(product) }
+                    if premium.subscriptionsEnabled, premium.isConfigured {
+                        ForEach(premium.products) { product in
+                            Button("Suscribirse: \(product.displayName) · \(product.displayPrice)") {
+                                Task { await premium.purchase(product) }
+                            }
+                            .buttonStyle(WineButtonStyle())
                         }
-                        .buttonStyle(WineButtonStyle())
+                        if premium.products.isEmpty {
+                            Text("La suscripción está encendida, pero la tienda no devolvió productos.")
+                                .font(.body)
+                                .foregroundStyle(LufyColor.muted)
+                        }
                     } else {
-                        Text("En esta versión el pago no está configurado. No hay nada que comprar.")
+                        Text("La suscripción está apagada. No hay nada que comprar.")
                             .font(.body)
                             .foregroundStyle(LufyColor.muted)
                     }

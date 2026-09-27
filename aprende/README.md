@@ -172,6 +172,20 @@ python3 scripts/generate_audio.py --lesson como-se-hace-una-ley --yes
 
 Para cambiar el nombre de la app, edita `appName` en `brand.json` y corre `./scripts/setup.sh`. No lo escribas en las pantallas: la interfaz lo lee de ese archivo.
 
+## Compartir
+
+Desde el camino se puede compartir la racha cuando cae en 1, 3, 7, 14, 30, 60, 100 o 365 días, y una invitación. Al terminar una lección que tiene gráfico, **Compartir lo que aprendí** arma la tarjeta «Aprendí esto hoy» con la serie y la línea de fuente. En **Tu provincia**, **Compartir cómo votó** usa el voto registrado, la línea de fuente tal como está en el archivo y la marca: **DATOS DE EJEMPLO** en la copia de prueba, o **CONFIRMADO** cuando el archivo ya no es de ejemplo. Las tarjetas no acusan a nadie. Si el texto trajera una palabra de juicio (corrupto, culpable, testaferro, delincuente), la app no la arma.
+
+La imagen mide 1080×1920, el tamaño de una historia de Instagram o de X. El botón abre la hoja de compartir del sistema. El nombre de la app y un código QR van en la tarjeta. El enlace de invitación se pega en `brand.json`, en `share.inviteURL`. Si queda vacío, el código lleva el nombre y no hay una dirección inventada.
+
+## Suscripción
+
+Está apagada. `storeKit.subscriptionsEnabled` en `brand.json` es `false`, así que la app no consulta la tienda. El núcleo publicado sigue gratis.
+
+Cuando ese valor pase a `true`, una suscripción de StoreKit 2 abre tres cosas: cursos extra, lecciones sobre el dato más reciente y audiolibros con narración grabada. Los identificadores de prueba son `com.lufy.aprende.plus.monthly` y `com.lufy.aprende.plus.yearly`. No son productos de la App Store todavía. El archivo `App/Products.storekit` los define para una prueba local, con precios de marcador. Los esquemas de XcodeGen ya apuntan a ese archivo. En Xcode también se puede elegir a mano: Product → Scheme → Edit Scheme → Run → Options → StoreKit Configuration.
+
+Para encenderla: pon `subscriptionsEnabled` en `true`, corre `./scripts/setup.sh` si cambiaste otro identificador, y ejecuta desde Xcode. La pantalla Suscripción, en Ajustes, lista los dos planes. Con el interruptor apagado, esa pantalla dice que no hay nada que comprar.
+
 ## Privacidad
 
 No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y los repasos se guardan en el dispositivo con SwiftData. `App/PrivacyInfo.xcprivacy` declara que no se rastrea y que no se recolectan datos. La cámara del iPhone, si la autorizas, solo sirve para apoyar el modelo en la mesa.
@@ -191,4 +205,7 @@ No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y
 - Crear la voz en ElevenLabs, poner su id en `brand.json` y decidir si se gastan créditos con `--yes`.
 - Descargar una voz española en el iPhone si se va a probar sin MP3.
 - Para la App Store, más adelante: ficha, capturas y el equipo de pago de Apple. El manifiesto de privacidad ya dice que no se recolectan datos.
-- Para cobrar un curso extra: crear el producto en App Store Connect, poner su id en `brand.json` → `storeKit.premiumProductIds`, marcar el curso como `premium` y volver a compilar. `PremiumStore` compra el primer producto de esa lista y `Entitlements.premium` abre todos los cursos extra. Si más adelante cada curso se vende por separado, el cambio está en esos dos tipos.
+- Para probar la suscripción en local: poner `storeKit.subscriptionsEnabled` en `true` y correr con `App/Products.storekit`. Los precios de ese archivo son de prueba.
+- Para cobrar de verdad: crear la suscripción en App Store Connect con los mismos identificadores (o cambiarlos en `brand.json` y en el archivo StoreKit), marcar el curso extra con `"offering": "extra"`, `"early-data"` o `"narrated"`, y dejar el núcleo en `"offering": "core"` y `"access": "free"`.
+- Pegar el enlace público en `brand.json` → `share.inviteURL` antes de compartir las tarjetas con un código que lleve a algún sitio.
+- Para cobrar un curso extra suelto, el campo viejo `storeKit.premiumProductIds` sigue ahí. Con la suscripción encendida, la app usa `subscriptionProductIds`.

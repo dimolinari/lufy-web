@@ -93,6 +93,7 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
     public var access: CourseAccess
     public var disclaimer: String?
     public var tool: String?
+    public var offering: String?
     public var units: [CourseUnit]
 
     public init(
@@ -102,6 +103,7 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
         access: CourseAccess,
         disclaimer: String? = nil,
         tool: String? = nil,
+        offering: String? = nil,
         units: [CourseUnit]
     ) {
         self.id = id
@@ -110,11 +112,47 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
         self.access = access
         self.disclaimer = disclaimer
         self.tool = tool
+        self.offering = offering
         self.units = units
     }
 
     public var lessonsInOrder: [Lesson] {
         units.flatMap(\.lessons)
+    }
+
+    public var offeringKind: CourseOffering {
+        if let offering, let kind = CourseOffering(rawValue: offering) {
+            return kind
+        }
+        return access == .premium ? .extra : .core
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, title, summary, access, disclaimer, tool, offering, units
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        summary = try container.decode(String.self, forKey: .summary)
+        access = try container.decode(CourseAccess.self, forKey: .access)
+        disclaimer = try container.decodeIfPresent(String.self, forKey: .disclaimer)
+        tool = try container.decodeIfPresent(String.self, forKey: .tool)
+        offering = try container.decodeIfPresent(String.self, forKey: .offering)
+        units = try container.decode([CourseUnit].self, forKey: .units)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(summary, forKey: .summary)
+        try container.encode(access, forKey: .access)
+        try container.encodeIfPresent(disclaimer, forKey: .disclaimer)
+        try container.encodeIfPresent(tool, forKey: .tool)
+        try container.encodeIfPresent(offering, forKey: .offering)
+        try container.encode(units, forKey: .units)
     }
 }
 
@@ -135,12 +173,43 @@ public struct PlannedCourse: Codable, Equatable, Sendable, Identifiable {
     public var title: String
     public var summary: String
     public var access: CourseAccess
+    public var offering: String?
 
-    public init(id: String, title: String, summary: String, access: CourseAccess) {
+    public init(id: String, title: String, summary: String, access: CourseAccess, offering: String? = nil) {
         self.id = id
         self.title = title
         self.summary = summary
         self.access = access
+        self.offering = offering
+    }
+
+    public var offeringKind: CourseOffering {
+        if let offering, let kind = CourseOffering(rawValue: offering) {
+            return kind
+        }
+        return access == .premium ? .extra : .core
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, title, summary, access, offering
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        summary = try container.decode(String.self, forKey: .summary)
+        access = try container.decode(CourseAccess.self, forKey: .access)
+        offering = try container.decodeIfPresent(String.self, forKey: .offering)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(summary, forKey: .summary)
+        try container.encode(access, forKey: .access)
+        try container.encodeIfPresent(offering, forKey: .offering)
     }
 }
 

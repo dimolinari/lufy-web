@@ -171,7 +171,7 @@ public struct ProgressEngine: Sendable {
         guard let found = catalog.lesson(id: lessonID) else {
             return .lockedUntilPrevious
         }
-        if !entitlements.canOpen(found.course.access) {
+        if !entitlements.canOpen(found.course) {
             return .needsPurchase
         }
         let flat = found.course.lessonsInOrder

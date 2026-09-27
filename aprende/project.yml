@@ -90,15 +90,18 @@ schemes:
         LufyAprende: all
     run:
       config: Debug
+      storeKitConfiguration: App/Products.storekit
   LufyAprendeMac:
     build:
       targets:
         LufyAprendeMac: all
     run:
       config: Debug
+      storeKitConfiguration: App/Products.storekit
   LufyAprendeVision:
     build:
       targets:
         LufyAprendeVision: all
     run:
       config: Debug
+      storeKitConfiguration: App/Products.storekit

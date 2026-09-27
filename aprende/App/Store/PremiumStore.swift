@@ -11,10 +11,12 @@ final class PremiumStore {
     private(set) var products: [Product] = []
     private(set) var statusMessage: String?
     private let productIDs: [String]
+    let subscriptionsEnabled: Bool
     private var updates: Task<Void, Never>?
 
-    init(productIDs: [String]) {
+    init(productIDs: [String], subscriptionsEnabled: Bool = false) {
         self.productIDs = productIDs
+        self.subscriptionsEnabled = subscriptionsEnabled
     }
 
     var isConfigured: Bool { !productIDs.isEmpty }

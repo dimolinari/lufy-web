@@ -6,6 +6,7 @@ struct SettingsView: View {
     @Environment(LearnerRepository.self) private var repository
     @Environment(LessonPlayer.self) private var player
     @Environment(PremiumStore.self) private var premium
+    @State private var showingSubscription = false
 
     var body: some View {
         NavigationStack {
@@ -21,20 +22,25 @@ struct SettingsView: View {
                             .font(.footnote)
                             .foregroundStyle(LufyColor.muted)
                     }
-                    Section("Cursos extra") {
-                        Text("Los cursos publicados en esta versión son gratis. Más adelante, Lufy puede ofrecer cursos opcionales de pago. El núcleo sigue sin cuenta y sin pago.")
+                    Section("Compartir") {
+                        Text("La racha, lo aprendido hoy y el voto de la provincia salen como una imagen de \(ShareCanvas.storyWidth)×\(ShareCanvas.storyHeight), el tamaño de una historia. La hoja del sistema la envía. No hay red propia.")
+                        ShareStoryButton(
+                            card: ShareCardBuilder.invite(appName: library.brand.appName, inviteURL: library.brand.inviteURL),
+                            title: "Invitar"
+                        )
+                    }
+                    Section("Suscripción") {
+                        Text("Los cursos publicados son el núcleo y siguen gratis. La suscripción abre cursos extra, lecciones del dato más reciente y audiolibros narrados. Hoy está \(premium.subscriptionsEnabled ? "encendida" : "apagada").")
                         ForEach(library.catalog.planned) { planned in
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(planned.title)
-                                Text(planned.access == .premium ? "Previsto como curso extra" : "Previsto, gratis")
+                                Text(OfferingCaption.planned(planned))
                                     .font(.footnote)
                                     .foregroundStyle(LufyColor.muted)
                             }
                         }
-                        if premium.isConfigured {
-                            Button("Actualizar compras") {
-                                Task { await premium.refresh() }
-                            }
+                        Button("Ver la suscripción") {
+                            showingSubscription = true
                         }
                     }
                     Section("Privacidad") {
@@ -51,6 +57,9 @@ struct SettingsView: View {
                     }
                 }
                 .scrollContentBackground(.hidden)
+            }
+            .sheet(isPresented: $showingSubscription) {
+                SubscriptionSheet()
             }
             .navigationTitle("Ajustes")
             #if os(iOS)
