@@ -1,0 +1,100 @@
+{
+  "id": "geografia",
+  "title": "Geografía y regiones",
+  "summary": "Costa, Sierra, Amazonía y Galápagos, en una lección de muestra.",
+  "access": "free",
+  "units": [
+    {
+      "id": "regiones",
+      "title": "Las cuatro regiones",
+      "summary": "Dónde queda cada una.",
+      "lessons": [
+        {
+          "id": "cuatro-regiones",
+          "title": "Costa, Sierra, Amazonía y Galápagos",
+          "summary": "Las cuatro regiones naturales, dónde queda cada una y por qué la altura cambia el clima tanto como el mapa.",
+          "script": "El nombre del país es una pista. Ecuador recuerda la línea del ecuador, que cruza el territorio. En las afueras de Quito hay un monumento llamado Mitad del Mundo. Sirve para señalar la idea. No es, metro a metro, la línea geodésica. Conviene no confundir el monumento con el instrumento de medición.\n\nLa geografía que se enseña y la que usa la estadística parten el país en cuatro regiones. La Costa, o litoral, mira al océano Pacífico. La Sierra, o región interandina, es la franja de los Andes. La Amazonía, también llamada Oriente en el habla cotidiana, queda al este de las montañas. La Región Insular es Galápagos, un archipiélago en el Pacífico, a cerca de mil kilómetros al oeste del continente. Galápagos es, a la vez, región y provincia. Las otras tres regiones contienen varias provincias.\n\nQuito, la capital, está en la Sierra, en la provincia de Pichincha. Guayaquil, el principal puerto, está en la Costa, en Guayas. Esa pareja explica media historia económica: un centro político en la altura y un puerto en el río y el mar. No son las únicas ciudades. Cuenca, en Azuay, es el tercer polo urbano de la Sierra. En la Amazonía, ciudades como Tena, el Puyo o Lago Agrio organizan provincias enormes y poco densas si se las compara con Guayas.\n\nEl clima no se lee solo en el mapa horizontal. En la Sierra, la altura manda. Una misma provincia puede tener valle templado y páramo frío. La Costa no es un solo calor: el norte, hacia Esmeraldas, es más húmedo, y el sur, hacia Santa Elena y El Oro, más seco. La Amazonía es cálida y lluviosa. En Galápagos, las tierras bajas son secas y las partes altas guardan más humedad. Por eso un promedio nacional de lluvia dice poco de la vida de una parroquia.\n\nLos límites internacionales también orientan. Al norte está Colombia. Al sur y al este, Perú. Al oeste, el Pacífico. La Amazonía comparte cuenca con varios países. Un río de esa región no termina en la lógica de una aduana. Termina, aguas abajo, en un sistema fluvial mayor. Eso importa cuando se habla de bosque, de petróleo o de un pueblo que vive en las dos orillas de una frontera.\n\nEsta lección no trae cifras de población ni de kilómetros inventados para sonar precisos. Cuando un número haga falta, estará en un gráfico con su fuente, en otra lección. Aquí el trabajo es otro: poder colocar las cuatro regiones sin dudar, y saber que la altura de los Andes cambia el país tanto como la línea de la costa.\n\nEn el camino de las provincias verás los veinticuatro nombres y un esquema de color. Ese dibujo no reemplaza al mapa del Instituto Geográfico Militar. Sirve para estudiar. El mapa oficial sigue siendo el de la institución que mide el territorio.",
+          "sources": [
+            "Presentación territorial habitual del Ecuador en cuatro regiones: Costa, Sierra, Amazonía y Región Insular (Galápagos).",
+            "UNESCO, Patrimonio Mundial, islas Galápagos, archipiélago en el Pacífico a cerca de mil kilómetros del continente. Inscripción en 1978."
+          ],
+          "questions": [
+            {
+              "id": "geo-regiones",
+              "kind": "multipleChoice",
+              "prompt": "¿Cuál de estas es la Región Insular?",
+              "explanation": "La Región Insular es el archipiélago de Galápagos, en el Pacífico, no una franja del continente.",
+              "options": [
+                {
+                  "id": "galapagos",
+                  "text": "Galápagos"
+                },
+                {
+                  "id": "guayas",
+                  "text": "Guayas"
+                },
+                {
+                  "id": "pichincha",
+                  "text": "Pichincha"
+                },
+                {
+                  "id": "pastaza",
+                  "text": "Pastaza"
+                }
+              ],
+              "correctOptionId": "galapagos"
+            },
+            {
+              "id": "geo-monumento",
+              "kind": "trueFalse",
+              "prompt": "El monumento Mitad del Mundo coincide, metro a metro, con la línea geodésica del ecuador.",
+              "explanation": "El monumento señala la idea de la mitad del mundo. No es, al metro, la línea medida por la geodesia.",
+              "correct": false
+            },
+            {
+              "id": "geo-oeste-este",
+              "kind": "order",
+              "prompt": "De oeste a este, ¿en qué orden quedan estas tres regiones continentales?",
+              "explanation": "El Pacífico baña la Costa. Después suben los Andes, que son la Sierra. Al este queda la Amazonía.",
+              "items": [
+                {
+                  "id": "costa",
+                  "text": "Costa"
+                },
+                {
+                  "id": "sierra",
+                  "text": "Sierra"
+                },
+                {
+                  "id": "amazonia",
+                  "text": "Amazonía"
+                }
+              ],
+              "correctOrder": [
+                "costa",
+                "sierra",
+                "amazonia"
+              ]
+            },
+            {
+              "id": "geo-capital",
+              "kind": "fillBlank",
+              "prompt": "La capital, Quito, está en la región de la ______.",
+              "explanation": "Quito está en la Sierra, en la provincia de Pichincha.",
+              "acceptedAnswers": [
+                "Sierra",
+                "sierra"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "photo",
+              "ref": "cotopaxi"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "remesas",
+  "title": "Remesas personales recibidas",
+  "kind": "line",
+  "unit": "miles de millones de USD",
+  "decimals": 2,
+  "exampleData": false,
+  "diagram": false,
+  "note": "Dinero que las personas envían al país. No es exportación ni recaudación de impuestos.",
+  "source": {
+    "institution": "Banco Mundial",
+    "dataset": "Remesas personales recibidas (USD corrientes), indicador BX.TRF.PWKR.CD.DT",
+    "date": "Serie anual consultada en la API del Banco Mundial el 27 de septiembre de 2026",
+    "url": "https://api.worldbank.org/v2/country/EC/indicator/BX.TRF.PWKR.CD.DT"
+  },
+  "points": [
+    {
+      "year": 2000,
+      "value": 1.32
+    },
+    {
+      "year": 2001,
+      "value": 1.42
+    },
+    {
+      "year": 2002,
+      "value": 1.44
+    },
+    {
+      "year": 2003,
+      "value": 1.63
+    },
+    {
+      "year": 2004,
+      "value": 1.84
+    },
+    {
+      "year": 2005,
+      "value": 2.46
+    },
+    {
+      "year": 2006,
+      "value": 2.93
+    },
+    {
+      "year": 2007,
+      "value": 3.34
+    },
+    {
+      "year": 2008,
+      "value": 3.09
+    },
+    {
+      "year": 2009,
+      "value": 2.74
+    },
+    {
+      "year": 2010,
+      "value": 2.6
+    },
+    {
+      "year": 2011,
+      "value": 2.68
+    },
+    {
+      "year": 2012,
+      "value": 2.48
+    },
+    {
+      "year": 2013,
+      "value": 2.46
+    },
+    {
+      "year": 2014,
+      "value": 2.47
+    },
+    {
+      "year": 2015,
+      "value": 2.39
+    },
+    {
+      "year": 2016,
+      "value": 2.61
+    },
+    {
+      "year": 2017,
+      "value": 2.85
+    },
+    {
+      "year": 2018,
+      "value": 3.04
+    },
+    {
+      "year": 2019,
+      "value": 3.24
+    },
+    {
+      "year": 2020,
+      "value": 3.34
+    },
+    {
+      "year": 2021,
+      "value": 4.37
+    },
+    {
+      "year": 2022,
+      "value": 4.75
+    },
+    {
+      "year": 2023,
+      "value": 5.45
+    },
+    {
+      "year": 2024,
+      "value": 6.54
+    }
+  ]
+}

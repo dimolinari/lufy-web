@@ -1,0 +1,106 @@
+{
+  "id": "rentas-petroleo",
+  "title": "Rentas del petróleo",
+  "kind": "line",
+  "unit": "% del PIB",
+  "decimals": 2,
+  "exampleData": false,
+  "diagram": false,
+  "note": "Es una estimación del Banco Mundial, no el precio del barril ni la proforma del Ministerio de Finanzas. La serie llega hasta 2021.",
+  "source": {
+    "institution": "Banco Mundial",
+    "dataset": "Rentas del petróleo (% del PIB), indicador NY.GDP.PETR.RT.ZS",
+    "date": "Serie anual consultada en la API del Banco Mundial el 27 de septiembre de 2026",
+    "url": "https://api.worldbank.org/v2/country/EC/indicator/NY.GDP.PETR.RT.ZS"
+  },
+  "points": [
+    {
+      "year": 2000,
+      "value": 16.33
+    },
+    {
+      "year": 2001,
+      "value": 9.09
+    },
+    {
+      "year": 2002,
+      "value": 8.07
+    },
+    {
+      "year": 2003,
+      "value": 8.39
+    },
+    {
+      "year": 2004,
+      "value": 12.25
+    },
+    {
+      "year": 2005,
+      "value": 16.54
+    },
+    {
+      "year": 2006,
+      "value": 17.99
+    },
+    {
+      "year": 2007,
+      "value": 16.51
+    },
+    {
+      "year": 2008,
+      "value": 18.65
+    },
+    {
+      "year": 2009,
+      "value": 8.82
+    },
+    {
+      "year": 2010,
+      "value": 11.19
+    },
+    {
+      "year": 2011,
+      "value": 16.01
+    },
+    {
+      "year": 2012,
+      "value": 13.96
+    },
+    {
+      "year": 2013,
+      "value": 12.3
+    },
+    {
+      "year": 2014,
+      "value": 11.08
+    },
+    {
+      "year": 2015,
+      "value": 4.19
+    },
+    {
+      "year": 2016,
+      "value": 3.26
+    },
+    {
+      "year": 2017,
+      "value": 4.51
+    },
+    {
+      "year": 2018,
+      "value": 6.76
+    },
+    {
+      "year": 2019,
+      "value": 5.53
+    },
+    {
+      "year": 2020,
+      "value": 2.56
+    },
+    {
+      "year": 2021,
+      "value": 6.4
+    }
+  ]
+}

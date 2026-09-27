@@ -1,0 +1,62 @@
+{
+  "id": "deuda-externa",
+  "title": "Deuda externa total",
+  "kind": "line",
+  "unit": "% del INB",
+  "decimals": 2,
+  "exampleData": false,
+  "diagram": false,
+  "note": "Es la deuda externa total de las Estadísticas de la Deuda Internacional del Banco Mundial. No es el boletín de deuda pública del Ministerio de Finanzas.",
+  "source": {
+    "institution": "Banco Mundial",
+    "dataset": "Deuda externa total (% del ingreso nacional bruto), indicador DT.DOD.DECT.GN.ZS",
+    "date": "Serie anual 2014–2024 consultada en la API del Banco Mundial el 27 de septiembre de 2026",
+    "url": "https://api.worldbank.org/v2/country/EC/indicator/DT.DOD.DECT.GN.ZS"
+  },
+  "points": [
+    {
+      "year": 2014,
+      "value": 24.69
+    },
+    {
+      "year": 2015,
+      "value": 29.74
+    },
+    {
+      "year": 2016,
+      "value": 36.95
+    },
+    {
+      "year": 2017,
+      "value": 40.32
+    },
+    {
+      "year": 2018,
+      "value": 42.99
+    },
+    {
+      "year": 2019,
+      "value": 49.66
+    },
+    {
+      "year": 2020,
+      "value": 60.95
+    },
+    {
+      "year": 2021,
+      "value": 55.11
+    },
+    {
+      "year": 2022,
+      "value": 53.13
+    },
+    {
+      "year": 2023,
+      "value": 52.11
+    },
+    {
+      "year": 2024,
+      "value": 49.75
+    }
+  ]
+}

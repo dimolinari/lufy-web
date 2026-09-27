@@ -41,7 +41,7 @@ struct SettingsView: View {
                         Text("No hay cuenta, ni servidor, ni analítica, ni rastreo. La racha, la experiencia y los repasos se quedan en este dispositivo.")
                     }
                     Section("Lufy") {
-                        Text("\(library.brand.appName) es la app de estudio de Lufy, un proyecto independiente de educación cívica y datos públicos del Ecuador. Las lecciones explican normas e instituciones. No acusan a nadie y no reemplazan una asesoría.")
+                        Text("\(library.brand.appName) es la app de estudio de Lufy, un proyecto independiente de educación cívica y datos públicos del Ecuador. Hay caminos de historia, territorio, naturaleza, cultura, economía, gobierno y finanzas. Las lecciones explican. No acusan a nadie y no recomiendan inversiones.")
                         Text("Si una lección no tiene MP3, suena la voz en español del sistema. Para una narración grabada se usa el generador opcional, fuera de la app.")
                             .font(.footnote)
                             .foregroundStyle(LufyColor.muted)

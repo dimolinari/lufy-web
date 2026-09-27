@@ -1,0 +1,94 @@
+{
+  "id": "historia",
+  "title": "Historia por eras",
+  "summary": "Una lección de muestra, de 1830 a 1906. El resumen largo del país sigue en el camino de gobierno.",
+  "access": "free",
+  "units": [
+    {
+      "id": "era-republicana",
+      "title": "El siglo XIX",
+      "summary": "Un tramo, no todo el libro.",
+      "lessons": [
+        {
+          "id": "de-1830-a-1906",
+          "title": "De 1830 a la Constitución de 1906",
+          "summary": "Cómo el Distrito del Sur se organiza como Estado y cómo, décadas después, la Constitución de 1906 separa más al Estado de la Iglesia.",
+          "script": "Esta lección se queda en un tramo. No recorre todo el siglo veinte ni la dolarización. Eso está, en resumen, en el camino de gobierno. Aquí el relato va de mil ochocientos treinta a mil novecientos seis. Son dos constituciones y muchos gobiernos. El punto no es elegir héroes. Es ver cómo se fue armando un Estado.\n\nEn mil ochocientos treinta, el Distrito del Sur deja de formar parte de la Gran Colombia. Ese año se organiza el Estado del Ecuador y se dicta una constitución. Quito es el centro político de la sierra. Guayaquil es el puerto de la costa. La unión entre las dos ciudades no es automática. El país nace con regiones que ya tenían vida propia, y con una disputa sobre cuánto manda el centro.\n\nEl primer presidente de ese Estado es Juan José Flores. Conviene decir el cargo y la época, no una sentencia. Flores representa el inicio de una república que todavía se está inventando sus reglas. Las constituciones de esas décadas cambian con frecuencia. Unas alargan el poder. Otras lo recortan. El texto constitucional, en ese siglo, es un campo de pelea política, no una losa quieta.\n\nEn la segunda mitad del siglo diecinueve gana peso un proyecto conservador. Gabriel García Moreno es su figura más conocida. Su gobierno refuerza el vínculo entre el Estado y la Iglesia católica, impulsa obras y quiere un orden central fuerte. Hay quien lo recuerda por los caminos y quien lo recuerda por la dureza. Esta lección no cierra ese juicio. Registra que el Estado de entonces no se pensaba laico.\n\nEl contraste llega en mil ochocientos noventa y cinco, con la Revolución Liberal. Eloy Alfaro encabeza ese movimiento desde la costa hacia el poder nacional. El cambio no es solo de apellido en el palacio. Cambia la idea de qué puede hacer la Iglesia dentro del Estado. La Constitución de mil novecientos seis consolida un Estado más laico. El registro de nacimientos, matrimonios y muertes, y la educación, pasan a pensarse con más distancia de la autoridad eclesiástica. También se discute el ferrocarril que une sierra y costa, una obra que Alfaro empuja como proyecto de integración. Una vía no borra las diferencias regionales. Las hace más visibles, porque ahora el viaje es posible.\n\nNada de esto absuelve ni condena a una persona. Flores, García Moreno y Alfaro son nombres del siglo diecinueve y del inicio del veinte. Están muertos. Aparecen porque sin ellos el mapa de las eras se vuelve un vacío. La lección siguiente de este camino, cuando exista, podrá tomar la Revolución Juliana, los gobiernos de facto de los años setenta y el regreso al voto en mil novecientos setenta y nueve. Hoy basta con poder ordenar tres momentos: el Estado de mil ochocientos treinta, el proyecto conservador, y la constitución laica de mil novecientos seis.\n\nCuando respondas, fíjate en las fechas y en los cargos. No hace falta admirar a nadie. Hace falta no mezclar una constitución con otra.",
+          "sources": [
+            "Constitución del Estado del Ecuador de 1830, como origen del Estado separado de la Gran Colombia.",
+            "Constitución de 1906, asociada al ciclo de la Revolución Liberal de 1895."
+          ],
+          "questions": [
+            {
+              "id": "era-constitucion",
+              "kind": "multipleChoice",
+              "prompt": "¿Qué constitución de este relato separa más claramente al Estado de la Iglesia?",
+              "explanation": "La Constitución de 1906 cierra el ciclo abierto por la Revolución Liberal de 1895 y consolida un Estado más laico.",
+              "options": [
+                {
+                  "id": "1830",
+                  "text": "La de 1830, al separarse de la Gran Colombia"
+                },
+                {
+                  "id": "1906",
+                  "text": "La de 1906, después de la Revolución Liberal"
+                },
+                {
+                  "id": "2008",
+                  "text": "La de 2008, que esta lección no trata"
+                },
+                {
+                  "id": "ninguna",
+                  "text": "Ninguna: el Estado siempre fue laico"
+                }
+              ],
+              "correctOptionId": "1906"
+            },
+            {
+              "id": "era-flores",
+              "kind": "trueFalse",
+              "prompt": "Juan José Flores fue el primer presidente del Estado organizado en 1830.",
+              "explanation": "Al separarse el Distrito del Sur de la Gran Colombia, Flores encabeza ese primer tramo del Estado del Ecuador.",
+              "correct": true
+            },
+            {
+              "id": "era-orden",
+              "kind": "order",
+              "prompt": "Ordena estos tres momentos, del más antiguo al más reciente.",
+              "explanation": "Primero el Estado de 1830. Después el proyecto conservador de la segunda mitad del siglo XIX. Al final, la Revolución Liberal y la Constitución de 1906.",
+              "items": [
+                {
+                  "id": "estado",
+                  "text": "El Estado del Ecuador se organiza"
+                },
+                {
+                  "id": "conservador",
+                  "text": "Pesa el proyecto conservador ligado a la Iglesia"
+                },
+                {
+                  "id": "liberal",
+                  "text": "La Revolución Liberal y la Constitución de 1906"
+                }
+              ],
+              "correctOrder": [
+                "estado",
+                "conservador",
+                "liberal"
+              ]
+            },
+            {
+              "id": "era-ano",
+              "kind": "fillBlank",
+              "prompt": "El Distrito del Sur se organiza como Estado del Ecuador en mil ochocientos ______.",
+              "explanation": "En 1830 el Distrito del Sur deja la Gran Colombia y se dicta una constitución del nuevo Estado.",
+              "acceptedAnswers": [
+                "treinta",
+                "30"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

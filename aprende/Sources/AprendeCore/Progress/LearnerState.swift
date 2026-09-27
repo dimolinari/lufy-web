@@ -36,19 +36,46 @@ public struct LearnerState: Codable, Equatable, Sendable {
     public var settings: LearnerSettings
     public var lessons: [String: LessonProgress]
     public var reviews: [String: ReviewCard]
+    public var acknowledgedNotices: [String]
 
     public init(
         totalXP: Int = 0,
         streak: StreakState = .empty,
         settings: LearnerSettings = LearnerSettings(),
         lessons: [String: LessonProgress] = [:],
-        reviews: [String: ReviewCard] = [:]
+        reviews: [String: ReviewCard] = [:],
+        acknowledgedNotices: [String] = []
     ) {
         self.totalXP = totalXP
         self.streak = streak
         self.settings = settings
         self.lessons = lessons
         self.reviews = reviews
+        self.acknowledgedNotices = acknowledgedNotices
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case totalXP, streak, settings, lessons, reviews, acknowledgedNotices
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        totalXP = try container.decode(Int.self, forKey: .totalXP)
+        streak = try container.decode(StreakState.self, forKey: .streak)
+        settings = try container.decode(LearnerSettings.self, forKey: .settings)
+        lessons = try container.decode([String: LessonProgress].self, forKey: .lessons)
+        reviews = try container.decode([String: ReviewCard].self, forKey: .reviews)
+        acknowledgedNotices = try container.decodeIfPresent([String].self, forKey: .acknowledgedNotices) ?? []
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(totalXP, forKey: .totalXP)
+        try container.encode(streak, forKey: .streak)
+        try container.encode(settings, forKey: .settings)
+        try container.encode(lessons, forKey: .lessons)
+        try container.encode(reviews, forKey: .reviews)
+        try container.encode(acknowledgedNotices, forKey: .acknowledgedNotices)
     }
 
     public static let empty = LearnerState()

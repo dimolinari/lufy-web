@@ -1,0 +1,186 @@
+{
+  "id": "provincias-esquema",
+  "title": "Provincias por región",
+  "kind": "sketch",
+  "unit": "",
+  "decimals": 0,
+  "exampleData": false,
+  "diagram": true,
+  "note": "Esquema didáctico. Las posiciones no son coordenadas del Instituto Geográfico Militar. El color indica la región estadística, no un dato numérico.",
+  "source": {
+    "institution": "División político-administrativa del Ecuador",
+    "dataset": "24 provincias agrupadas en Costa, Sierra, Amazonía y Región Insular",
+    "date": "Lista vigente usada en la presentación territorial; Galápagos es provincia desde 1973 y Santa Elena y Santo Domingo de los Tsáchilas desde 2007",
+    "url": "https://www.ecuadorencifras.gob.ec/"
+  },
+  "places": [
+    {
+      "id": "esmeraldas",
+      "name": "Esmeraldas",
+      "region": "Costa",
+      "x": 0.3,
+      "y": 0.16
+    },
+    {
+      "id": "manabi",
+      "name": "Manabí",
+      "region": "Costa",
+      "x": 0.24,
+      "y": 0.36
+    },
+    {
+      "id": "santo-domingo",
+      "name": "Santo Domingo de los Tsáchilas",
+      "region": "Costa",
+      "x": 0.38,
+      "y": 0.34
+    },
+    {
+      "id": "los-rios",
+      "name": "Los Ríos",
+      "region": "Costa",
+      "x": 0.32,
+      "y": 0.5
+    },
+    {
+      "id": "guayas",
+      "name": "Guayas",
+      "region": "Costa",
+      "x": 0.28,
+      "y": 0.64
+    },
+    {
+      "id": "santa-elena",
+      "name": "Santa Elena",
+      "region": "Costa",
+      "x": 0.16,
+      "y": 0.66
+    },
+    {
+      "id": "el-oro",
+      "name": "El Oro",
+      "region": "Costa",
+      "x": 0.3,
+      "y": 0.8
+    },
+    {
+      "id": "carchi",
+      "name": "Carchi",
+      "region": "Sierra",
+      "x": 0.5,
+      "y": 0.1
+    },
+    {
+      "id": "imbabura",
+      "name": "Imbabura",
+      "region": "Sierra",
+      "x": 0.5,
+      "y": 0.2
+    },
+    {
+      "id": "pichincha",
+      "name": "Pichincha",
+      "region": "Sierra",
+      "x": 0.52,
+      "y": 0.3
+    },
+    {
+      "id": "cotopaxi",
+      "name": "Cotopaxi",
+      "region": "Sierra",
+      "x": 0.54,
+      "y": 0.4
+    },
+    {
+      "id": "tungurahua",
+      "name": "Tungurahua",
+      "region": "Sierra",
+      "x": 0.58,
+      "y": 0.46
+    },
+    {
+      "id": "bolivar",
+      "name": "Bolívar",
+      "region": "Sierra",
+      "x": 0.48,
+      "y": 0.5
+    },
+    {
+      "id": "chimborazo",
+      "name": "Chimborazo",
+      "region": "Sierra",
+      "x": 0.54,
+      "y": 0.56
+    },
+    {
+      "id": "canar",
+      "name": "Cañar",
+      "region": "Sierra",
+      "x": 0.52,
+      "y": 0.66
+    },
+    {
+      "id": "azuay",
+      "name": "Azuay",
+      "region": "Sierra",
+      "x": 0.52,
+      "y": 0.74
+    },
+    {
+      "id": "loja",
+      "name": "Loja",
+      "region": "Sierra",
+      "x": 0.5,
+      "y": 0.88
+    },
+    {
+      "id": "sucumbios",
+      "name": "Sucumbíos",
+      "region": "Amazonía",
+      "x": 0.74,
+      "y": 0.16
+    },
+    {
+      "id": "napo",
+      "name": "Napo",
+      "region": "Amazonía",
+      "x": 0.7,
+      "y": 0.3
+    },
+    {
+      "id": "orellana",
+      "name": "Orellana",
+      "region": "Amazonía",
+      "x": 0.84,
+      "y": 0.28
+    },
+    {
+      "id": "pastaza",
+      "name": "Pastaza",
+      "region": "Amazonía",
+      "x": 0.76,
+      "y": 0.46
+    },
+    {
+      "id": "morona",
+      "name": "Morona Santiago",
+      "region": "Amazonía",
+      "x": 0.7,
+      "y": 0.64
+    },
+    {
+      "id": "zamora",
+      "name": "Zamora Chinchipe",
+      "region": "Amazonía",
+      "x": 0.68,
+      "y": 0.82
+    },
+    {
+      "id": "galapagos",
+      "name": "Galápagos",
+      "region": "Región Insular",
+      "x": 0.08,
+      "y": 0.42
+    }
+  ]
+}

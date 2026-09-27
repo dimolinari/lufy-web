@@ -6,10 +6,12 @@ import AprendeCore
 final class Library {
     let brand: Brand
     let catalog: Catalog
+    let figures: StudyLibrary
 
-    init(brand: Brand, catalog: Catalog) {
+    init(brand: Brand, catalog: Catalog, figures: StudyLibrary) {
         self.brand = brand
         self.catalog = catalog
+        self.figures = figures
     }
 }
 
@@ -45,11 +47,12 @@ struct RootView: View {
             do {
                 let brand = try Brand.bundled()
                 let catalog = try ContentLoader.loadBundled()
+                let figures = try FigureLibrary.loadBundled()
                 let store = PremiumStore(productIDs: brand.storeKit.premiumProductIds)
                 await store.refresh()
                 premium = store
                 repository = LearnerRepository(context: modelContext)
-                library = Library(brand: brand, catalog: catalog)
+                library = Library(brand: brand, catalog: catalog, figures: figures)
             } catch {
                 errorMessage = String(describing: error)
             }
@@ -77,6 +80,8 @@ struct PathView: View {
     @Environment(PremiumStore.self) private var premium
     @Environment(LessonPlayer.self) private var player
     @State private var paywallCourse: Course?
+    @State private var disclaimerCourse: Course?
+    @State private var pendingLessonID: String?
     @State private var path: [String] = []
 
     var body: some View {
@@ -86,7 +91,7 @@ struct PathView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         WineHeader(
                             title: library.brand.appName,
-                            subtitle: "Escucha una lección corta. Luego responde, y la que falles vuelve otro día."
+                            subtitle: "Historia, territorio, economía y finanzas. Escucha, mira el número y responde."
                         )
                         progressStrip
                         ForEach(library.catalog.courses) { course in
@@ -108,6 +113,20 @@ struct PathView: View {
             }
             .sheet(item: $paywallCourse) { course in
                 PaywallView(courseTitle: course.title)
+            }
+            .sheet(item: $disclaimerCourse) { _ in
+                FinanceDisclaimer {
+                    var state = repository.state
+                    if !state.acknowledgedNotices.contains(StudyNotice.finance) {
+                        state.acknowledgedNotices.append(StudyNotice.finance)
+                        repository.replace(state)
+                    }
+                    disclaimerCourse = nil
+                    if let pendingLessonID {
+                        path.append(pendingLessonID)
+                        self.pendingLessonID = nil
+                    }
+                }
             }
             .safeAreaInset(edge: .bottom) {
                 if player.lessonID != nil, path.isEmpty {
@@ -133,8 +152,8 @@ struct PathView: View {
                 .font(.caption)
                 .foregroundStyle(LufyColor.muted)
             Text(value)
-                .font(.system(.title, design: .serif))
-                .foregroundStyle(LufyColor.ink)
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .foregroundStyle(title == "Experiencia" ? LufyColor.good : LufyColor.ink)
             Text(detail)
                 .font(.caption)
                 .foregroundStyle(LufyColor.gold)
@@ -149,13 +168,24 @@ struct PathView: View {
     private func courseSection(_ course: Course) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(course.title)
-                .font(.system(.title2, design: .serif))
+                .font(.system(.title2, design: .rounded).weight(.bold))
                 .foregroundStyle(LufyColor.ink)
                 .accessibilityAddTraits(.isHeader)
+            Text(sampleLine(course))
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(LufyColor.good)
             Text(course.summary)
                 .font(.body)
                 .foregroundStyle(LufyColor.muted)
                 .fixedSize(horizontal: false, vertical: true)
+            if course.disclaimer == StudyNotice.finance {
+                Button("Leer el aviso: esto no es asesoría") {
+                    pendingLessonID = nil
+                    disclaimerCourse = course
+                }
+                .font(.subheadline.weight(.semibold))
+                .frame(minHeight: 44)
+            }
             ForEach(course.units) { unit in
                 Text(unit.title)
                     .font(.headline)
@@ -274,8 +304,25 @@ struct PathView: View {
         case .lockedUntilPrevious:
             break
         case .ready, .completed:
-            path.append(lesson.id)
+            if course.disclaimer == StudyNotice.finance,
+               !repository.state.acknowledgedNotices.contains(StudyNotice.finance) {
+                pendingLessonID = lesson.id
+                disclaimerCourse = course
+            } else {
+                path.append(lesson.id)
+            }
         }
+    }
+
+    private func sampleLine(_ course: Course) -> String {
+        let count = course.lessonsInOrder.count
+        if count >= 5 {
+            return "\(count) lecciones · unidad completa"
+        }
+        if count == 1 {
+            return "1 lección de muestra"
+        }
+        return "\(count) lecciones de muestra"
     }
 
     private var plannedSection: some View {

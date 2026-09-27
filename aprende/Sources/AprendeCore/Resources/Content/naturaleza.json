@@ -1,0 +1,110 @@
+{
+  "id": "naturaleza",
+  "title": "Naturaleza y biodiversidad",
+  "summary": "Páramo, manglar, selva y Galápagos, con fotos que tienen autor y licencia.",
+  "access": "free",
+  "units": [
+    {
+      "id": "ecosistemas",
+      "title": "Ecosistemas",
+      "summary": "Una lección de muestra.",
+      "lessons": [
+        {
+          "id": "biodiversidad",
+          "title": "Biodiversidad en poco territorio",
+          "summary": "Por qué caben tantos ecosistemas, qué protege un parque y cómo leer una foto con su crédito.",
+          "script": "El Ecuador cabe muchas veces en un país grande, y aun así se lo cuenta entre los países megadiversos. Esa palabra no es un premio de un ministerio. Es una forma, usada en la conservación internacional, de nombrar a un grupo pequeño de países que concentran una parte enorme de las especies del planeta. No hace falta memorizar un récord de aves o de ranas. Esos conteos cambian con el método y con el año. Lo que no cambia es la razón de fondo: en poca distancia se pasa del manglar al páramo y de ahí a la selva.\n\nEn la Costa, los manglares guardan la entrada del agua salada. Son criadero de peces y escudo de la orilla. Más al interior hay bosque seco, sobre todo al sur, y bosque húmedo hacia Esmeraldas. En la Sierra, el páramo es la esponja de la altura. Retiene agua que después baja a las ciudades. Quemarlo o secarlo no es un detalle de paisaje. Es tocar la llave del agua. En la Amazonía, el bosque continuo es casa de pueblos y de especies, y también el subsuelo donde se ha buscado petróleo. Las dos cosas ocupan el mismo mapa. Mirar solo una es no entender el territorio.\n\nGalápagos es el caso más famoso, y no por un eslogan. En mil ochocientos treinta y cinco, Charles Darwin visita las islas durante el viaje del Beagle. Décadas después, ese viaje entra en la historia de la idea de evolución. Las islas no son un zoológico. Son una provincia con gente, con reglas de parque y con especies que no viven en otro lado, como las tortugas gigantes. La UNESCO inscribe Galápagos en la lista de Patrimonio Mundial en mil novecientos setenta y ocho. La foto de esta lección muestra una tortuga. El autor y la licencia están debajo. La foto no es del Estado. Es de una persona que permitió usarla.\n\nEn la Amazonía, el Parque Nacional Yasuní es un área protegida enorme. También es un lugar donde la conservación y la actividad petrolera se han cruzado en el debate público. Esta lección no reparte culpables. Dice algo más simple: un parque es una decisión legal sobre un pedazo de tierra, y esa decisión puede convivir, bien o mal, con un contrato de extracción. Leer el mapa del parque al lado del mapa de los bloques es parte de la educación cívica, no un adorno verde.\n\nLas otras fotos muestran el Cotopaxi, un volcán de la Sierra, y el bosque cerca de Tena. Cada una lleva autor y licencia de Creative Commons o el crédito que corresponda. Si falta el crédito, la foto no debería estar. Copiar una imagen de una red social porque se ve bien no es una fuente. Es un problema.\n\nCuidar no es memorizar banderas de campañas. Es saber qué región estás mirando, qué papel hace el agua en el páramo, y qué institución declara un parque. El Ministerio del Ambiente, con el nombre que tenga en cada gobierno, administra esas áreas. El nombre del ministerio cambia. La pregunta de fondo se queda: qué está protegido, por qué texto, y qué actividad sigue permitida al lado.",
+          "sources": [
+            "UNESCO, Patrimonio Mundial: islas Galápagos, inscritas en 1978.",
+            "Parque Nacional Yasuní, área protegida de la Amazonía ecuatoriana.",
+            "Clasificación internacional de países megadiversos, usada en conservación. Esta lección no fija un conteo de especies.",
+            "Fotografías: ver el crédito de autor y licencia debajo de cada imagen."
+          ],
+          "questions": [
+            {
+              "id": "natura-unesco",
+              "kind": "multipleChoice",
+              "prompt": "¿En qué año inscribe la UNESCO a Galápagos como Patrimonio Mundial?",
+              "explanation": "Galápagos entra en la lista de Patrimonio Mundial en 1978.",
+              "options": [
+                {
+                  "id": "1835",
+                  "text": "En 1835, cuando llega Darwin"
+                },
+                {
+                  "id": "1978",
+                  "text": "En 1978"
+                },
+                {
+                  "id": "2008",
+                  "text": "En 2008, con la Constitución"
+                },
+                {
+                  "id": "ayer",
+                  "text": "El año pasado, en una campaña"
+                }
+              ],
+              "correctOptionId": "1978"
+            },
+            {
+              "id": "natura-paramo",
+              "kind": "trueFalse",
+              "prompt": "El páramo de la Sierra importa sobre todo porque guarda y suelta agua.",
+              "explanation": "El páramo funciona como una esponja de altura. De ahí baja agua hacia valles y ciudades.",
+              "correct": true
+            },
+            {
+              "id": "natura-pisos",
+              "kind": "order",
+              "prompt": "Desde el mar hacia el interior, ¿qué secuencia de paisajes describe la lección?",
+              "explanation": "Primero el manglar de la costa. Después la altura del páramo. Al este, la selva amazónica.",
+              "items": [
+                {
+                  "id": "manglar",
+                  "text": "Manglar de la Costa"
+                },
+                {
+                  "id": "paramo",
+                  "text": "Páramo de la Sierra"
+                },
+                {
+                  "id": "selva",
+                  "text": "Selva de la Amazonía"
+                }
+              ],
+              "correctOrder": [
+                "manglar",
+                "paramo",
+                "selva"
+              ]
+            },
+            {
+              "id": "natura-yasuni",
+              "kind": "fillBlank",
+              "prompt": "El Parque Nacional ______ está en la Amazonía.",
+              "explanation": "Yasuní es un parque nacional amazónico. La lección no lo usa para acusar a nadie.",
+              "acceptedAnswers": [
+                "Yasuní",
+                "Yasuni"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "photo",
+              "ref": "tortuga-galapagos"
+            },
+            {
+              "kind": "photo",
+              "ref": "cotopaxi"
+            },
+            {
+              "kind": "photo",
+              "ref": "amazonia-tena"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

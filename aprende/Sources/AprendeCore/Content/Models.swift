@@ -43,6 +43,7 @@ public struct Lesson: Codable, Equatable, Sendable, Identifiable {
     public var script: String
     public var sources: [String]
     public var questions: [Question]
+    public var figures: [LessonFigure]?
 
     public init(
         id: String,
@@ -50,7 +51,8 @@ public struct Lesson: Codable, Equatable, Sendable, Identifiable {
         summary: String,
         script: String,
         sources: [String],
-        questions: [Question]
+        questions: [Question],
+        figures: [LessonFigure]? = nil
     ) {
         self.id = id
         self.title = title
@@ -58,6 +60,11 @@ public struct Lesson: Codable, Equatable, Sendable, Identifiable {
         self.script = script
         self.sources = sources
         self.questions = questions
+        self.figures = figures
+    }
+
+    public var resolvedFigures: [LessonFigure] {
+        figures ?? []
     }
 
     public var estimatedMinutes: Int {
@@ -84,6 +91,7 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
     public var title: String
     public var summary: String
     public var access: CourseAccess
+    public var disclaimer: String?
     public var units: [CourseUnit]
 
     public init(
@@ -91,17 +99,31 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
         title: String,
         summary: String,
         access: CourseAccess,
+        disclaimer: String? = nil,
         units: [CourseUnit]
     ) {
         self.id = id
         self.title = title
         self.summary = summary
         self.access = access
+        self.disclaimer = disclaimer
         self.units = units
     }
 
     public var lessonsInOrder: [Lesson] {
         units.flatMap(\.lessons)
+    }
+}
+
+public struct LessonFigure: Codable, Equatable, Sendable, Identifiable {
+    public var kind: String
+    public var ref: String
+
+    public var id: String { "\(kind):\(ref)" }
+
+    public init(kind: String, ref: String) {
+        self.kind = kind
+        self.ref = ref
     }
 }
 

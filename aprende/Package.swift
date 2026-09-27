@@ -18,6 +18,8 @@ let package = Package(
                 .process("Resources/brand.json"),
                 .copy("Resources/Content"),
                 .copy("Resources/Audio"),
+                .copy("Resources/Data"),
+                .copy("Resources/Media"),
             ]
         ),
         .testTarget(

@@ -7,17 +7,17 @@ import AppKit
 #endif
 
 enum LufyColor {
-    static let paper = adaptive(light: 0xF3EEE4, dark: 0x140E0C)
-    static let card = adaptive(light: 0xFFFDF8, dark: 0x2A1816)
-    static let ink = adaptive(light: 0x241910, dark: 0xF6F0E6)
-    static let muted = adaptive(light: 0x5C5348, dark: 0xC9BBA8)
-    static let wine = adaptive(light: 0x3D1820, dark: 0xE7C7C4)
-    static let wineFill = adaptive(light: 0x3D1820, dark: 0x6E2A36)
-    static let onWine = Color(hex: 0xFFFDF8)
-    static let gold = adaptive(light: 0x8A6A32, dark: 0xE4C98A)
-    static let line = adaptive(light: 0xDDD3C3, dark: 0x4A342E)
-    static let good = adaptive(light: 0x0C5A32, dark: 0x8FD4AE)
-    static let warn = adaptive(light: 0x8C2F2F, dark: 0xF0B4B4)
+    static let paper = adaptive(light: 0xF6F7F4, dark: 0x0C0E0C)
+    static let card = adaptive(light: 0xFFFFFF, dark: 0x171A17)
+    static let ink = adaptive(light: 0x101410, dark: 0xF4F6F3)
+    static let muted = adaptive(light: 0x5C665E, dark: 0xA8B2A9)
+    static let wine = adaptive(light: 0x101410, dark: 0xF4F6F3)
+    static let wineFill = adaptive(light: 0x101410, dark: 0x101410)
+    static let onWine = Color(hex: 0xF4F6F3)
+    static let gold = adaptive(light: 0x148A45, dark: 0x3DDC7A)
+    static let line = adaptive(light: 0xE2E6E1, dark: 0x2A312C)
+    static let good = adaptive(light: 0x148A45, dark: 0x3DDC7A)
+    static let warn = adaptive(light: 0xD23B3B, dark: 0xFF8D86)
 
     private static func adaptive(light: UInt32, dark: UInt32) -> Color {
         Color(light: Color(hex: light), dark: Color(hex: dark))
@@ -103,7 +103,7 @@ struct WineHeader: View {
                     .foregroundStyle(LufyColor.gold)
                     .frame(width: 36, height: 36)
                 Text(title)
-                    .font(.system(.title2, design: .serif).weight(.semibold))
+                    .font(.system(.title2, design: .rounded).weight(.bold))
                     .foregroundStyle(LufyColor.onWine)
             }
             Text(subtitle)

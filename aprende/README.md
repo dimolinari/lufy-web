@@ -13,17 +13,23 @@ Esta carpeta no toca la web de Lufy.
 - `App`: interfaz SwiftUI para iOS 17 y macOS 14.
 - `project.yml`: definición del proyecto para XcodeGen.
 - `scripts/generate_audio.py`: voz grabada opcional, con ElevenLabs. La app no lo necesita para funcionar.
+- `Sources/AprendeCore/Resources/Data`: series y el esquema de provincias, cada uno con su fuente.
+- `Sources/AprendeCore/Resources/Media`: cuatro fotos pequeñas y `credits.json`.
 - `scripts/setup.sh`: escribe el nombre en el proyecto de Xcode y lo genera.
 
-La versión 1 publica un curso gratis, «El Ecuador público», con una unidad de cinco lecciones:
+La versión 1 es gratis. El camino **Gobierno y lo público** trae la unidad completa: cinco lecciones (cómo se hace una ley, cómo compra el Estado, cómo se lee un contrato, cómo se pide información y una primera mirada a las eras). Los demás caminos publican una lección de muestra, y Finanzas publica dos:
 
-1. Cómo se hace una ley.
-2. Cómo compra el Estado.
-3. Cómo leer un contrato público.
-4. Cómo pedir información pública (LOTAIP).
-5. El Ecuador por eras.
+- Historia por eras.
+- Geografía y regiones.
+- Provincias.
+- Naturaleza y biodiversidad.
+- Cultura y pueblos.
+- Economía.
+- Finanzas, con un aviso de que no es asesoría ni una recomendación de compra.
 
-Otras rutas aparecen como «Próximamente». No se pueden comprar. El código de StoreKit 2 ya está, pero no hay productos configurados y ningún curso publicado está bloqueado.
+Hay gráficos para recorrer con el dedo, un esquema de provincias y una calculadora de interés compuesto. Las series numéricas salen del Banco Mundial y llevan institución, indicador y fecha. Si un archivo tuviera `exampleData: true`, la pantalla muestra **DATOS DE EJEMPLO**. Las fotos son pocas, de Wikimedia Commons, con autor y licencia en `Resources/Media/credits.json`.
+
+Otras lecciones de cada camino aparecen como «Próximamente». No se pueden comprar. El código de StoreKit 2 ya está, pero no hay productos configurados y ningún curso publicado está bloqueado.
 
 ## Probar la lógica, sin Mac
 
@@ -117,7 +123,7 @@ python3 scripts/generate_audio.py --lesson como-se-hace-una-ley --yes
 2. Añade un objeto dentro de `units[].lessons` con `id` (minúsculas, números y guiones), `title`, `summary`, `script`, `sources` y `questions`.
 3. El guion, leído a 140 palabras por minuto, tiene que durar entre 3 y 6 minutos (entre 420 y 840 palabras). `swift test` lo rechaza si no.
 4. Cada pregunta es `multipleChoice`, `trueFalse`, `order` o `fillBlank`, con `explanation`. Las respuestas del espacio en blanco ignoran mayúsculas y tildes.
-5. El orden del arreglo es el camino: la primera lección está abierta y cada una abre la siguiente cuando se aprueba con al menos tres de cuatro.
+5. El orden del arreglo es el camino: la primera lección está abierta y cada una abre la siguiente cuando se aprueba con al menos tres de cuatro. Una figura opcional, en `figures`, puede ser `chart`, `sketch`, `photo` o `calculator`, y tiene que existir en `Resources/Data` o en `credits.json`.
 6. Corre `swift test`. Si quieres voz grabada, usa el generador de arriba.
 7. Un curso nuevo lleva `"access": "free"` o `"access": "premium"`. En esta versión solo se publica lo `free`. Un curso `premium` queda cerrado hasta que StoreKit confirme la compra, y hoy no hay productos.
 
@@ -132,7 +138,8 @@ No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y
 - Instalar Xcode 26 y XcodeGen, y compilar en un Mac. Aquí no hay Xcode: no se verificó `xcodebuild`, el simulador ni un iPhone.
 - Elegir el Personal Team y, si hace falta, otro bundle id.
 - Confiar el certificado en el iPhone y activar el modo de desarrollador.
-- Revisar los guiones antes de publicarlos. Citan la Constitución, la LOTAIP y la Ley Orgánica del Sistema Nacional de Contratación Pública con la reforma del Registro Oficial suplemento 140, del 7 de octubre de 2025. Si una norma cambia, manda el texto nuevo.
+- Revisar los guiones antes de publicarlos. Citan la Constitución, la LOTAIP, la LOSNCP (Registro Oficial suplemento 140, 7 de octubre de 2025) y, en los gráficos, series del Banco Mundial consultadas el 27 de septiembre de 2026. Esas series no son el boletín del Banco Central ni el de deuda pública del Ministerio de Finanzas. Si una norma o una serie cambia, manda el texto nuevo.
+- Si más adelante se baja una tabla del INEC o del Ministerio de Finanzas, guardarla en `Resources/Data` con institución, conjunto y fecha. Sin eso, no pongas el número.
 - Crear la voz en ElevenLabs, poner su id en `brand.json` y decidir si se gastan créditos con `--yes`.
 - Descargar una voz española en el iPhone si se va a probar sin MP3.
 - Para la App Store, más adelante: ficha, capturas y el equipo de pago de Apple. El manifiesto de privacidad ya dice que no se recolectan datos.

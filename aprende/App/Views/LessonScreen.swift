@@ -86,6 +86,18 @@ struct LessonScreen: View {
                     .font(.body)
                     .foregroundStyle(LufyColor.muted)
                     .fixedSize(horizontal: false, vertical: true)
+                if found?.course.disclaimer == StudyNotice.finance {
+                    Text(StudyNotice.financeBody)
+                        .font(.footnote)
+                        .foregroundStyle(LufyColor.ink)
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(LufyColor.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                if !lesson.resolvedFigures.isEmpty {
+                    LessonFigureStack(figures: lesson.resolvedFigures, library: library.figures)
+                }
                 if let status = player.statusMessage {
                     Text(status)
                         .font(.subheadline)

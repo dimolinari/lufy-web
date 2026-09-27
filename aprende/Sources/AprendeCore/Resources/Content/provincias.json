@@ -1,0 +1,97 @@
+{
+  "id": "provincias",
+  "title": "Provincias",
+  "summary": "Las veinticuatro provincias y un esquema para estudiar, no un mapa oficial.",
+  "access": "free",
+  "units": [
+    {
+      "id": "mapa",
+      "title": "División",
+      "summary": "Nombres y regiones.",
+      "lessons": [
+        {
+          "id": "veinticuatro-provincias",
+          "title": "Las veinticuatro provincias",
+          "summary": "Cómo se agrupan las provincias en cuatro regiones y por qué el esquema de la pantalla no es un mapa oficial.",
+          "script": "Una provincia es una pieza de la división político-administrativa. Tiene un nombre, una capital provincial y gobiernos autónomos. No es lo mismo que una región natural. La Costa, por ejemplo, junta varias provincias. Galápagos es la excepción clara: es provincia y, a la vez, toda la Región Insular.\n\nHoy el país cuenta veinticuatro provincias. No siempre fueron tantas. Galápagos es provincia desde mil novecientos setenta y tres. Santa Elena y Santo Domingo de los Tsáchilas se crean en dos mil siete. Memorizar el día exacto del decreto importa menos que no creer que el mapa fue siempre el mismo. La división se ha movido por ley.\n\nEn la presentación estadística habitual, las provincias de la Costa son Esmeraldas, Manabí, Santo Domingo de los Tsáchilas, Los Ríos, Guayas, Santa Elena y El Oro. Santo Domingo está tierra adentro, de camino entre la sierra y el puerto, y aun así se agrupa con la Costa en esa presentación. Las de la Sierra son Carchi, Imbabura, Pichincha, Cotopaxi, Tungurahua, Bolívar, Chimborazo, Cañar, Azuay y Loja. Las de la Amazonía son Sucumbíos, Napo, Orellana, Pastaza, Morona Santiago y Zamora Chinchipe. Galápagos queda sola en la Región Insular.\n\nCada nombre es una administración, no un carácter. Decir Guayas no describe a cada persona que vive en Guayaquil o en un cantón rural del mismo territorio. Decir Morona Santiago no dice cuánta selva cabe en una parroquia. La provincia es el cajón. La vida es más fina.\n\nEn la pantalla hay un esquema. Cada punto es una provincia y el color es su región. Las posiciones son didácticas. No son coordenadas del Instituto Geográfico Militar y no sirven para navegar ni para un trámite. Si el punto de Galápagos aparece lejos, a la izquierda, es para recordar el océano, no para medir la distancia. Debajo del dibujo está la lista escrita, para quien no ve el color o usa lector de pantalla.\n\nEsta lección no trae población por provincia. El censo existe y lo publica el INEC. Mientras esa tabla no esté en la app con su fecha y su archivo, no vamos a inventar habitantes. Un número redondo sin fuente enseña un mal hábito, justo el que esta app quiere evitar.\n\nCuando practiques, intenta tres cosas. Contar hasta veinticuatro. Decir en qué región cae Galápagos, Pichincha y Sucumbíos. Y recordar cuáles son las dos provincias creadas en dos mil siete. Si fallas una, el repaso la trae otro día. No hace falta recitar las capitales cantonales. Eso sería otra lección, y todavía no está escrita.",
+          "sources": [
+            "División político-administrativa del Ecuador: 24 provincias.",
+            "Galápagos es provincia desde 1973. Santa Elena y Santo Domingo de los Tsáchilas se crean en 2007.",
+            "Agrupación estadística habitual: Costa, Sierra, Amazonía y Región Insular. El esquema de la app no es un mapa del Instituto Geográfico Militar."
+          ],
+          "questions": [
+            {
+              "id": "prov-cuenta",
+              "kind": "multipleChoice",
+              "prompt": "¿Cuántas provincias tiene hoy el Ecuador?",
+              "explanation": "La división vigente cuenta veinticuatro provincias, Galápagos incluida.",
+              "options": [
+                {
+                  "id": "diez",
+                  "text": "Diez"
+                },
+                {
+                  "id": "veinticuatro",
+                  "text": "Veinticuatro"
+                },
+                {
+                  "id": "cincuenta",
+                  "text": "Cincuenta"
+                },
+                {
+                  "id": "una",
+                  "text": "Una sola, la capital"
+                }
+              ],
+              "correctOptionId": "veinticuatro"
+            },
+            {
+              "id": "prov-mapa",
+              "kind": "trueFalse",
+              "prompt": "El esquema de colores de esta lección es el mapa oficial del Instituto Geográfico Militar.",
+              "explanation": "Es un dibujo para estudiar. Las posiciones no son coordenadas oficiales.",
+              "correct": false
+            },
+            {
+              "id": "prov-nuevas",
+              "kind": "order",
+              "prompt": "Ordena estos hechos, del más antiguo al más reciente.",
+              "explanation": "Galápagos es provincia desde 1973. Santa Elena y Santo Domingo de los Tsáchilas llegan en 2007.",
+              "items": [
+                {
+                  "id": "galapagos",
+                  "text": "Galápagos ya es provincia"
+                },
+                {
+                  "id": "dosmil",
+                  "text": "Se crean Santa Elena y Santo Domingo de los Tsáchilas"
+                }
+              ],
+              "correctOrder": [
+                "galapagos",
+                "dosmil"
+              ]
+            },
+            {
+              "id": "prov-insular",
+              "kind": "fillBlank",
+              "prompt": "La única provincia de la Región Insular se llama ______.",
+              "explanation": "Galápagos es, a la vez, provincia y Región Insular.",
+              "acceptedAnswers": [
+                "Galápagos",
+                "galapagos",
+                "Galapagos"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "sketch",
+              "ref": "provincias-esquema"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

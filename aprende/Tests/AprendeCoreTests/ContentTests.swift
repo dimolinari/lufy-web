@@ -4,12 +4,25 @@ import XCTest
 final class ContentTests: XCTestCase {
     func testBundledCourseIsOneUnitOfFiveLessons() throws {
         let catalog = try ContentLoader.loadBundled()
-        XCTAssertEqual(catalog.courses.count, 1)
-        let course = try XCTUnwrap(catalog.courses.first)
-        XCTAssertEqual(course.id, "ecuador-publico")
+        let expected = [
+            "ecuador-publico", "historia", "geografia", "provincias",
+            "naturaleza", "cultura", "economia", "finanzas",
+        ]
+        XCTAssertEqual(catalog.courses.map(\.id), expected)
+        let course = try XCTUnwrap(catalog.course(id: "ecuador-publico"))
         XCTAssertEqual(course.access, .free)
         XCTAssertEqual(course.units.count, 1)
         XCTAssertEqual(course.lessonsInOrder.count, 5)
+        for other in catalog.courses where other.id != "ecuador-publico" {
+            XCTAssertGreaterThanOrEqual(other.lessonsInOrder.count, 1, other.id)
+        }
+        let finance = try XCTUnwrap(catalog.course(id: "finanzas"))
+        XCTAssertEqual(finance.disclaimer, StudyNotice.finance)
+        XCTAssertEqual(finance.lessonsInOrder.count, 2)
+        let figures = try FigureLibrary.loadBundled()
+        try FigureLibrary.validate(catalog: catalog, library: figures)
+        XCTAssertTrue(figures.datasets.contains { $0.id == "inflacion-anual" && $0.exampleData == false })
+        XCTAssertEqual(figures.photos.count, 4)
         let kinds = course.lessonsInOrder.flatMap { lesson in
             lesson.questions.map { question -> String in
                 switch question.body {
