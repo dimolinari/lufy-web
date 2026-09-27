@@ -64,7 +64,7 @@ cd aprende
 open LufyAprende.xcodeproj
 ```
 
-`setup.sh` lee `brand.json`, actualiza el nombre y los identificadores dentro de `project.yml`, y genera `LufyAprende.xcodeproj`. Ese proyecto no se versiona.
+`setup.sh` lee `brand.json`, actualiza el nombre dentro de `project.yml`, escribe los identificadores de partida en `signing.xcconfig` y genera `LufyAprende.xcodeproj`. Ese proyecto no se versiona. La primera vez también crea `signing.local.xcconfig` si no existe. Ese archivo está en `.gitignore`.
 
 Para compilar el iPhone simulado desde la terminal, mira primero los destinos que tiene tu Xcode y usa uno de esa lista:
 
@@ -88,7 +88,9 @@ xcodebuild -scheme LufyAprendeVision -destination 'platform=visionOS Simulator,n
 
 En Xcode, elige el esquema **LufyAprendeVision** y el destino **Apple Vision Pro**. La ventana principal trae las lecciones. Desde un mapa, un gráfico o el hemiciclo puedes abrir un **volumen** con el modelo y, si quieres, entrar al **salón**: ahí la narración suena con la voz del dispositivo mientras caminas alrededor. El simulador deja mirar y desplazarte sin un visor físico.
 
-El identificador de paquete de partida es `com.lufy.aprende`. El de Mac es `com.lufy.aprende.mac` y el de visionOS es `com.lufy.aprende.vision`. El team de partida es `XXXXXXXXXX`. Son marcadores. Cámbialos en `brand.json` y vuelve a correr `./scripts/setup.sh` antes de firmar.
+El identificador de paquete de partida es `com.lufy.aprende`. El de Mac es `com.lufy.aprende.mac` y el de visionOS es `com.lufy.aprende.vision`. El team de partida es `XXXXXXXXXX`. Son marcadores, y el team real no se escribe en el repositorio.
+
+Para firmar, edita `aprende/signing.local.xcconfig` (lo crea `./scripts/setup.sh` a partir de `signing.local.example.xcconfig`). Pon ahí el team de tu Apple ID. Si en un Personal Team gratuito `com.lufy.aprende` ya está ocupado, cambia en ese mismo archivo `LUFY_IOS_BUNDLE_ID`, `LUFY_MAC_BUNDLE_ID` y `LUFY_VISION_BUNDLE_ID`, y vuelve a compilar. No hace falta correr `setup.sh` otra vez: Xcode lee el archivo local al construir. No pongas el team ni un bundle id personal en `brand.json` ni en `project.yml`.
 
 ## Ver el mapa en el iPhone
 
@@ -119,8 +121,8 @@ El script no llama a la red. El JSON que queda pesa unos 16 KB.
 1. Crea un Apple ID en [appleid.apple.com](https://appleid.apple.com) si todavía no tienes uno. No hace falta pagar el programa de desarrollador.
 2. En Xcode: Settings → Accounts → añade ese Apple ID.
 3. Abre `LufyAprende.xcodeproj`.
-4. Elige el target **LufyAprende**, pestaña Signing & Capabilities, y en Team selecciona tu equipo personal (Personal Team).
-5. Si Xcode dice que `com.lufy.aprende` ya está ocupado, cambia `bundleIdentifier` en `brand.json`, corre `./scripts/setup.sh` y vuelve a abrir el proyecto.
+4. Elige el target **LufyAprende**, pestaña Signing & Capabilities, y en Team selecciona tu equipo personal (Personal Team). El valor que queda guardado para el proyecto es el de `signing.local.xcconfig`, no un team escrito en el repositorio.
+5. Si Xcode dice que `com.lufy.aprende` ya está ocupado, cambia los tres `LUFY_*_BUNDLE_ID` en `signing.local.xcconfig` y vuelve a pulsar Run.
 6. Conecta el iPhone, desbloquéalo y confía en la computadora.
 7. En iOS 16 o posterior, activa el modo de desarrollador: Ajustes → Privacidad y seguridad → Modo de desarrollador.
 8. En Xcode elige ese iPhone como destino y pulsa Run.
@@ -196,7 +198,7 @@ No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y
 - Probar el mapa sobre una mesa en un iPhone físico. El simulador abre el modelo para girarlo, sin cámara.
 - Abrir el esquema LufyAprendeVision en el simulador Apple Vision Pro y entrar al salón. No hace falta un visor.
 - No leer el grosor del mapa como metros de altura. No hay modelo SRTM en el paquete.
-- Elegir el Personal Team y, si hace falta, otro bundle id.
+- Elegir el Personal Team en `signing.local.xcconfig` y, si `com.lufy.aprende` está ocupado, otro bundle id en ese mismo archivo. No subas ese archivo.
 - Confiar el certificado en el iPhone y activar el modo de desarrollador.
 - Revisar los guiones antes de publicarlos. Citan la Constitución, la LOTAIP, la LOSNCP (Registro Oficial suplemento 140, 7 de octubre de 2025) y, en los gráficos, series del Banco Mundial consultadas el 27 de septiembre de 2026. Esas series no son el boletín del Banco Central ni el de deuda pública del Ministerio de Finanzas. Si una norma o una serie cambia, manda el texto nuevo.
 - Si más adelante se baja una tabla del INEC o del Ministerio de Finanzas, guardarla en `Resources/Data` con institución, conjunto y fecha. Sin eso, no pongas el número.

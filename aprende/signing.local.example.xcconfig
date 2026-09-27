@@ -1,0 +1,10 @@
+// Firma local. setup.sh copia este archivo a signing.local.xcconfig
+// si todavía no existe. Ese archivo está en .gitignore: no lo subas.
+//
+// Sustituye el team marcador por el de tu Apple ID (Personal Team).
+// Si com.lufy.aprende ya está ocupado, cambia los tres bundle id
+// y vuelve a compilar. No hace falta regenerar el proyecto.
+LUFY_DEVELOPMENT_TEAM = XXXXXXXXXX
+LUFY_IOS_BUNDLE_ID = com.lufy.aprende
+LUFY_MAC_BUNDLE_ID = com.lufy.aprende.mac
+LUFY_VISION_BUNDLE_ID = com.lufy.aprende.vision

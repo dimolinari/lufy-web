@@ -25,7 +25,8 @@ final class FigureTests: XCTestCase {
 
     func testCompoundInterestGrowsAndClampRejectsExtremes() {
         let grown = CompoundInterest.balances(principal: 100, annualRate: 1, years: 1, monthlyContribution: 0)
-        let expected = 100 * pow(1 + 1.0 / 12, 12)
+        let periods = 12.0
+        let expected = 100.0 * pow(1.0 + (1.0 / periods), periods)
         XCTAssertEqual(grown.last?.value ?? 0, expected, accuracy: 0.001)
         let clamped = CompoundInterest.clamped(principal: -5, annualPercent: 80, years: 0, monthly: 9_000)
         XCTAssertEqual(clamped.principal, 0)

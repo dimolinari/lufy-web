@@ -243,7 +243,7 @@ public enum CompoundInterest {
         var balance = principal
         var points = [BalancePoint(year: 0, value: balance)]
         guard span > 0 else { return points }
-        let monthlyRate = annualRate / 12
+        let monthlyRate = annualRate / 12.0
         for year in 1...span {
             for _ in 0..<12 {
                 balance = balance * (1 + monthlyRate) + monthlyContribution

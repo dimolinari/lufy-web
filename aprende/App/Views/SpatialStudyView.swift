@@ -43,12 +43,17 @@ struct SpatialStudyView: View {
     @ViewBuilder
     private func stage(_ exhibit: StageExhibit) -> some View {
         switch presentation {
-        case .room:
-            room(exhibit)
-        case .volume:
-            volume(exhibit)
         case .window:
             window(exhibit)
+        #if os(visionOS)
+        case .volume:
+            volume(exhibit)
+        case .room:
+            room(exhibit)
+        #else
+        case .volume, .room:
+            window(exhibit)
+        #endif
         }
     }
 
@@ -402,7 +407,8 @@ struct SpatialStudyView: View {
                 }
                 exhibit = .series(SpatialSeriesLayout.make(dataset))
             case .hemicycle:
-                let source = directory ?? SpatialHandoff.directory ?? (try FeedLibrary.loadBundled())
+                let bundled = try FeedLibrary.loadBundled()
+                let source = directory ?? SpatialHandoff.directory ?? bundled
                 feed = source
                 exhibit = .hemicycle(HemicycleLayout.scene(from: source))
             case nil:

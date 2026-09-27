@@ -51,16 +51,18 @@ struct ARTableStage: UIViewRepresentable {
     }
 }
 
+@MainActor
 final class ARCoordinator: NSObject {
     var onSelect: (String) -> Void
     weak var view: ARView?
     private var token = ""
     private var placementRequest = -1
     private var anchor: AnchorEntity?
-    private var model = Entity()
+    private var model: Entity?
 
     init(onSelect: @escaping (String) -> Void) {
         self.onSelect = onSelect
+        super.init()
     }
 
     func sync(_ exhibit: StageExhibit, placementRequest: Int) {
@@ -73,16 +75,17 @@ final class ARCoordinator: NSObject {
         }
         guard token != exhibit.token else { return }
         token = exhibit.token
-        model.removeFromParent()
-        model = RealityModels.root(for: exhibit, scale: 1)
-        anchor?.addChild(model)
+        model?.removeFromParent()
+        let built = RealityModels.root(for: exhibit, scale: 1)
+        model = built
+        anchor?.addChild(built)
         if anchor != nil {
-            RealityModels.rise(model)
+            RealityModels.rise(built)
         }
     }
 
     @objc func tapped(_ gesture: UITapGestureRecognizer) {
-        guard let view else { return }
+        guard let view, let model else { return }
         let point = gesture.location(in: view)
         if anchor != nil {
             let hits = view.hitTest(point, query: .nearest, mask: .all)
@@ -135,6 +138,7 @@ struct VolumeStage: View {
 #endif
 
 #if os(iOS) || os(visionOS)
+@MainActor
 enum RealityModels {
     static func root(for exhibit: StageExhibit, scale: Float) -> Entity {
         let root = Entity()

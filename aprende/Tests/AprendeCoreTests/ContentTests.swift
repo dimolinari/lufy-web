@@ -71,13 +71,31 @@ final class ContentTests: XCTestCase {
         let brand = try Brand.bundled()
         XCTAssertTrue(brand.appName.localizedCaseInsensitiveContains("Lufy"))
         XCTAssertEqual(brand.elevenlabs.modelId, "eleven_v3")
-        XCTAssertFalse(brand.bundleIdentifier.isEmpty)
-        let project = try String(contentsOf: projectFile(), encoding: .utf8)
+        XCTAssertEqual(brand.developmentTeam, "XXXXXXXXXX")
+        XCTAssertFalse(brand.storeKit.subscriptionsEnabled)
+        let root = aprendeRoot()
+        let project = try String(contentsOf: root.appendingPathComponent("project.yml"), encoding: .utf8)
         XCTAssertTrue(project.contains("INFOPLIST_KEY_CFBundleDisplayName: \"\(brand.appName)\" # app-name"))
-        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: \(brand.bundleIdentifier) # ios-bundle"))
-        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: \(brand.macBundleIdentifier) # mac-bundle"))
-        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: \(brand.visionBundleIdentifier) # vision-bundle"))
-        XCTAssertTrue(project.contains("DEVELOPMENT_TEAM: \(brand.developmentTeam) # team"))
+        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: $(LUFY_IOS_BUNDLE_ID) # ios-bundle"))
+        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: $(LUFY_MAC_BUNDLE_ID) # mac-bundle"))
+        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: $(LUFY_VISION_BUNDLE_ID) # vision-bundle"))
+        XCTAssertTrue(project.contains("DEVELOPMENT_TEAM: $(LUFY_DEVELOPMENT_TEAM) # team"))
+        XCTAssertTrue(project.contains("excludes:"))
+        XCTAssertTrue(project.contains("\"Info.plist\""))
+        XCTAssertTrue(project.contains("\"Info-mac.plist\""))
+        XCTAssertTrue(project.contains("\"Info-vision.plist\""))
+        let signing = try String(contentsOf: root.appendingPathComponent("signing.xcconfig"), encoding: .utf8)
+        XCTAssertTrue(signing.contains("LUFY_DEVELOPMENT_TEAM = \(brand.developmentTeam)"))
+        XCTAssertTrue(signing.contains("LUFY_IOS_BUNDLE_ID = \(brand.bundleIdentifier)"))
+        XCTAssertTrue(signing.contains("LUFY_MAC_BUNDLE_ID = \(brand.macBundleIdentifier)"))
+        XCTAssertTrue(signing.contains("LUFY_VISION_BUNDLE_ID = \(brand.visionBundleIdentifier)"))
+        XCTAssertTrue(signing.contains("#include? \"signing.local.xcconfig\""))
+        let example = try String(contentsOf: root.appendingPathComponent("signing.local.example.xcconfig"), encoding: .utf8)
+        XCTAssertTrue(example.contains("LUFY_DEVELOPMENT_TEAM = \(brand.developmentTeam)"))
+        XCTAssertTrue(example.contains("LUFY_IOS_BUNDLE_ID = \(brand.bundleIdentifier)"))
+        let ignore = try String(contentsOf: root.appendingPathComponent(".gitignore"), encoding: .utf8)
+        XCTAssertTrue(ignore.contains("signing.local.xcconfig"))
+        XCTAssertFalse(ignore.contains("signing.local.example.xcconfig"))
     }
 
     func testSpeechTimelineSupportsSkip() {
@@ -107,11 +125,10 @@ final class ContentTests: XCTestCase {
         XCTAssertEqual(decoded, question)
     }
 
-    private func projectFile() -> URL {
+    private func aprendeRoot() -> URL {
         URL(filePath: #filePath)
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
-            .appendingPathComponent("project.yml")
     }
 }
