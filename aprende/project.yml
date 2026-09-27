@@ -138,7 +138,7 @@ schemes:
     run:
       config: Debug
       storeKitConfiguration: App/Products.storekit
-  AprendeCore:
+  AprendeCoreTests:
     build:
       targets:
         AprendeCoreTests: [test]

@@ -29,4 +29,4 @@ jobs:
       - name: visionOS
         run: xcodebuild -scheme LufyAprendeVision -destination 'generic/platform=visionOS' CODE_SIGNING_ALLOWED=NO build
       - name: Pruebas
-        run: xcodebuild test -scheme AprendeCore -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild test -scheme AprendeCoreTests -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO

@@ -96,10 +96,10 @@ xcodebuild -scheme LufyAprendeMac -destination 'generic/platform=macOS' CODE_SIG
 xcodebuild -scheme LufyAprendeVision -destination 'generic/platform=visionOS' CODE_SIGNING_ALLOWED=NO build
 ```
 
-Las pruebas de `AprendeCore` en Xcode:
+Las pruebas de `AprendeCore` en Xcode usan el esquema **AprendeCoreTests**. Xcode también crea solo un esquema `AprendeCore` para el paquete; ese no es el de las pruebas.
 
 ```bash
-xcodebuild test -scheme AprendeCore -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
+xcodebuild test -scheme AprendeCoreTests -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
 ```
 
 Ese esquema no firma: el target de pruebas lleva `CODE_SIGNING_ALLOWED = NO`. En Linux, el mismo paquete se prueba con `swift test`.

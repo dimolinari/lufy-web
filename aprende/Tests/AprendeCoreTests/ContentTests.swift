@@ -83,6 +83,7 @@ final class ContentTests: XCTestCase {
         XCTAssertTrue(project.contains("iOS: \"17.0\""))
         XCTAssertTrue(project.contains("AprendeCoreTests:"))
         XCTAssertTrue(project.contains("name: AprendeCoreTests"))
+        XCTAssertFalse(project.contains("\n  AprendeCore:\n    build:"))
         XCTAssertTrue(project.contains("excludes:"))
         XCTAssertTrue(project.contains("\"Info.plist\""))
         XCTAssertTrue(project.contains("\"Info-mac.plist\""))

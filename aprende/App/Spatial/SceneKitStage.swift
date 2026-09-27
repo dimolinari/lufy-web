@@ -84,6 +84,7 @@ private struct OrbitRepresentable: NSViewRepresentable {
 #endif
 
 #if os(iOS) || os(macOS)
+@MainActor
 final class OrbitCoordinator: NSObject {
     var onSelect: (String) -> Void
     weak var view: SCNView?
@@ -91,6 +92,7 @@ final class OrbitCoordinator: NSObject {
 
     init(onSelect: @escaping (String) -> Void) {
         self.onSelect = onSelect
+        super.init()
     }
 
     static func makeScene() -> SCNScene {
@@ -149,6 +151,7 @@ final class OrbitCoordinator: NSObject {
     }
 }
 
+@MainActor
 enum StageMesh {
     static func add(_ exhibit: StageExhibit, to root: SCNNode) {
         let floor = SCNPlane(width: 0.62, height: 0.46)
@@ -185,11 +188,7 @@ enum StageMesh {
             node.pivot = SCNMatrix4MakeTranslation(0, -SCNFloat(bar.height / 2), 0)
             node.position = SCNVector3(SCNFloat(bar.x), 0, 0)
             node.scale = SCNVector3(1, SCNFloat(0.02), 1)
-            let rise = SCNAction.customAction(duration: 0.7) { node, elapsed in
-                let fraction = SCNFloat(min(max(elapsed / 0.7, 0), 1))
-                node.scale = SCNVector3(1, max(fraction, SCNFloat(0.02)), 1)
-            }
-            node.runAction(rise)
+            node.runAction(SCNAction.scale(to: SCNVector3(1, 1, 1), duration: 0.7))
             root.addChildNode(node)
             tops.append(SCNVector3(SCNFloat(bar.x), SCNFloat(bar.height), 0))
         }
