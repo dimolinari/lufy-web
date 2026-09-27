@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "id": "vot-ejemplo-2",
+  "fecha": "2026-06-18",
+  "titulo": "Segunda votación de ejemplo",
+  "sesion": "Sesión de ejemplo 2",
+  "acta": "Acta de ejemplo 2",
+  "fuente": {
+    "institucion": "Asamblea Nacional",
+    "documento": "Acta de ejemplo 2",
+    "fecha": "2026-06-18",
+    "linea": "Fuente: acta de ejemplo 2, sesión de ejemplo, 18 de junio de 2026.",
+    "archivo": null
+  },
+  "votos": [
+    {
+      "asambleista_id": "ejemplo-1",
+      "voto": "abstencion"
+    },
+    {
+      "asambleista_id": "ejemplo-2",
+      "voto": "ausente"
+    }
+  ]
+}

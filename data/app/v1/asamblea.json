@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "ejemplo": true,
+  "aviso": "DATOS DE EJEMPLO. Nombres ficticios. No son asambleístas reales.",
+  "updated_at": "2026-09-27T00:00:00Z",
+  "periodo": {
+    "id": "ejemplo-2026",
+    "etiqueta": "Período de ejemplo",
+    "inicio": "2026-01-01",
+    "fin": null
+  },
+  "asambleistas": [
+    {
+      "id": "ejemplo-1",
+      "nombre": "Asambleísta Ejemplo 1",
+      "foto": null,
+      "provincia": "Provincia Ejemplo",
+      "circunscripcion": "Circunscripción Ejemplo Norte",
+      "partido": "Partido Ejemplo",
+      "bloque": "Bloque Ejemplo",
+      "comisiones": [
+        "Comisión de ejemplo",
+        "Comisión de muestra"
+      ],
+      "periodo": "Período de ejemplo",
+      "proyectos": [
+        {
+          "id": "proy-ejemplo-1",
+          "titulo": "Proyecto de ejemplo sobre archivo público",
+          "fecha": "2026-03-01",
+          "estado": "Presentado",
+          "fuente": {
+            "institucion": "Asamblea Nacional",
+            "documento": "Proyecto de ejemplo 1",
+            "fecha": "2026-03-01",
+            "linea": "Fuente: proyecto de ejemplo 1, 1 de marzo de 2026.",
+            "archivo": null
+          }
+        }
+      ],
+      "asistencia": {
+        "sesiones": 10,
+        "presente": 8,
+        "fuente": {
+          "institucion": "Asamblea Nacional",
+          "documento": "Registro de asistencia de ejemplo",
+          "fecha": "2026-09-01",
+          "linea": "Fuente: registro de asistencia de ejemplo, corte al 1 de septiembre de 2026.",
+          "archivo": null
+        }
+      },
+      "hallazgos": [
+        "hal-ejemplo-1"
+      ]
+    },
+    {
+      "id": "ejemplo-2",
+      "nombre": "Asambleísta Ejemplo 2",
+      "foto": null,
+      "provincia": "Provincia Muestra",
+      "circunscripcion": "Circunscripción Ejemplo Sur",
+      "partido": "Partido Muestra",
+      "bloque": "Bloque Muestra",
+      "comisiones": [
+        "Comisión de muestra"
+      ],
+      "periodo": "Período de ejemplo",
+      "proyectos": [
+        {
+          "id": "proy-ejemplo-2",
+          "titulo": "Proyecto de ejemplo sobre actas",
+          "fecha": "2026-05-12",
+          "estado": "En comisión",
+          "fuente": {
+            "institucion": "Asamblea Nacional",
+            "documento": "Proyecto de ejemplo 2",
+            "fecha": "2026-05-12",
+            "linea": "Fuente: proyecto de ejemplo 2, 12 de mayo de 2026.",
+            "archivo": null
+          }
+        }
+      ],
+      "asistencia": {
+        "sesiones": 10,
+        "presente": 10,
+        "fuente": {
+          "institucion": "Asamblea Nacional",
+          "documento": "Registro de asistencia de ejemplo",
+          "fecha": "2026-09-01",
+          "linea": "Fuente: registro de asistencia de ejemplo, corte al 1 de septiembre de 2026.",
+          "archivo": null
+        }
+      },
+      "hallazgos": [
+        "hal-ejemplo-2"
+      ]
+    }
+  ]
+}

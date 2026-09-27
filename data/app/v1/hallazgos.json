@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "ejemplo": true,
+  "updated_at": "2026-09-27T00:00:00Z",
+  "hallazgos": [
+    {
+      "id": "hal-ejemplo-1",
+      "sello": "ABIERTO",
+      "titulo": "Dato de ejemplo, todavía abierto",
+      "texto": "Dato de ejemplo. Muestra el sello ABIERTO. No afirma un hecho sobre una persona.",
+      "tema": "ejemplo",
+      "asambleistas": [
+        "ejemplo-1"
+      ],
+      "early_access_until": null,
+      "fuente": {
+        "institucion": "Lufy",
+        "documento": "Nota de ejemplo 1",
+        "fecha": "2026-09-27",
+        "linea": "Fuente: nota de ejemplo 1, 27 de septiembre de 2026.",
+        "archivo": null
+      }
+    },
+    {
+      "id": "hal-ejemplo-2",
+      "sello": "HIPÓTESIS",
+      "titulo": "Dato de ejemplo, solo una hipótesis",
+      "texto": "Dato de ejemplo. Muestra el sello HIPÓTESIS. Sirve para saber dónde mirar. No sirve para concluir.",
+      "tema": "ejemplo",
+      "asambleistas": [
+        "ejemplo-2"
+      ],
+      "early_access_until": null,
+      "fuente": {
+        "institucion": "Lufy",
+        "documento": "Nota de ejemplo 2",
+        "fecha": "2026-09-27",
+        "linea": "Fuente: nota de ejemplo 2, 27 de septiembre de 2026.",
+        "archivo": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "lufy",
+  "updated_at": "2026-09-27T00:00:00Z",
+  "files": [
+    {
+      "path": "asamblea.json",
+      "sha256": "2168f89c66ae7ea53aa1f08aefc91a40ba21ba0403c959f631a518a39f38c49d",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 2898
+    },
+    {
+      "path": "dossiers.json",
+      "sha256": "58bfeff3f80f55546112dfba991f8f277acf4d08ab68deff628aa1be89631371",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 645
+    },
+    {
+      "path": "hallazgos.json",
+      "sha256": "db795f1571e31007dfaf66a96348e7afb6db958f062182f3e1346f4a180d8a33",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 1242
+    },
+    {
+      "path": "votaciones/vot-ejemplo-1.json",
+      "sha256": "40238d443c1a96410eed21e216641e1782b4ffb9ab26b4615ed859eaae7c8656",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 564
+    },
+    {
+      "path": "votaciones/vot-ejemplo-2.json",
+      "sha256": "28b8d3e6568de9cc75f1584f7dbc792fbf1bb286be0fe3d6c4864ed4017c2409",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 575
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "ejemplo": true,
+  "aviso": "DATOS DE EJEMPLO. Nombres ficticios. No son asambleístas reales.",
+  "updated_at": "2026-09-27T00:00:00Z",
+  "periodo": {
+    "id": "ejemplo-2026",
+    "etiqueta": "Período de ejemplo",
+    "inicio": "2026-01-01",
+    "fin": null
+  }
+}

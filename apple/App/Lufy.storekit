@@ -1,0 +1,117 @@
+{
+  "identifier" : "A1B2C3D4",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "E1000001",
+      "localizations" : [
+        {
+          "description" : "Dossier de ejemplo. El archivo aparece cuando Lufy lo publica.",
+          "displayName" : "Dossier de ejemplo",
+          "locale" : "es_ES"
+        }
+      ],
+      "productID" : "com.lufy.app.dossier.ejemplo",
+      "referenceName" : "Dossier de ejemplo",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "com.lufy.app",
+    "_developerTeamID" : "ABCDE12345",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "es_ES",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21482001",
+      "localizations" : [
+
+      ],
+      "name" : "Acceso",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "S1000001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Hallazgos nuevos antes de la fecha publicada, avisos de lo que sigues y dossiers.",
+              "displayName" : "Lufy anticipado",
+              "locale" : "es_ES"
+            }
+          ],
+          "productID" : "com.lufy.app.suscripcion.mensual",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Mensual",
+          "subscriptionGroupID" : "21482001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
