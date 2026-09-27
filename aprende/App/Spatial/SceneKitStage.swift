@@ -188,7 +188,7 @@ enum StageMesh {
             node.pivot = SCNMatrix4MakeTranslation(0, -SCNFloat(bar.height / 2), 0)
             node.position = SCNVector3(SCNFloat(bar.x), 0, 0)
             node.scale = SCNVector3(1, SCNFloat(0.02), 1)
-            node.runAction(SCNAction.scale(to: SCNVector3(1, 1, 1), duration: 0.7))
+            node.runAction(stageBarRise())
             root.addChildNode(node)
             tops.append(SCNVector3(SCNFloat(bar.x), SCNFloat(bar.height), 0))
         }
@@ -269,6 +269,18 @@ enum StageMesh {
         material.lightingModel = .lambert
         material.isDoubleSided = true
         return material
+    }
+}
+
+/// Fuera del actor principal: el bloque de SceneKit no es `@MainActor`
+/// y `SCNAction` no es `Sendable`. Solo toca el nodo que SceneKit le pasa.
+private func stageBarRise() -> SCNAction {
+    SCNAction.customAction(duration: 0.7) { node, elapsed in
+        let t = min(max(elapsed / 0.7, 0), 1)
+        var scale = node.scale
+        let start = SCNFloat(0.02)
+        scale.y = start + (SCNFloat(1) - start) * SCNFloat(t)
+        node.scale = scale
     }
 }
 #endif
