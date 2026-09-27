@@ -1,0 +1,13 @@
+{
+  "appName": "Lufy Aprende",
+  "bundleIdentifier": "com.lufy.aprende",
+  "macBundleIdentifier": "com.lufy.aprende.mac",
+  "developmentTeam": "XXXXXXXXXX",
+  "elevenlabs": {
+    "modelId": "eleven_v3",
+    "voiceId": ""
+  },
+  "storeKit": {
+    "premiumProductIds": []
+  }
+}

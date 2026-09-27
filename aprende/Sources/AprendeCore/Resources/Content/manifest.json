@@ -1,0 +1,25 @@
+{
+  "courses": [
+    "ecuador-publico.json"
+  ],
+  "planned": [
+    {
+      "id": "estado-a-fondo",
+      "title": "El Estado, con más detalle",
+      "summary": "Más lecciones sobre las cinco funciones, el presupuesto y el control. Todavía no está publicado.",
+      "access": "premium"
+    },
+    {
+      "id": "contratacion-a-fondo",
+      "title": "Contratación pública, a fondo",
+      "summary": "Pliegos, ofertas, garantías y control, en un curso más largo. Todavía no está publicado.",
+      "access": "premium"
+    },
+    {
+      "id": "historia-a-fondo",
+      "title": "Historia del Ecuador, era por era",
+      "summary": "Cada era en su propia lección. Todavía no está publicado.",
+      "access": "free"
+    }
+  ]
+}
