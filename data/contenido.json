@@ -1,0 +1,1344 @@
+{
+  "version": 1,
+  "actualizado": "2026-09-26",
+  "enlaces": {
+    "apoyo": "https://ko-fi.com/guardianlufy",
+    "libro": "https://ko-fi.com/s/ca5e18af16",
+    "muestra": "https://ko-fi.com/s/0fb06c0024"
+  },
+  "archivo": {
+    "titulo": "El archivo, a septiembre de 2026",
+    "introduccion": "Estas cifras salen de la base de datos de Lufy. Son conteos del archivo, no dinero recaudado ni una meta.",
+    "notaSinCopia": "Todavía no hay en Lufy una copia archivada de este conteo. Cuando exista, cada línea de fuente abrirá ese archivo y mostrará su huella SHA-256.",
+    "graficoTitulo": "Tamaño del archivo, a septiembre de 2026",
+    "graficoNota": "Escala lineal. Las barras comparan la cantidad de registros. El número escrito es el conteo exacto. No es dinero.",
+    "cifras": [
+      {
+        "valor": "15.089",
+        "etiqueta": "Documentos públicos archivados",
+        "numero": 15089,
+        "meta": "a septiembre de 2026",
+        "fuente": {
+          "institucion": "Lufy",
+          "documento": "base de datos de Lufy",
+          "fecha": "corte al 26 de septiembre de 2026"
+        }
+      },
+      {
+        "valor": "2.096.541",
+        "etiqueta": "Fragmentos de texto buscables",
+        "numero": 2096541,
+        "meta": "a septiembre de 2026",
+        "fuente": {
+          "institucion": "Lufy",
+          "documento": "base de datos de Lufy",
+          "fecha": "corte al 26 de septiembre de 2026"
+        }
+      },
+      {
+        "valor": "2.761.777",
+        "etiqueta": "Registros de contratación pública",
+        "numero": 2761777,
+        "meta": "a septiembre de 2026",
+        "fuente": {
+          "institucion": "Lufy",
+          "documento": "base de datos de Lufy",
+          "fecha": "corte al 26 de septiembre de 2026"
+        }
+      },
+      {
+        "valor": "1.660.911",
+        "etiqueta": "Estados financieros de empresas",
+        "numero": 1660911,
+        "meta": "a septiembre de 2026",
+        "fuente": {
+          "institucion": "Lufy",
+          "documento": "base de datos de Lufy",
+          "fecha": "corte al 26 de septiembre de 2026"
+        }
+      },
+      {
+        "valor": "1.303.272",
+        "etiqueta": "Registros de accionistas",
+        "numero": 1303272,
+        "meta": "a septiembre de 2026",
+        "fuente": {
+          "institucion": "Lufy",
+          "documento": "base de datos de Lufy",
+          "fecha": "corte al 26 de septiembre de 2026"
+        }
+      },
+      {
+        "valor": "67.154",
+        "etiqueta": "Registros de sanciones",
+        "numero": 67154,
+        "meta": "a septiembre de 2026",
+        "fuente": {
+          "institucion": "Lufy",
+          "documento": "base de datos de Lufy",
+          "fecha": "corte al 26 de septiembre de 2026"
+        }
+      }
+    ],
+    "grafico": [
+      {"etiqueta": "Registros de contratación pública", "texto": "2.761.777", "numero": 2761777, "estilo": "vino"},
+      {"etiqueta": "Fragmentos de texto buscables", "texto": "2.096.541", "numero": 2096541, "estilo": "vinoRayado"},
+      {"etiqueta": "Estados financieros de empresas", "texto": "1.660.911", "numero": 1660911, "estilo": "oro"},
+      {"etiqueta": "Registros de accionistas", "texto": "1.303.272", "numero": 1303272, "estilo": "oroRayado"},
+      {"etiqueta": "Registros de sanciones", "texto": "67.154", "numero": 67154, "estilo": "tinta"},
+      {"etiqueta": "Documentos públicos archivados", "texto": "15.089", "numero": 15089, "estilo": "punto"}
+    ]
+  },
+  "inicio": {
+    "id": "inicio",
+    "titulo": "Inicio",
+    "secciones": [
+      {
+        "id": "apertura",
+        "bloques": [
+          {
+            "tipo": "hero",
+            "sobre": "Proyecto independiente · Ecuador",
+            "titulo": "Datos públicos que puedes comprobar",
+            "entradilla": "Lufy guarda documentos oficiales del Ecuador —contratos, campañas, auditorías y empresas— y publica solo lo que está verificado. Cada cifra lleva su fuente. No acusamos a nadie.",
+            "parrafos": [
+              "Mantener ese archivo tiene un costo real: servidores, descargas y horas de verificación. Tu apoyo lo sostiene. Lo que lees sigue siendo gratis."
+            ],
+            "acciones": [
+              {"titulo": "Apoya a Lufy", "destino": {"tipo": "apoyo"}, "estilo": "principal"},
+              {"titulo": "Ver los datos", "destino": {"tipo": "datos"}, "estilo": "secundario"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cerebro",
+        "titulo": "Cerebro para Lufy",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Un NVIDIA DGX Spark, con 128 GB de memoria unificada, para que Lufy corra modelos locales más grandes al escribir y al analizar los datos públicos del Ecuador. El Mac mini sigue recolectando los documentos. Hoy Lufy corre en una máquina de 16 GB, y eso limita los textos largos y bien razonados."
+            ]
+          },
+          {"tipo": "metaCerebro"},
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Dólares de Estados Unidos, coma de miles. Esta cifra no llega sola desde Ko-fi: se anota a mano en un solo archivo del sitio."
+            ]
+          },
+          {"tipo": "enlace", "titulo": "Ver la meta y aportar", "destino": {"tipo": "apoyo"}}
+        ]
+      },
+      {
+        "id": "pasos",
+        "bloques": [
+          {
+            "tipo": "saber",
+            "titulo": "Lufy en 30 segundos",
+            "items": [
+              "Guardamos documentos oficiales y los convertimos en texto que se puede buscar.",
+              "Publicamos solo cifras verificadas. Al lado de cada una va la fuente: institución, documento y fecha.",
+              "No acusamos. Cada hallazgo lleva un sello: CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.",
+              "La lectura es gratis. Tu apoyo paga el archivo, no una llave para leer."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "archivo",
+        "bloques": [
+          {"tipo": "archivoPublico", "titulo": "El archivo, a septiembre de 2026"}
+        ]
+      },
+      {
+        "id": "usos",
+        "titulo": "En qué se usa tu apoyo",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Estas cuatro tareas sostienen el archivo del día a día. Lufy no publica aquí un reparto del gasto. La meta con cifra es Cerebro para Lufy."
+            ]
+          },
+          {
+            "tipo": "tarjetas",
+            "items": [
+              {"titulo": "Servidores y almacenamiento", "texto": "Para que el archivo siga en línea y los documentos no se pierdan."},
+              {"titulo": "Descarga y archivo", "texto": "Bajar documentos oficiales y guardar una copia en Lufy."},
+              {"titulo": "Verificación", "texto": "Leer, contrastar y marcar cada cifra antes de publicarla."},
+              {"titulo": "Publicar gratis para todos", "texto": "La lectura, sin muro de pago para los datos de interés público."}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "formas",
+        "titulo": "Tres formas de apoyar",
+        "bloques": [
+          {
+            "tipo": "tarjetas",
+            "items": [
+              {
+                "titulo": "Ko-fi: aporte o membresía",
+                "texto": "Un aporte único o una membresía, del monto que tú elijas. El pago lo procesa Ko-fi. Lufy no ve tu nombre ni tu correo.",
+                "destino": {"tipo": "koFi", "id": "apoyo"},
+                "tituloDestino": "Ir a Ko-fi"
+              },
+              {
+                "titulo": "La tienda: el libro",
+                "texto": "«El verdadero poder político», paga lo que quieras (sugerido: 3 USD). Hay una muestra gratis.",
+                "destino": {"tipo": "libro"},
+                "tituloDestino": "Ver el libro"
+              },
+              {
+                "titulo": "Compartir o avisar un error",
+                "texto": "Compartir una página de Lufy, o avisar si ves un error, también ayuda.",
+                "destino": {"tipo": "apoyo"},
+                "tituloDestino": "Todas las formas de apoyar"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "principios",
+        "titulo": "Cómo trabajamos",
+        "bloques": [
+          {
+            "tipo": "lista",
+            "ordenada": false,
+            "items": [
+              "**El contenido principal sigue gratis.** Lo que se paga es el libro y, si te sumas, la membresía. Nunca un dato de interés público.",
+              "**Solo datos oficiales verificados.** Si el documento no alcanza, no inventamos la cifra.",
+              "**No acusamos.** Cada hallazgo se etiqueta CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.",
+              "**Cada cifra tiene línea de fuente.** Institución, documento y fecha. Si hay una copia archivada en Lufy, esa línea abre el archivo y muestra su huella SHA-256."
+            ]
+          },
+          {"tipo": "enlace", "titulo": "Lee nuestra historia y las reglas completas", "destino": {"tipo": "historia"}}
+        ]
+      },
+      {
+        "id": "sigue",
+        "titulo": "Para seguir leyendo",
+        "bloques": [
+          {
+            "tipo": "tarjetas",
+            "items": [
+              {
+                "meta": "Hilo de datos · 25 de septiembre de 2026",
+                "titulo": "Campaña 2025: cuánto declararon las organizaciones",
+                "texto": "En la 1.ª vuelta, 12 organizaciones con reportes completos declararon **$596.455,65** de ingresos y **$534.609,69** de gasto. El límite legal por binomio era de $5.494.525,60.",
+                "destino": {"tipo": "hilo", "id": "campana-2025"},
+                "tituloDestino": "Abrir el hilo en Lufy"
+              },
+              {
+                "meta": "Libro · paga lo que quieras",
+                "titulo": "El verdadero poder político. Ecuador 1972–2023",
+                "texto": "Catorce capítulos, del primer barril de petróleo al final del gobierno de 2021–2023. Se lee como una historia. Cada hecho lleva su fuente. PDF de 165 páginas.",
+                "destino": {"tipo": "libro"},
+                "tituloDestino": "Conocer el libro y la muestra gratis"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "datos": {
+    "id": "datos",
+    "titulo": "Datos",
+    "secciones": [
+      {
+        "id": "apertura",
+        "bloques": [
+          {
+            "tipo": "hero",
+            "sobre": "Hilos de datos",
+            "titulo": "Datos",
+            "entradilla": "Cada hilo es una página de Lufy: un resumen corto, cifras con sello, qué muestra el dato y qué no, la ficha de verificación y la línea de fuente. Te quedas en Lufy para comprobarlo.",
+            "parrafos": [],
+            "acciones": []
+          }
+        ]
+      },
+      {
+        "id": "leer",
+        "bloques": [
+          {
+            "tipo": "saber",
+            "titulo": "Cómo leer un hilo",
+            "items": [
+              "CONFIRMADO: lo documenta una fuente oficial.",
+              "ABIERTO: no hay datos suficientes. No inventamos el número.",
+              "INDICIO e HIPÓTESIS no cierran un caso: indican qué falta.",
+              "La línea de fuente dice institución, documento y fecha. Si hay copia archivada, abre ese archivo y su huella SHA-256."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hilos",
+        "bloques": [
+          {"tipo": "listaHilos"}
+        ]
+      },
+      {
+        "id": "proximos",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Próximos hilos, cuando el dato esté verificado: contratación pública, estados financieros, accionistas y sanciones. Hasta entonces, el único hilo publicado es el de la campaña 2025. Los conteos del archivo, a septiembre de 2026, están en Apoya a Lufy."
+            ]
+          },
+          {"tipo": "enlace", "titulo": "Apoya a Lufy", "destino": {"tipo": "apoyo"}}
+        ]
+      }
+    ]
+  },
+  "hilos": [
+    {
+      "id": "campana-2025",
+      "titulo": "¿Cuánto declararon las organizaciones políticas en la campaña 2025?",
+      "fecha": "25 de septiembre de 2026",
+      "fechaISO": "2026-09-25",
+      "tema": "Elecciones Generales 2025",
+      "resumen": "Ingresos y gastos que cada organización declaró para las Elecciones Generales 2025: binomio presidencial (1.ª y 2.ª vuelta), comparación con el presupuesto presentado y con el límite legal, y por qué no hay un total nacional.",
+      "entradilla": "Revisamos los reportes oficiales de financiamiento que cada organización política declaró al Consejo Nacional Electoral para las Elecciones Generales 2025. Son cifras declaradas. No dicen si son verdaderas, y no acusan a nadie.",
+      "ruta": "datos/financiamiento-campana-cne-2025.html",
+      "adjunto": {
+        "ruta": "datos/cne-elecciones-generales-2025.csv",
+        "titulo": "Descargar las cifras de esta página (CSV)"
+      },
+      "fuente": {
+        "institucion": "Consejo Nacional Electoral",
+        "documento": "Transparencia del Financiamiento Político, procesos 132 y 133",
+        "fecha": "consultado el 25 de septiembre de 2026"
+      },
+      "destacados": [
+        {
+          "valor": "$596.455,65",
+          "detalle": "Ingresos declarados, 1.ª vuelta, 12 organizaciones con reportes completos.",
+          "sello": "CONFIRMADO"
+        },
+        {
+          "valor": "$534.609,69",
+          "detalle": "Gasto declarado («TOTAL GASTOS», sin IVA), las mismas 12 organizaciones.",
+          "sello": "CONFIRMADO"
+        },
+        {
+          "valor": "Sin total nacional",
+          "detalle": "2.497 de 6.457 PDF son escaneos sin texto. No inventamos el resto.",
+          "sello": "ABIERTO"
+        }
+      ],
+      "secciones": [
+        {
+          "id": "resumen",
+          "titulo": "Lo que tienes que saber",
+          "bloques": [
+            {
+              "tipo": "saber",
+              "titulo": "Lo que tienes que saber",
+              "items": [
+                "En la 1.ª vuelta, 12 organizaciones con reportes completos declararon **$596.455,65** de ingresos y **$534.609,69** de gasto.",
+                "El mayor gasto declarado (Revolución Ciudadana - RETO, $216.608,60) es el **3,94 %** del límite legal de **$5.494.525,60** por binomio.",
+                "Esas cifras son lo que las organizaciones declararon. No incluyen la publicidad del Fondo de Promoción Electoral.",
+                "No hay un total nacional: **2.497 de 6.457 PDF (38,7 %)** son escaneos sin texto. No inventamos el resto."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lectura",
+          "titulo": "Cómo leer esta página",
+          "bloques": [
+            {
+              "tipo": "leyenda",
+              "items": [
+                {"sello": "CONFIRMADO", "texto": "La cifra está en los reportes que Lufy revisó. Sigue siendo una cifra declarada por la organización."},
+                {"sello": "ABIERTO", "texto": "No hay datos oficiales suficientes para cerrar el número. No lo inventamos."},
+                {"marca": "OCR", "texto": "El reporte era un escaneo. Se leyó con OCR y se contrastó contra la imagen."}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cifras",
+          "titulo": "Las cifras clave",
+          "bloques": [
+            {
+              "tipo": "cifras",
+              "cifras": [
+                {
+                  "valor": "$596.455,65",
+                  "detalle": "Ingresos declarados, Presidente y Vicepresidente, 1.ª vuelta. Suma de 12 organizaciones con reportes completos.",
+                  "sello": "CONFIRMADO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 132",
+                    "fecha": "consultado el 25 de septiembre de 2026"
+                  }
+                },
+                {
+                  "valor": "$534.609,69",
+                  "detalle": "Gasto declarado («TOTAL GASTOS», sin IVA), las mismas 12 organizaciones.",
+                  "sello": "CONFIRMADO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 132",
+                    "fecha": "consultado el 25 de septiembre de 2026"
+                  }
+                },
+                {
+                  "valor": "3,94 %",
+                  "detalle": "El mayor gasto declarado frente al límite legal de $5.494.525,60 por binomio.",
+                  "sello": "CONFIRMADO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "«CNE aprobó el límite del gasto electoral de los comicios 2025», 17 de agosto de 2024; reportes del proceso 132",
+                    "fecha": "consultado el 25 de septiembre de 2026"
+                  }
+                },
+                {
+                  "valor": "Sin total nacional",
+                  "detalle": "2.497 de 6.457 PDF (38,7 %) son escaneos sin texto. En 212 cuentas legibles, los ingresos suman $1.121.944,70: es un piso, no un total.",
+                  "sello": "ABIERTO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 132",
+                    "fecha": "consultado el 25 de septiembre de 2026"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "organizaciones",
+          "titulo": "Ingresos declarados, organización por organización",
+          "bloques": [
+            {
+              "tipo": "prosa",
+              "parrafos": [
+                "Suma de los 9 reportes quincenales de ingresos que cada organización declaró para Presidente y Vicepresidente, 1.ª vuelta."
+              ]
+            },
+            {
+              "tipo": "grafico",
+              "titulo": "Ingresos declarados, Presidente y Vicepresidente, 1.ª vuelta (USD)",
+              "nota": "Una sola escala. La barra más larga es el mayor ingreso declarado ($244.802,52). Si el monto es muy pequeño, la barra es un trazo corto y el número escrito es la cifra. La raya marca los totales leídos por OCR.",
+              "leyenda": [
+                {"estilo": "vino", "etiqueta": "Texto del PDF"},
+                {"estilo": "vinoRayado", "etiqueta": "OCR, verificado contra la imagen"}
+              ],
+              "barras": [
+                {"etiqueta": "Revolución Ciudadana - RETO", "texto": "$244.802,52", "numero": 244802.52, "estilo": "vino"},
+                {"etiqueta": "ADN", "texto": "$224.500,00", "numero": 224500, "estilo": "vinoRayado", "ocr": true},
+                {"etiqueta": "Centro Democrático", "texto": "$42.983,79", "numero": 42983.79, "estilo": "vino"},
+                {"etiqueta": "Construye", "texto": "$22.102,51", "numero": 22102.51, "estilo": "vino"},
+                {"etiqueta": "Pachakutik", "texto": "$20.800,15", "numero": 20800.15, "estilo": "vino"},
+                {"etiqueta": "Partido Social Cristiano", "texto": "$18.485,33", "numero": 18485.33, "estilo": "vino"},
+                {"etiqueta": "PID", "texto": "$9.307,77", "numero": 9307.77, "estilo": "vinoRayado", "ocr": true},
+                {"etiqueta": "Democracia Sí", "texto": "$7.507,17", "numero": 7507.17, "estilo": "vino"},
+                {"etiqueta": "Avanza", "texto": "$5.522,71", "numero": 5522.71, "estilo": "vino"},
+                {"etiqueta": "AMIGO", "texto": "$301,75", "numero": 301.75, "estilo": "vino"},
+                {"etiqueta": "Unidad Popular", "texto": "$141,95", "numero": 141.95, "estilo": "vino"},
+                {"etiqueta": "Sociedad Patriótica", "texto": "$0,00", "numero": 0, "estilo": "vino"}
+              ]
+            },
+            {
+              "tipo": "tabla",
+              "titulo": "Presidente y Vicepresidente, 1.ª vuelta (proceso 132). USD declarados.",
+              "columnas": ["Organización", "Ingresos", "Gasto («TOTAL GASTOS», sin IVA)", "Presupuesto presentado (gastos)"],
+              "filas": [
+                {"celdas": ["Revolución Ciudadana - RETO", "$244.802,52", "$216.608,60", "$99.980,00"]},
+                {"ocr": true, "celdas": ["ADN", "$224.500,00", "$195.926,94", "$224.500,00"]},
+                {"celdas": ["Centro Democrático", "$42.983,79", "$41.271,52", "$300.000,00"]},
+                {"celdas": ["Construye", "$22.102,51", "$22.000,00", "$200.000,00"]},
+                {"celdas": ["Pachakutik", "$20.800,15", "$20.299,90", "$50.000,00"]},
+                {"celdas": ["Partido Social Cristiano (PSC)", "$18.485,33", "$16.340,28", "$50.000,00"]},
+                {"ocr": true, "celdas": ["PID", "$9.307,77", "$9.195,62", "$260.000,00"]},
+                {"celdas": ["Democracia Sí", "$7.507,17", "$7.025,41", "$300.000,00"]},
+                {"celdas": ["Avanza", "$5.522,71", "$5.522,71", "$317.781,04"]},
+                {"celdas": ["AMIGO", "$301,75", "$301,41", "$990.000,00"]},
+                {"celdas": ["Unidad Popular", "$141,95", "$117,30", "$13.387,50"]},
+                {"celdas": ["Sociedad Patriótica", "$0,00", "$0,00", "$3.002.200,00"]}
+              ],
+              "nota": "ADN (los 9 reportes) y PID (quincena 1 y presupuesto): reportes escaneados, leídos por OCR y verificados contra la imagen."
+            },
+            {
+              "tipo": "lista",
+              "items": [
+                "**CREO:** excluido, porque sus reportes están escaneados y el índice del portal está incompleto (faltan quincenas), así que cualquier total sería parcial.",
+                "**PSE e Izquierda Democrática:** sin reportes quincenales en el índice (solo presupuesto). Por eso el ranking no es exhaustivo."
+              ]
+            },
+            {
+              "tipo": "fuente",
+              "fuente": {
+                "institucion": "Consejo Nacional Electoral",
+                "documento": "Transparencia del Financiamiento Político, proceso 132. Cifras declaradas por las organizaciones",
+                "fecha": "datos obtenidos el 25 de septiembre de 2026"
+              }
+            }
+          ]
+        },
+        {
+          "id": "limite",
+          "titulo": "Gasto declarado frente al presupuesto y al límite legal",
+          "bloques": [
+            {
+              "tipo": "prosa",
+              "parrafos": [
+                "El gasto declarado de las 12 organizaciones suma **$534.609,69**, frente a **$596.455,65** de ingresos.",
+                "El límite legal de gasto por binomio presidencial fue de **$5.494.525,60**. El mayor gasto declarado (Revolución Ciudadana - RETO, $216.608,60) equivale al **3,94 %** de ese límite."
+              ]
+            },
+            {
+              "tipo": "aviso",
+              "texto": "Según el CNE, el límite de gasto no cubre la publicidad en prensa, radio, televisión, vallas ni medios digitales. Esa publicidad se financia con el Fondo de Promoción Electoral, que administra el CNE. Por eso los montos declarados por las organizaciones no reflejan toda la propaganda de la campaña."
+            },
+            {
+              "tipo": "comparaciones",
+              "titulo": "Gasto declarado frente al presupuesto presentado, dentro de cada organización",
+              "nota": "Cada organización tiene su propia escala: la barra más larga de esa fila es el mayor entre su gasto y su presupuesto. Para comparar montos entre organizaciones, usa la tabla. Oro: presupuesto. Vino con raya: gasto.",
+              "leyenda": [
+                {"estilo": "oro", "etiqueta": "Presupuesto presentado"},
+                {"estilo": "vinoRayado", "etiqueta": "Gasto declarado"}
+              ],
+              "grupos": [
+                {"nombre": "Revolución Ciudadana - RETO", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$216.608,60", "numero": 216608.6, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$99.980,00", "numero": 99980, "estilo": "oro"}
+                ]},
+                {"nombre": "ADN", "ocr": true, "filas": [
+                  {"etiqueta": "Gasto", "texto": "$195.926,94", "numero": 195926.94, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$224.500,00", "numero": 224500, "estilo": "oro"}
+                ]},
+                {"nombre": "Centro Democrático", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$41.271,52", "numero": 41271.52, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$300.000,00", "numero": 300000, "estilo": "oro"}
+                ]},
+                {"nombre": "Construye", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$22.000,00", "numero": 22000, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$200.000,00", "numero": 200000, "estilo": "oro"}
+                ]},
+                {"nombre": "Pachakutik", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$20.299,90", "numero": 20299.9, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$50.000,00", "numero": 50000, "estilo": "oro"}
+                ]},
+                {"nombre": "Partido Social Cristiano", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$16.340,28", "numero": 16340.28, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$50.000,00", "numero": 50000, "estilo": "oro"}
+                ]},
+                {"nombre": "PID", "ocr": true, "filas": [
+                  {"etiqueta": "Gasto", "texto": "$9.195,62", "numero": 9195.62, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$260.000,00", "numero": 260000, "estilo": "oro"}
+                ]},
+                {"nombre": "Democracia Sí", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$7.025,41", "numero": 7025.41, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$300.000,00", "numero": 300000, "estilo": "oro"}
+                ]},
+                {"nombre": "Avanza", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$5.522,71", "numero": 5522.71, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$317.781,04", "numero": 317781.04, "estilo": "oro"}
+                ]},
+                {"nombre": "AMIGO", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$301,41", "numero": 301.41, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$990.000,00", "numero": 990000, "estilo": "oro"}
+                ]},
+                {"nombre": "Unidad Popular", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$117,30", "numero": 117.3, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$13.387,50", "numero": 13387.5, "estilo": "oro"}
+                ]},
+                {"nombre": "Sociedad Patriótica", "filas": [
+                  {"etiqueta": "Gasto", "texto": "$0,00", "numero": 0, "estilo": "vinoRayado"},
+                  {"etiqueta": "Presupuesto", "texto": "$3.002.200,00", "numero": 3002200, "estilo": "oro"}
+                ]}
+              ]
+            },
+            {
+              "tipo": "fuente",
+              "fuente": {
+                "institucion": "Consejo Nacional Electoral",
+                "documento": "Transparencia del Financiamiento Político, proceso 132, y boletín del límite de gasto del 17 de agosto de 2024. Cifras declaradas",
+                "fecha": "datos obtenidos el 25 de septiembre de 2026"
+              }
+            }
+          ]
+        },
+        {
+          "id": "segunda",
+          "titulo": "Segunda vuelta",
+          "bloques": [
+            {
+              "tipo": "cifras",
+              "cifras": [
+                {
+                  "valor": "$248.434,82",
+                  "detalle": "Ingresos que Revolución Ciudadana - RETO declaró en la 2.ª vuelta (proceso 133), en 2 reportes quincenales.",
+                  "sello": "CONFIRMADO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 133. Cifras declaradas",
+                    "fecha": "datos obtenidos el 25 de septiembre de 2026"
+                  }
+                },
+                {
+                  "valor": "$222.309,91",
+                  "detalle": "Gasto («TOTAL GASTOS», sin IVA) que Revolución Ciudadana - RETO declaró en la 2.ª vuelta, en 2 reportes quincenales.",
+                  "sello": "CONFIRMADO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 133. Cifras declaradas",
+                    "fecha": "datos obtenidos el 25 de septiembre de 2026"
+                  }
+                },
+                {
+                  "valor": "$116.563,11",
+                  "detalle": "Gasto que ADN declaró en la 2.ª vuelta, en 2 reportes leídos por OCR y verificados contra la imagen.",
+                  "sello": "CONFIRMADO",
+                  "ocr": true,
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 133. Cifras declaradas",
+                    "fecha": "datos obtenidos el 25 de septiembre de 2026"
+                  }
+                },
+                {
+                  "valor": "Ingresos de ADN, sin total",
+                  "detalle": "El índice no lista los reportes de ingresos de ADN en la 2.ª vuelta. No inventamos ese total.",
+                  "sello": "ABIERTO",
+                  "fuente": {
+                    "institucion": "Consejo Nacional Electoral",
+                    "documento": "Transparencia del Financiamiento Político, proceso 133",
+                    "fecha": "datos obtenidos el 25 de septiembre de 2026"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nacional",
+          "titulo": "Todas las dignidades: por qué no hay un total nacional",
+          "bloques": [
+            {
+              "tipo": "prosa",
+              "parrafos": [
+                "No es posible dar un total nacional confiable de la 1.ª vuelta: **2.497 de 6.457 PDF (38,7 %)** son escaneos sin texto.",
+                "En las **212 cuentas de campaña** que tienen todos sus reportes de ingresos con texto legible, los ingresos declarados suman **$1.121.944,70**. Es un piso, no un total. CONFIRMADO como piso de ese subconjunto."
+              ]
+            },
+            {
+              "tipo": "grafico",
+              "titulo": "Ingresos declarados por dignidad, solo cuentas con todos sus reportes legibles",
+              "nota": "Una sola escala. No es un total nacional. El par de cuentas (legibles de totales) va junto al nombre.",
+              "barras": [
+                {"etiqueta": "Asambleístas provinciales (111 de 229)", "texto": "$364.370", "numero": 364370, "estilo": "oro"},
+                {"etiqueta": "Presidente y Vicepresidente (10 de 13)", "texto": "$362.648", "numero": 362648, "estilo": "oroRayado"},
+                {"etiqueta": "Asambleístas nacionales (10 de 12)", "texto": "$200.502", "numero": 200502, "estilo": "oro"},
+                {"etiqueta": "Asambleístas por circunscripción (62 de 106)", "texto": "$182.466", "numero": 182466, "estilo": "oroRayado"},
+                {"etiqueta": "Asambleístas del exterior (15 de 16)", "texto": "$9.538", "numero": 9538, "estilo": "oro"},
+                {"etiqueta": "Parlamentarios andinos (4 de 7)", "texto": "$2.421", "numero": 2421, "estilo": "oroRayado"}
+              ]
+            },
+            {
+              "tipo": "fuente",
+              "fuente": {
+                "institucion": "Consejo Nacional Electoral",
+                "documento": "Transparencia del Financiamiento Político, proceso 132. Cifras declaradas",
+                "fecha": "datos obtenidos el 25 de septiembre de 2026"
+              }
+            }
+          ]
+        },
+        {
+          "id": "dice",
+          "titulo": "Qué dice y qué no dice este dato",
+          "bloques": [
+            {
+              "tipo": "columnas",
+              "izquierda": {
+                "titulo": "Esto sí muestra",
+                "items": [
+                  "Los ingresos y gastos que declararon las 12 organizaciones con reportes completos del binomio, en la 1.ª vuelta.",
+                  "Cómo se compara ese gasto con el presupuesto que la misma organización presentó y con el límite legal.",
+                  "Que no hay un total nacional confiable, y cuál es el piso de las cuentas con texto legible."
+                ]
+              },
+              "derecha": {
+                "titulo": "Esto no muestra",
+                "items": [
+                  "Si las cifras declaradas son verdaderas o falsas.",
+                  "La publicidad pagada con el Fondo de Promoción Electoral.",
+                  "Nombres de aportantes o de proveedores. Esos datos no se publican.",
+                  "Un ranking de todas las organizaciones: faltan CREO, PSE e Izquierda Democrática por las razones de arriba."
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "tiempo",
+          "titulo": "Línea de tiempo del dato",
+          "bloques": [
+            {
+              "tipo": "tiempo",
+              "eventos": [
+                {
+                  "fecha": "17 de agosto de 2024",
+                  "iso": "2024-08-17",
+                  "texto": "El CNE aprueba el límite de gasto electoral de los comicios 2025: $5.494.525,60 por binomio presidencial."
+                },
+                {
+                  "fecha": "30 de diciembre de 2024",
+                  "iso": "2024-12-30",
+                  "texto": "El CNE aprueba el Fondo de Promoción para las Elecciones Generales 2025. Esa publicidad queda fuera del límite y de estos reportes."
+                },
+                {
+                  "fecha": "25 de septiembre de 2026",
+                  "iso": "2026-09-25",
+                  "texto": "Lufy obtiene los reportes, comprueba una muestra de 20 cifras y vuelve a descargar los 251 reportes presidenciales. Eran idénticos, sin reportes nuevos ni retirados. Ese día se publica este hilo."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ficha",
+          "titulo": "Ficha técnica",
+          "bloques": [
+            {
+              "tipo": "ficha",
+              "pares": [
+                {"termino": "Corpus", "valor": "6.465 PDF"},
+                {"termino": "1.ª vuelta", "valor": "6.457 PDF · 406 cuentas · proceso 132"},
+                {"termino": "2.ª vuelta", "valor": "8 PDF · proceso 133"},
+                {"termino": "Muestra a mano", "valor": "20 de 20 cifras correctas"},
+                {"termino": "Revisión presidencial", "valor": "251 reportes, idénticos al volver a descargarlos"},
+                {"termino": "Escaneos presidenciales", "valor": "24 de ADN y PID, OCR contrastado con la imagen"},
+                {"termino": "Quedó fuera", "valor": "2.476 escaneos sin texto y 153 con OCR no confiable"},
+                {"termino": "Corte", "valor": "25 de septiembre de 2026"}
+              ]
+            },
+            {
+              "tipo": "lista",
+              "items": [
+                "**Sin doble conteo:** cada reporte quincenal cubre solo su quincena. El valor de cada reporte coincide con la columna de su quincena en la tabla resumen, y la suma de las 9 quincenas coincide al centavo con el resumen de la quincena 9 en las organizaciones presidenciales con texto.",
+                "**Gasto:** usamos el rótulo oficial del formulario, «TOTAL GASTOS», que es el valor sin IVA.",
+                "**Datos personales:** no revisamos ni publicamos el detalle de aportantes ni de proveedores. Solo usamos las filas de totales.",
+                "**Limitación:** el CNE puede cargar o actualizar reportes después de la fecha de corte."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "glosario",
+          "titulo": "Palabras clave",
+          "bloques": [
+            {
+              "tipo": "glosario",
+              "entradas": [
+                {"termino": "Binomio", "definicion": "La fórmula de Presidente y Vicepresidente."},
+                {"termino": "Quincena", "definicion": "Cada reporte cubre solo esos quince días, no todo lo acumulado."},
+                {"termino": "TOTAL GASTOS", "definicion": "El rótulo oficial del formulario. Es el gasto sin IVA."},
+                {"termino": "OCR", "definicion": "Lectura automática de un escaneo, revisada contra la imagen."},
+                {"termino": "Límite de gasto", "definicion": "Tope legal por binomio. No cubre cierta publicidad en medios."},
+                {"termino": "Abierto", "definicion": "No hay datos oficiales suficientes para un total. No inventamos la cifra."}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "documentos",
+          "titulo": "Documentos originales",
+          "bloques": [
+            {
+              "tipo": "documentos",
+              "intro": "Estas cifras salen de documentos oficiales. Cuando Lufy guarda una copia, aquí podrás abrirla y ver su huella SHA-256. Hoy la copia todavía no está en el archivo público, así que la línea de fuente se lee como texto.",
+              "items": [
+                {
+                  "institucion": "Consejo Nacional Electoral",
+                  "documento": "Transparencia del Financiamiento Político. Reportes de ingresos, gastos y presupuesto, procesos 132 y 133.",
+                  "fecha": "Consultado el 25 de septiembre de 2026."
+                },
+                {
+                  "institucion": "Consejo Nacional Electoral",
+                  "documento": "«CNE aprobó el límite del gasto electoral de los comicios 2025».",
+                  "fecha": "17 de agosto de 2024."
+                },
+                {
+                  "institucion": "Consejo Nacional Electoral",
+                  "documento": "«CNE aprobó el Fondo de Promoción para las Elecciones Generales 2025».",
+                  "fecha": "30 de diciembre de 2024."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cambios",
+          "titulo": "Cambios y correcciones",
+          "bloques": [
+            {
+              "tipo": "lista",
+              "items": [
+                "**25 de septiembre de 2026.** Primera publicación del hilo, con los reportes obtenidos y vueltos a comprobar ese día.",
+                "**26 de septiembre de 2026.** Se quitaron los enlaces a sitios oficiales. La línea de fuente queda en Lufy. La copia archivada se enlazará cuando esté alojada en Lufy, con su huella SHA-256. Las cifras no cambiaron."
+              ]
+            },
+            {
+              "tipo": "prosa",
+              "parrafos": [
+                "¿Encontraste un error? Escríbenos desde Ko-fi y lo corregimos en público."
+              ]
+            },
+            {"tipo": "enlace", "titulo": "Política de correcciones", "destino": {"tipo": "correcciones"}},
+            {"tipo": "botonKoFi", "titulo": "Escribir por Ko-fi", "cual": "apoyo"}
+          ]
+        }
+      ]
+    }
+  ],
+  "libro": {
+    "titulo": "El verdadero poder político",
+    "subtitulo": "Ecuador 1972–2023. La historia contada paso a paso.",
+    "autor": "Lufy",
+    "meta": "Primera edición pública, con datos al 23 de septiembre de 2026 · PDF de 165 páginas (formato 6×9) · 14 capítulos",
+    "fechaDatos": "2026-09-23",
+    "entradilla": "Medio siglo de historia del Ecuador: desde el primer barril de petróleo, en 1972, hasta el final del gobierno de Guillermo Lasso, en 2023. Un libro sobre cómo se han cruzado el poder económico y el poder político: decretos, bancos, crisis, contratos, cárceles y tribunales.",
+    "parrafos": [
+      "Paga lo que quieras: puedes descargarlo gratis o pagar lo que te parezca justo. Lo sugerido son 3 USD. Lo que pagues ayuda a seguir investigando. El texto completo no se publica aquí."
+    ],
+    "pagaLoQueQuieras": "Paga lo que quieras. Lo sugerido son 3 USD. La compra y la descarga se hacen en Ko-fi. Lufy no recibe ni guarda tus datos.",
+    "sugeridoUSD": 3,
+    "pasos": [
+      "Medio siglo, de 1972 a 2023, contado paso a paso.",
+      "Cada hecho lleva su fuente. No hay diálogos ni escenas inventadas.",
+      "No acusa: quien no tiene sentencia firme se presume inocente.",
+      "PDF de 165 páginas. Paga lo que quieras (sugerido: 3 USD) o lee la muestra gratis."
+    ],
+    "historia": [
+      "En 1971 el petróleo le dejó al Estado ecuatoriano unos 44 millones de sucres. En 1974, más de 3.300 millones. Un país no cambia a esa velocidad sin que alguien decida qué hacer con la diferencia. El libro empieza ahí y sigue una sola pregunta durante cincuenta años: ¿cómo aprendieron el poder económico y el poder político a sentarse a la misma mesa?",
+      "Unas veces la mesa fue un decreto. Otras, un banco que había que salvar, una deuda privada que pasó a ser pública, una ley financiera, un fallo judicial o una puerta de cárcel. El recorrido pasa por la deuda de los años setenta, la sucretización de 1983, las reformas financieras de los noventa, el feriado bancario de 1999, la dolarización del año 2000, la reorganización de la Corte Suprema en 2004–2005, la década de 2007 a 2017 y los gobiernos de 2017 a 2023, hasta la «muerte cruzada» de mayo de 2023.",
+      "No es una novela. Se lee como una, y es a propósito: una historia se entiende mejor cuando se la puede seguir. Pero no hay nada inventado: no hay diálogos imaginados, ni pensamientos atribuidos, ni escenas decoradas. Cada capítulo termina con «Cómo terminó» (el estado de cada proceso), «Lo que todavía no sabemos» y la lista de fuentes."
+    ],
+    "momentos": [
+      {"fecha": "1972", "iso": "1972", "texto": "Empieza el petróleo.", "ancla": "c1"},
+      {"fecha": "1983", "iso": "1983", "texto": "La sucretización.", "ancla": "c2"},
+      {"fecha": "1999", "iso": "1999", "texto": "El feriado bancario. Capítulo 8, completo en la muestra gratis.", "ancla": "c8"},
+      {"fecha": "2000", "iso": "2000", "texto": "La dolarización: 25.000 sucres por dólar.", "ancla": "c9"},
+      {"fecha": "2007–2017", "iso": "2007", "texto": "La década con más expedientes.", "ancla": "c12"},
+      {"fecha": "17 de mayo de 2023", "iso": "2023-05-17", "texto": "La muerte cruzada.", "ancla": "c14"}
+    ],
+    "antes": "El libro abre con «Antes de empezar», donde explica cómo leer lo que se afirma, lo que el libro no hace y cómo se hizo. Después vienen los 14 capítulos.",
+    "capitulos": [
+      {
+        "numero": 1,
+        "ancla": "c1",
+        "periodo": "1972–1979 · Gobiernos militares: Rodríguez Lara y el Consejo Supremo de Gobierno",
+        "titulo": "Los generales y el barril",
+        "resumen": "Empieza el petróleo. Los ingresos petroleros del Estado pasan de unos 44 millones de sucres en 1971 a más de 3.300 millones en 1974. Quién decidió qué hacer con esa riqueza, cómo el país se volvió rico y endeudado a la vez, y cómo la cuenta quedó a nombre de todos cuando se acabó la bonanza.",
+        "enMuestra": false
+      },
+      {
+        "numero": 2,
+        "ancla": "c2",
+        "periodo": "1979–1984 · Jaime Roldós y Osvaldo Hurtado",
+        "titulo": "El dólar que se volvió sucre",
+        "resumen": "El regreso a la democracia coincide con la crisis de la deuda. En 1983 llega la «sucretización»: el Banco Central asume deudas en dólares de empresas privadas y de otras entidades, incluidos clubes deportivos, y las convierte en deudas en sucres.",
+        "enMuestra": false
+      },
+      {
+        "numero": 3,
+        "ancla": "c3",
+        "periodo": "1984–1988 · León Febres-Cordero",
+        "titulo": "Cien sucres por dólar",
+        "resumen": "En octubre de 1984 la Junta Monetaria congela en 100 sucres por dólar el cambio para quienes tenían deuda sucretizada. Cuatro años después el dólar costaba 254. La diferencia la puso el Banco Central. El capítulo sigue ese mecanismo y otros episodios del período, con su desenlace.",
+        "enMuestra": false
+      },
+      {
+        "numero": 4,
+        "ancla": "c4",
+        "periodo": "1988–1992 · Rodrigo Borja",
+        "titulo": "La puerta que quedó abierta",
+        "resumen": "La Ley de Régimen Monetario y Banco del Estado de 1992 da autonomía al Banco Central y lo convierte en prestamista de última instancia de la banca privada. Parecía un tecnicismo; el libro explica por qué importa para lo que vino después.",
+        "enMuestra": false
+      },
+      {
+        "numero": 5,
+        "ancla": "c5",
+        "periodo": "1992–1996 · Sixto Durán Ballén y Alberto Dahik",
+        "titulo": "Las leyes de la apertura",
+        "resumen": "Las reformas de la década: la Ley de Mercado de Valores (1993), la Ley de Modernización del Estado (1993) y la Ley General de Instituciones del Sistema Financiero (1994), que cambió las reglas de la supervisión bancaria. También el juicio político al vicepresidente, su salida del país y cómo, años después, la justicia revisó el origen del proceso.",
+        "enMuestra": false
+      },
+      {
+        "numero": 6,
+        "ancla": "c6",
+        "periodo": "1996–1997 · Abdalá Bucaram",
+        "titulo": "Seis meses en Carondelet",
+        "resumen": "Un gobierno de seis meses que termina el 6 de febrero de 1997, cuando el Congreso declara al presidente «incapaz mental» para gobernar. El capítulo cuenta los procesos judiciales abiertos después y cómo terminó cada uno.",
+        "enMuestra": false
+      },
+      {
+        "numero": 7,
+        "ancla": "c7",
+        "periodo": "1997–1998 · Rosalía Arteaga y Fabián Alarcón",
+        "titulo": "La sucesión desplazada",
+        "resumen": "Dos personas para una misma silla: la vicepresidenta asume la presidencia por menos de dos días y el Congreso designa a un presidente interino. Una disputa constitucional sobre quién debía gobernar.",
+        "enMuestra": false
+      },
+      {
+        "numero": 8,
+        "ancla": "c8",
+        "periodo": "1998–2000 · Jamil Mahuad",
+        "titulo": "El feriado bancario",
+        "resumen": "El 8 de marzo de 1999 se anuncia un feriado bancario «de 24 horas» que dura cinco días. El 11 de marzo, el Decreto Ejecutivo 685 congela por un año los depósitos. Caen bancos, se pierde la confianza en el sucre y el país llega a la dolarización. Este capítulo completo está en la muestra gratis.",
+        "enMuestra": true
+      },
+      {
+        "numero": 9,
+        "ancla": "c9",
+        "periodo": "2000–2003 · Gustavo Noboa",
+        "titulo": "Veinticinco mil",
+        "resumen": "El 13 de marzo de 2000, el Registro Oficial fija el canje en 25.000 sucres por dólar: fin de la moneda nacional. Cómo se reordenó el sistema después del naufragio: la Agencia de Garantía de Depósitos, los bonos, las reformas legales y los juicios sobre la deuda.",
+        "enMuestra": false
+      },
+      {
+        "numero": 10,
+        "ancla": "c10",
+        "periodo": "2003–2005 · Lucio Gutiérrez",
+        "titulo": "Tres regresos y una caída",
+        "resumen": "En diciembre de 2004 se reorganiza la Corte Suprema. El 31 de marzo de 2005, su presidente deja sin efecto los juicios de tres exgobernantes. Veinte días después, tras las protestas de abril, el presidente que había hecho posible esa Corte deja el poder.",
+        "enMuestra": false
+      },
+      {
+        "numero": 11,
+        "ancla": "c11",
+        "periodo": "2005–2007 · Alfredo Palacio",
+        "titulo": "El interino y las cuentas pendientes",
+        "resumen": "En octubre de 2005 el Ecuador debía al exterior USD 10.390 millones, y pagar esa deuda se llevaba más del 40 % del presupuesto. La idea de auditar la deuda con participación ciudadana, que años después se convertiría en la comisión de auditoría de 2008.",
+        "enMuestra": false
+      },
+      {
+        "numero": 12,
+        "ancla": "c12",
+        "periodo": "2007–2017 · Rafael Correa",
+        "titulo": "Diez años de expedientes",
+        "resumen": "La década con más expedientes del libro: petróleo, contratación pública, obras hidroeléctricas, prensa, seguridad social, cárceles y la reconstrucción tras el terremoto de 2016. Para cada caso, el libro distingue sentencias firmes, procesos abiertos, absoluciones y prescripciones, con su estado a septiembre de 2026.",
+        "enMuestra": false
+      },
+      {
+        "numero": 13,
+        "ancla": "c13",
+        "periodo": "2017–2021 · Lenín Moreno",
+        "titulo": "Papeles que abren puertas",
+        "resumen": "La ruptura con el gobierno anterior, la disputa por el Consejo de Participación Ciudadana y Control Social, octubre de 2019, la pandemia y la contratación de emergencia, las cárceles y los grandes grupos económicos.",
+        "enMuestra": false
+      },
+      {
+        "numero": 14,
+        "ancla": "c14",
+        "periodo": "2021–2023 · Guillermo Lasso",
+        "titulo": "La muerte cruzada",
+        "resumen": "Los hábeas corpus investigados en el caso que la Fiscalía llamó Plaga, los organismos de control, el caso Encuentro, el juicio político y el Decreto 741 del 17 de mayo de 2023, que disolvió la Asamblea («muerte cruzada»). Termina con la campaña anticipada, marcada por el asesinato de un candidato presidencial el 9 de agosto de 2023.",
+        "enMuestra": false
+      }
+    ],
+    "comoEstaHecho": [
+      "Cada hecho lleva su fuente: sentencias, registros oficiales, estudios y prensa, en una lista al final de cada capítulo.",
+      "Distingue lo que se sabe de lo que no. Lo que documenta una institución se cuenta como hecho. Lo que publicó la prensa sin documento oficial se marca con «según…». Lo que sostiene una acusación sin sentencia se dice así, con esas palabras.",
+      "No condena a nadie. Toda persona sin sentencia firme es inocente, y así se la trata. Quien fue absuelto es inocente para la ley, y se dice con la misma claridad que una condena.",
+      "Nombra la zona gris sin juzgarla: los casos que terminaron por prescripción, nulidad, amnistía, asilo o fuga. Eso no es una sentencia; es que la justicia no llegó.",
+      "Protege a quien no es figura pública. Familiares, empleados, testigos y víctimas aparecen solo por su papel.",
+      "Revisión antes de publicar. El texto se revisó pasaje por pasaje y se quitó todo lo que no se podía respaldar con una fuente publicada."
+    ],
+    "avisoRedaccion": "El texto se redactó con ayuda de herramientas de inteligencia artificial a partir del archivo de investigación de Lufy, y se revisó antes de publicar.",
+    "paraQuien": [
+      "Para quien quiere entender de dónde vienen la deuda, la crisis bancaria o la dolarización, y no solo recordar las fechas.",
+      "Para estudiantes, docentes y periodistas que necesitan una cronología con fuentes para seguir investigando.",
+      "Para ecuatorianos dentro y fuera del país que quieren leer medio siglo de historia política en un solo lugar, sin consignas."
+    ],
+    "edicion": [
+      "Es la primera edición pública, con datos al 23 de septiembre de 2026. Cubre de 1972 a 2023. El gobierno que empezó en noviembre de 2023 queda fuera de esta edición: muchos de sus procesos siguen abiertos, y se contarán cuando haya decisiones judiciales. Los procesos judiciales cambian; lo que el libro dice de cada uno es su estado a esa fecha.",
+      "Los primeros gobiernos se cuentan con menos material que los últimos. Ese desequilibrio refleja lo que falta investigar, no lo que ocurrió."
+    ],
+    "muestra": {
+      "descripcion": "La muestra gratis trae la introducción y el capítulo 8 completo, sobre el feriado bancario de marzo de 1999 (18 páginas en PDF). El resto del libro no está en la app.",
+      "paginas": 18,
+      "incluye": [
+        "Introducción",
+        "Capítulo 8. El feriado bancario, completo"
+      ]
+    },
+    "textoCompletoIncluido": false,
+    "ruta": "libro.html"
+  },
+  "apoyo": {
+    "id": "apoyo",
+    "titulo": "Apoya a Lufy",
+    "secciones": [
+      {
+        "id": "apertura",
+        "bloques": [
+          {
+            "tipo": "hero",
+            "sobre": "Apoyo · archivo independiente",
+            "titulo": "Apoya a Lufy",
+            "entradilla": "Lufy es un archivo independiente de datos públicos del Ecuador. Tu apoyo sirve para seguir descargando documentos oficiales, verificarlos y publicarlos gratis, para que tú puedas comprobarlos sin tener que creernos.",
+            "parrafos": [],
+            "acciones": []
+          },
+          {"tipo": "botonKoFi", "titulo": "Aportar en Ko-fi", "cual": "apoyo"}
+        ]
+      },
+      {
+        "id": "cerebro",
+        "titulo": "Cerebro para Lufy",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "La meta es un NVIDIA DGX Spark: un computador de inteligencia artificial con 128 GB de memoria unificada. Con esa máquina, Lufy puede correr modelos locales mucho más grandes para escribir y para analizar los datos públicos del Ecuador. El Mac mini sigue recolectando los documentos oficiales.",
+              "Hoy Lufy corre en una máquina de 16 GB. Con eso se puede trabajar, pero no alcanza para un texto largo y bien razonado: el modelo se queda sin memoria y el argumento se corta."
+            ]
+          },
+          {"tipo": "metaCerebro"},
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Dólares de Estados Unidos: la coma separa los miles. Esta cifra no llega sola desde Ko-fi. La anotamos a mano, en un solo archivo del sitio."
+            ]
+          },
+          {"tipo": "botonKoFi", "titulo": "Aportar en Ko-fi", "cual": "apoyo"}
+        ]
+      },
+      {
+        "id": "porque",
+        "bloques": [
+          {
+            "tipo": "saber",
+            "titulo": "Por qué importa",
+            "items": [
+              "Los portales oficiales cambian o se caen. Una copia en Lufy sigue ahí para que puedas abrirla.",
+              "Verificar lleva tiempo: leer el documento, contrastar la cifra y decir con claridad qué se sabe.",
+              "Lo que confirmamos se publica gratis. Tu apoyo no compra un dato escondido.",
+              "Si nos equivocamos, lo corregimos en público. También puedes ayudarnos avisando el error."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "archivo",
+        "bloques": [
+          {"tipo": "archivoPublico", "titulo": "Qué sostiene tu apoyo, a septiembre de 2026"},
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Son conteos reales de la base de datos de Lufy. No son donantes, ni costos, ni una meta."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "uso",
+        "titulo": "En qué se usa tu apoyo",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "El día a día del archivo se reparte en estas cuatro tareas, sin un porcentaje de gasto. La única meta con cifra es Cerebro para Lufy."
+            ]
+          },
+          {
+            "tipo": "tarjetas",
+            "items": [
+              {"titulo": "Servidores y almacenamiento", "texto": "El archivo ocupa espacio y tiene que seguir disponible. Tu apoyo ayuda a pagar las máquinas donde vive."},
+              {"titulo": "Descarga y archivo de documentos oficiales", "texto": "Bajar los documentos, guardarlos y preparar la copia que después podrás abrir desde Lufy."},
+              {"titulo": "Verificación", "texto": "Leer el documento, cruzar la cifra y decidir el sello: CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS. Si no se puede verificar, no se inventa."},
+              {"titulo": "Publicar gratis para todos", "texto": "Maquetar la página, los gráficos y la línea de fuente, y dejarlos abiertos. Cualquiera puede leerlos sin pagar y sin registrarse."}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "como-apoyar",
+        "titulo": "Cómo puedes apoyar",
+        "bloques": [
+          {
+            "tipo": "tarjetas",
+            "items": [
+              {
+                "titulo": "Un aporte en Ko-fi",
+                "texto": "Un aporte único, del monto que tú elijas. El pago lo procesa Ko-fi (con PayPal). Esta app no ve ni guarda tu nombre ni tu correo.",
+                "destino": {"tipo": "koFi", "id": "apoyo"},
+                "tituloDestino": "Apoyar en Ko-fi"
+              },
+              {
+                "titulo": "Membresía en Ko-fi",
+                "texto": "Si quieres apoyar cada mes, la membresía está en la misma página de Ko-fi. El monto se elige allí. Lufy no publica una tarifa. Lo que se paga es constancia y, cuando existan, comodidades extra. El dato de interés público no se esconde detrás de la membresía.",
+                "destino": {"tipo": "koFi", "id": "apoyo"},
+                "tituloDestino": "Ver la membresía en Ko-fi"
+              },
+              {
+                "titulo": "La tienda: el libro",
+                "texto": "«El verdadero poder político. Ecuador 1972–2023», en PDF. Paga lo que quieras. Lo sugerido son 3 USD. La muestra gratis trae la introducción y el capítulo del feriado bancario de 1999. El texto completo del libro no está en la app: se descarga en Ko-fi.",
+                "destino": {"tipo": "libro"},
+                "tituloDestino": "Leer de qué trata, capítulo por capítulo"
+              },
+              {
+                "titulo": "Compartir",
+                "texto": "Compartir una página de Lufy llega a gente que todavía no nos conoce. El enlace de destino es Lufy, no un portal oficial."
+              },
+              {
+                "titulo": "Avisar un error",
+                "texto": "Si una cifra no coincide con el documento, o si una persona mencionada pide una corrección, escríbenos por Ko-fi. Revisamos contra la fuente. Si hay que corregir, lo hacemos en público y dejamos la nota con la fecha.",
+                "destino": {"tipo": "correcciones"},
+                "tituloDestino": "Política de correcciones"
+              }
+            ]
+          },
+          {"tipo": "botonKoFi", "titulo": "Escribir por Ko-fi", "cual": "apoyo"}
+        ]
+      },
+      {
+        "id": "principios",
+        "titulo": "Lo que no cambia, apoyes o no",
+        "bloques": [
+          {
+            "tipo": "leyenda",
+            "items": [
+              {"sello": "CONFIRMADO", "texto": "Lo documenta una fuente oficial."},
+              {"sello": "INDICIO", "texto": "Lo publicó una fuente seria, y todavía falta el documento oficial."},
+              {"sello": "ABIERTO", "texto": "No hay datos oficiales suficientes. No inventamos la cifra."},
+              {"sello": "HIPÓTESIS", "texto": "Sirve para saber dónde mirar. No sirve para concluir."}
+            ]
+          },
+          {
+            "tipo": "lista",
+            "items": [
+              "**El contenido principal sigue gratis.** Leer un hilo, ver una cifra y abrir su línea de fuente no requiere pago ni cuenta.",
+              "**Solo datos oficiales verificados.** Trabajamos con lo que dice un documento. Si falta el documento, la cifra no aparece como si existiera.",
+              "**No acusamos.** Cada hallazgo lleva un sello, para que sepas qué tan firme es.",
+              "**Cada cifra tiene una línea de fuente.** Dice la institución, el documento y la fecha. Cuando Lufy guarda una copia, esa línea abre el archivo alojado aquí y muestra su huella SHA-256. Si la copia todavía no está, la línea se lee como texto."
+            ]
+          },
+          {"tipo": "enlace", "titulo": "Aviso de privacidad", "destino": {"tipo": "privacidad"}}
+        ]
+      }
+    ]
+  },
+  "historia": {
+    "id": "historia",
+    "titulo": "Nuestra historia",
+    "secciones": [
+      {
+        "id": "apertura",
+        "bloques": [
+          {
+            "tipo": "hero",
+            "sobre": "El proyecto",
+            "titulo": "Nuestra historia",
+            "entradilla": "Lufy es un proyecto independiente que cuenta la historia del poder en el Ecuador con documentos, y publica datos oficiales que cualquiera puede comprobar.",
+            "parrafos": [],
+            "acciones": []
+          }
+        ]
+      },
+      {
+        "id": "empezo",
+        "titulo": "Cómo empezó",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Lufy empezó como un archivo de investigación: sentencias, decretos, registros oficiales, estudios y notas de prensa sobre cómo se han cruzado el poder económico y el poder político en el Ecuador desde 1972. Con los años el archivo creció tanto que hizo falta ordenarlo. Así nació una herramienta propia que guarda cada dato junto con su fuente y con su grado de certeza."
+            ]
+          },
+          {
+            "tipo": "leyenda",
+            "items": [
+              {"sello": "CONFIRMADO", "texto": "Lo documenta una institución."},
+              {"sello": "INDICIO", "texto": "Lo publicó una fuente seria, pero falta el documento oficial."},
+              {"sello": "ABIERTO", "texto": "No hay datos oficiales suficientes. No inventamos la cifra."},
+              {"sello": "HIPÓTESIS", "texto": "Sirve para saber dónde mirar, no para concluir."}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "libro",
+        "titulo": "Del archivo al libro",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "De ese archivo salió «El verdadero poder político. Ecuador 1972–2023»: 14 capítulos que se leen como una historia, pero sin nada inventado. Antes de publicarlo, el texto se revisó pasaje por pasaje; se quitó todo lo que no se podía respaldar con una fuente publicada y se reformuló lo que podía confundir un hecho con una acusación. Por prudencia, el período que empezó en noviembre de 2023 quedó fuera de esta edición hasta que sus procesos tengan decisiones judiciales."
+            ]
+          },
+          {"tipo": "enlace", "titulo": "Ver el libro", "destino": {"tipo": "libro"}}
+        ]
+      },
+      {
+        "id": "datos",
+        "titulo": "Del libro a los datos",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "El mismo método sirve para el presente. Ahora Lufy también publica hilos de datos a partir de documentos oficiales. El primero revisa los reportes de financiamiento de campaña que las organizaciones políticas declararon al CNE para las Elecciones Generales 2025."
+            ]
+          },
+          {"tipo": "enlace", "titulo": "Leer el hilo", "destino": {"tipo": "hilo", "id": "campana-2025"}}
+        ]
+      },
+      {
+        "id": "mision",
+        "titulo": "Nuestra misión",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Que cualquier persona pueda ver, con documentos oficiales, cómo se usan el poder público y el dinero público en el Ecuador, y que pueda comprobarlo por sí misma, sin tener que creernos."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reglas",
+        "titulo": "Nuestras reglas",
+        "bloques": [
+          {
+            "tipo": "lista",
+            "ordenada": true,
+            "items": [
+              "**Cifras con sello.** En los hilos de datos publicamos lo que un documento oficial permite afirmar. Si el documento no alcanza para un total, el hallazgo va como ABIERTO y no inventamos la cifra. Los sellos son CONFIRMADO, INDICIO, ABIERTO e HIPÓTESIS.",
+              "**Línea de fuente, dentro de Lufy.** Cada cifra lleva una línea discreta: institución, documento y fecha. Esa línea abre una copia archivada alojada por Lufy, con su huella SHA-256, cuando la copia ya está publicada. Si todavía no está, la línea se muestra como texto, sin enlace a un sitio oficial.",
+              "**Sin acusaciones.** No señalamos ni acusamos a personas, ni publicamos sospechas sobre personas con nombre. Toda persona sin sentencia firme se presume inocente (Constitución, art. 76).",
+              "**Sin datos personales.** Trabajamos con cifras agregadas (por organización, por dignidad, por provincia). No publicamos cédulas, direcciones, teléfonos ni datos de aportantes, proveedores o personas particulares (Ley Orgánica de Protección de Datos Personales).",
+              "**Las cifras son de quien las declara.** Cuando un dato es declarado por una organización (por ejemplo, un reporte de campaña), lo decimos así. No evaluamos si es verdadero o falso.",
+              "**Lo gratis sigue gratis.** Nunca escondemos un dato de interés público detrás de un pago. Lo que se paga es el libro y, si te sumas, la membresía en Ko-fi.",
+              "**Transparencia sobre el método.** Cada hilo explica cómo se obtuvieron y se contaron los datos, y qué quedó fuera. Cuando usamos inteligencia artificial para redactar o leer documentos, lo decimos."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fuentes",
+        "titulo": "Fuentes que usamos",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Cada hilo cita el documento con una línea discreta: institución, nombre y fecha. Si Lufy ya guardó una copia, esa línea abre el archivo alojado aquí y muestra su huella SHA-256. La página de Lufy es el destino."
+            ]
+          },
+          {
+            "tipo": "lista",
+            "items": [
+              "Consejo Nacional Electoral, Transparencia del Financiamiento Político: reportes de ingresos, gastos y presupuestos de campaña. Usado en el hilo de la campaña 2025.",
+              "Consejo Nacional Electoral: resoluciones, límites de gasto y Fondo de Promoción Electoral.",
+              "Registro Oficial: leyes y decretos.",
+              "Función Judicial y Fiscalía General del Estado: estado de procesos y sentencias (citados en el libro).",
+              "Contraloría General del Estado: auditorías e informes.",
+              "Compras públicas y Superintendencia de Compañías: próximos temas de datos.",
+              "Asamblea Nacional e INEC: votaciones, leyes y estadísticas oficiales."
+            ]
+          },
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "El libro, además, cita estudios y prensa. Esas fuentes están en la lista al final de cada capítulo, y el texto indica cuándo un dato depende solo de la prensa."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "correcciones",
+        "titulo": "Política de correcciones",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "Si encuentras un error, o si una persona mencionada en el libro quiere pedir una corrección, escríbenos desde Ko-fi. Revisamos cada pedido contra la fuente oficial. Si tenías razón:"
+            ]
+          },
+          {
+            "tipo": "lista",
+            "items": [
+              "corregimos la página y dejamos una nota visible con la fecha y lo que cambió (no borramos en silencio);",
+              "la corrección entra en la siguiente versión del libro;",
+              "la anotamos en el registro."
+            ]
+          },
+          {
+            "tipo": "tarjetas",
+            "items": [
+              {
+                "titulo": "Registro de correcciones",
+                "texto": "26 de septiembre de 2026. No es una corrección de cifras. Cambió la forma de citar: la línea de fuente (institución, documento y fecha) queda en la página de Lufy. Se retiraron los enlaces a sitios oficiales. La copia archivada se agregará aquí cuando esté en el archivo público, con su huella SHA-256. Antes de esa fecha no hay correcciones de cifras publicadas (última revisión de contenidos: 25 de septiembre de 2026)."
+              }
+            ]
+          },
+          {"tipo": "botonKoFi", "titulo": "Escribir por Ko-fi", "cual": "apoyo"}
+        ]
+      },
+      {
+        "id": "contacto",
+        "titulo": "Contacto",
+        "bloques": [
+          {
+            "tipo": "prosa",
+            "parrafos": [
+              "La forma de contactarnos es la página de Ko-fi de Lufy. Esta app no tiene formularios ni recoge datos."
+            ]
+          },
+          {"tipo": "botonKoFi", "titulo": "Abrir Ko-fi", "cual": "apoyo"},
+          {"tipo": "enlace", "titulo": "Apoya a Lufy", "destino": {"tipo": "apoyo"}}
+        ]
+      }
+    ]
+  },
+  "privacidad": {
+    "id": "privacidad",
+    "titulo": "Aviso de privacidad",
+    "secciones": [
+      {
+        "id": "apertura",
+        "bloques": [
+          {
+            "tipo": "hero",
+            "sobre": "Privacidad",
+            "titulo": "Aviso de privacidad",
+            "entradilla": "Última actualización: 26 de septiembre de 2026. La app, igual que la web, no tiene cuentas ni analítica.",
+            "parrafos": [],
+            "acciones": []
+          }
+        ]
+      },
+      {
+        "id": "reglas",
+        "bloques": [
+          {
+            "tipo": "lista",
+            "items": [
+              "**Sin rastreo.** La app no usa analítica, ni identificadores publicitarios, ni cuentas. No pide tu nombre ni tu correo.",
+              "**Contenido público.** Al abrirla, descarga el índice de Lufy (el mismo sitio estático) y lo guarda en el dispositivo para leer sin conexión. Si no hay red la primera vez, usa la copia incluida en la app.",
+              "**Alojamiento.** El índice vive en GitHub Pages. Como cualquier servidor, GitHub puede registrar datos técnicos de la conexión, como la dirección IP, por motivos de seguridad. Lufy no tiene acceso a esos registros.",
+              "**Ko-fi, solo si el enlace está activo.** Los botones de aporte, compra y muestra abren Ko-fi fuera de la app. Si pagas, Ko-fi y PayPal tratan tus datos según sus propias políticas. Lufy no guarda esos nombres ni correos. En una versión enviada a la tienda, esos botones pueden estar apagados.",
+              "**Datos de terceros.** Publicamos solo cifras agregadas de fuentes oficiales. No publicamos datos personales de particulares (Ley Orgánica de Protección de Datos Personales del Ecuador).",
+              "**El nombre es Lufy.** No publicamos nombre personal, cédula, teléfono ni correo personal de quien mantiene el archivo.",
+              "**Tus derechos.** Si crees que algún contenido incluye un dato personal tuyo, escríbenos por Ko-fi y lo revisamos."
+            ]
+          },
+          {"tipo": "botonKoFi", "titulo": "Escribir por Ko-fi", "cual": "apoyo"}
+        ]
+      }
+    ]
+  }
+}
