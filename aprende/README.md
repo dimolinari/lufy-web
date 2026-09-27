@@ -88,6 +88,22 @@ xcodebuild -scheme LufyAprendeVision -destination 'platform=visionOS Simulator,n
 
 En Xcode, elige el esquema **LufyAprendeVision** y el destino **Apple Vision Pro**. La ventana principal trae las lecciones. Desde un mapa, un gráfico o el hemiciclo puedes abrir un **volumen** con el modelo y, si quieres, entrar al **salón**: ahí la narración suena con la voz del dispositivo mientras caminas alrededor. El simulador deja mirar y desplazarte sin un visor físico.
 
+Para compilar los tres sistemas sin firmar (hace falta el SDK de visionOS, `xros`, para el tercero):
+
+```bash
+xcodebuild -scheme LufyAprende -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -scheme LufyAprendeMac -destination 'generic/platform=macOS' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -scheme LufyAprendeVision -destination 'generic/platform=visionOS' CODE_SIGNING_ALLOWED=NO build
+```
+
+Las pruebas de `AprendeCore` en Xcode:
+
+```bash
+xcodebuild test -scheme AprendeCore -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
+```
+
+Ese esquema no firma: el target de pruebas lleva `CODE_SIGNING_ALLOWED = NO`. En Linux, el mismo paquete se prueba con `swift test`.
+
 El identificador de paquete de partida es `com.lufy.aprende`. El de Mac es `com.lufy.aprende.mac` y el de visionOS es `com.lufy.aprende.vision`. El team de partida es `XXXXXXXXXX`. Son marcadores, y el team real no se escribe en el repositorio.
 
 Para firmar, edita `aprende/signing.local.xcconfig` (lo crea `./scripts/setup.sh` a partir de `signing.local.example.xcconfig`). Pon ahí el team de tu Apple ID. Si en un Personal Team gratuito `com.lufy.aprende` ya está ocupado, cambia en ese mismo archivo `LUFY_IOS_BUNDLE_ID`, `LUFY_MAC_BUNDLE_ID` y `LUFY_VISION_BUNDLE_ID`, y vuelve a compilar. No hace falta correr `setup.sh` otra vez: Xcode lee el archivo local al construir. No pongas el team ni un bundle id personal en `brand.json` ni en `project.yml`.

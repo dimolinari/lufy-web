@@ -138,8 +138,8 @@ final class OrbitCoordinator: NSObject {
         guard let name = hits.compactMap({ hit -> String? in
             var node: SCNNode? = hit.node
             while let current = node {
-                if !current.name.isEmpty, current.name != "modelo", current.name != "suelo" {
-                    return current.name
+                if let name = current.name, !name.isEmpty, name != "modelo", name != "suelo" {
+                    return name
                 }
                 node = current.parent
             }
@@ -182,16 +182,16 @@ enum StageMesh {
             box.firstMaterial = material(StageColors.bar(belowZero: bar.belowZero))
             let node = SCNNode(geometry: box)
             node.name = SpatialLink.barID(year: bar.year)
-            node.pivot = SCNMatrix4MakeTranslation(0, -Float(bar.height / 2), 0)
-            node.position = SCNVector3(Float(bar.x), 0, 0)
-            node.scale = SCNVector3(1, 0.02, 1)
+            node.pivot = SCNMatrix4MakeTranslation(0, -SCNFloat(bar.height / 2), 0)
+            node.position = SCNVector3(SCNFloat(bar.x), 0, 0)
+            node.scale = SCNVector3(1, SCNFloat(0.02), 1)
             let rise = SCNAction.customAction(duration: 0.7) { node, elapsed in
-                let fraction = Float(min(max(elapsed / 0.7, 0), 1))
-                node.scale = SCNVector3(1, max(fraction, 0.02), 1)
+                let fraction = SCNFloat(min(max(elapsed / 0.7, 0), 1))
+                node.scale = SCNVector3(1, max(fraction, SCNFloat(0.02)), 1)
             }
             node.runAction(rise)
             root.addChildNode(node)
-            tops.append(SCNVector3(Float(bar.x), Float(bar.height), 0))
+            tops.append(SCNVector3(SCNFloat(bar.x), SCNFloat(bar.height), 0))
         }
         guard series.showsLine, tops.count >= 2 else { return }
         for index in 0..<(tops.count - 1) {
@@ -205,7 +205,7 @@ enum StageMesh {
             box.firstMaterial = material(StageColors.vote(choice: seat.choice, recorded: seat.recorded))
             let node = SCNNode(geometry: box)
             node.name = seat.id
-            node.position = SCNVector3(Float(seat.x), Float(seat.size) * 0.35, Float(seat.z))
+            node.position = SCNVector3(SCNFloat(seat.x), SCNFloat(seat.size) * 0.35, SCNFloat(seat.z))
             root.addChildNode(node)
         }
     }

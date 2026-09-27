@@ -249,7 +249,7 @@ enum RealityModels {
     private static func tube(from: SIMD3<Float>, to: SIMD3<Float>) -> Entity {
         let delta = to - from
         let length = simd_length(delta)
-        let mesh = MeshResource.generateCylinder(height: length, radius: 0.0022)
+        let mesh = lineMesh(length: length)
         let entity = ModelEntity(mesh: mesh, materials: [lit(StageColors.line)])
         entity.name = "linea"
         entity.position = (from + to) / 2
@@ -257,6 +257,19 @@ enum RealityModels {
             entity.orientation = simd_quatf(from: SIMD3<Float>(0, 1, 0), to: delta / length)
         }
         return entity
+    }
+
+    /// `generateCylinder` es de iOS 18. En iOS 17 la línea es una caja fina con el mismo eje.
+    private static func lineMesh(length: Float) -> MeshResource {
+        let height = max(length, 0.001)
+        #if os(visionOS)
+        return MeshResource.generateCylinder(height: height, radius: 0.0022)
+        #else
+        if #available(iOS 18.0, *) {
+            return MeshResource.generateCylinder(height: height, radius: 0.0022)
+        }
+        return MeshResource.generateBox(width: 0.0044, height: height, depth: 0.0044, cornerRadius: 0)
+        #endif
     }
 
     private static func prepare(_ entity: ModelEntity) {

@@ -1,0 +1,32 @@
+name: Aprende
+
+on:
+  push:
+    paths:
+      - "aprende/**"
+      - ".github/workflows/aprende.yml"
+  pull_request:
+    paths:
+      - "aprende/**"
+      - ".github/workflows/aprende.yml"
+
+jobs:
+  xcode:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: aprende
+    steps:
+      - uses: actions/checkout@v4
+      - name: XcodeGen
+        run: brew install xcodegen
+      - name: Proyecto
+        run: ./scripts/setup.sh
+      - name: iOS
+        run: xcodebuild -scheme LufyAprende -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
+      - name: macOS
+        run: xcodebuild -scheme LufyAprendeMac -destination 'generic/platform=macOS' CODE_SIGNING_ALLOWED=NO build
+      - name: visionOS
+        run: xcodebuild -scheme LufyAprendeVision -destination 'generic/platform=visionOS' CODE_SIGNING_ALLOWED=NO build
+      - name: Pruebas
+        run: xcodebuild test -scheme AprendeCore -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO

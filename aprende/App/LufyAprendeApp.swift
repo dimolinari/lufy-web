@@ -1,3 +1,4 @@
+import AprendeCore
 import SwiftData
 import SwiftUI
 

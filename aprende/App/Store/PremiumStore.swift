@@ -1,6 +1,9 @@
 import Foundation
 import StoreKit
 import AprendeCore
+#if os(visionOS)
+import UIKit
+#endif
 
 /// Costura de StoreKit 2. En la versión 1 no hay productos: `refresh` no llama a la tienda
 /// y ningún curso publicado está detrás de un pago.
@@ -46,7 +49,7 @@ final class PremiumStore {
 
     func purchase(_ product: Product) async {
         do {
-            let result = try await product.purchase()
+            let result = try await buy(product)
             switch result {
             case .success(let verification):
                 if case .verified(let transaction) = verification {
@@ -63,6 +66,18 @@ final class PremiumStore {
         }
     }
 
+    private func buy(_ product: Product) async throws -> Product.PurchaseResult {
+        #if os(visionOS)
+        let scenes = UIApplication.shared.connectedScenes
+        guard let scene = scenes.first(where: { $0.activationState == .foregroundActive }) ?? scenes.first else {
+            throw PurchaseError.missingScene
+        }
+        return try await product.purchase(confirmIn: scene)
+        #else
+        return try await product.purchase()
+        #endif
+    }
+
     private func listenForUpdates() {
         guard updates == nil else { return }
         updates = Task { [weak self] in
@@ -76,3 +91,9 @@ final class PremiumStore {
         }
     }
 }
+
+#if os(visionOS)
+private enum PurchaseError: Error {
+    case missingScene
+}
+#endif
