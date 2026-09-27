@@ -3,11 +3,13 @@ import SwiftUI
 @main
 struct LufyApp: App {
     @State private var tienda = CatalogoTienda()
+    @State private var feed = FeedTienda()
 
     var body: some Scene {
         WindowGroup {
             RaizLufy()
                 .environment(tienda)
+                .environment(feed)
         }
         #if os(macOS)
         .defaultSize(width: 1080, height: 760)
@@ -18,6 +20,7 @@ struct LufyApp: App {
 enum Seccion: String, CaseIterable, Identifiable {
     case inicio
     case datos
+    case asamblea
     case libro
     case apoya
     case historia
@@ -29,6 +32,7 @@ enum Seccion: String, CaseIterable, Identifiable {
         switch self {
         case .inicio: "Inicio"
         case .datos: "Datos"
+        case .asamblea: "Asamblea"
         case .libro: "Libro"
         case .apoya: "Apoya"
         case .historia: "Historia"
@@ -40,6 +44,7 @@ enum Seccion: String, CaseIterable, Identifiable {
         switch self {
         case .inicio: "house"
         case .datos: "chart.bar"
+        case .asamblea: "building.columns"
         case .libro: "book.closed"
         case .apoya: "heart"
         case .historia: "clock"
@@ -50,6 +55,7 @@ enum Seccion: String, CaseIterable, Identifiable {
 
 struct RaizLufy: View {
     @Environment(CatalogoTienda.self) private var tienda
+    @Environment(FeedTienda.self) private var feed
 
     var body: some View {
         Group {
@@ -62,6 +68,10 @@ struct RaizLufy: View {
         .environment(\.locale, Locale(identifier: "es"))
         .tint(Color("Vino"))
         .task { await tienda.actualizar() }
+        .task {
+            guard let origen = tienda.catalogo?.origen else { return }
+            await feed.actualizarSiToca(origen: origen)
+        }
     }
 }
 
@@ -85,6 +95,8 @@ private struct RaizPestanas: View {
                 .tabItem { Label(Seccion.inicio.titulo, systemImage: Seccion.inicio.simbolo) }
             NavigationStack { PantallaDatos() }
                 .tabItem { Label(Seccion.datos.titulo, systemImage: Seccion.datos.simbolo) }
+            NavigationStack { PantallaAsamblea() }
+                .tabItem { Label(Seccion.asamblea.titulo, systemImage: Seccion.asamblea.simbolo) }
             NavigationStack { PantallaLibro() }
                 .tabItem { Label(Seccion.libro.titulo, systemImage: Seccion.libro.simbolo) }
             NavigationStack { PantallaApoyo() }
@@ -112,6 +124,7 @@ struct RaizDividida: View {
                 switch seccion ?? .inicio {
                 case .inicio: PantallaInicio()
                 case .datos: PantallaDatos()
+                case .asamblea: PantallaAsamblea()
                 case .libro: PantallaLibro()
                 case .apoya: PantallaApoyo()
                 case .historia: PantallaHistoria()

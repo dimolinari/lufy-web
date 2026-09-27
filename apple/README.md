@@ -103,6 +103,35 @@ Un `tipo` desconocido se omite. El resto del hilo se muestra. Subir `schema` sí
 
 Al cambiar una página o el CSV de campaña, actualiza `data/contenido.json` en el mismo cambio. `swift test` comprueba que las cifras de campaña del índice coinciden con `datos/cne-elecciones-generales-2025.csv`. No inventes una huella SHA-256: deja `archivo` en null hasta que el archivo esté en el repositorio.
 
+## Asamblea y feed diario
+
+La sección Asamblea lista perfiles públicos. El corte que viene en el repositorio es **dato de ejemplo**: los nombres son «Asambleísta Ejemplo 1» y «Asambleísta Ejemplo 2». La app muestra el aviso del feed en una franja. No son integrantes reales. Un voto no es un sello. Los hallazgos, si los hay, solo usan CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.
+
+Cada perfil tiene nombre, provincia, circunscripción, partido, bloque, comisiones, período, proyectos, votos con la línea de fuente de la sesión o el acta, y asistencia si el exporte la trae. La foto solo entra si la licencia es `dominio-publico`, `cc0` o `cc-by`; si no, se ven las iniciales. No hay cédula, domicilio, correo, familiares ni montos individuales de declaraciones patrimoniales: el generador rechaza esos campos, un número de 10 dígitos y un correo.
+
+**Solicitar corrección** abre un borrador con el `id` del perfil y `campo: nombre`. La dirección se arma en `App/Configuracion.swift` con un dominio de ejemplo. Cámbiala por el buzón de Lufy antes de publicar.
+
+El feed es genérico. Otra app puede publicar el mismo manifiesto con otro `id` y otros archivos. Lufy usa `id` `lufy` y estos archivos:
+
+| Archivo | Rol |
+| --- | --- |
+| `data/app/v1/manifest.json` | Lista de archivos, sha256, bytes y `updated_at` |
+| `data/app/v1/asamblea.json` | Perfiles |
+| `data/app/v1/hallazgos.json` | Hallazgos con sello |
+| `data/app/v1/votaciones/<id>.json` | Una votación por archivo |
+
+Al abrir, la app consulta el manifiesto si la última consulta fue hace 24 horas o más (o si todavía no consultó). Solo baja los archivos cuyo sha256 cambió. Si la huella no coincide, se queda con la copia anterior. La pantalla muestra `Actualizado: AAAA-MM-DD`. La primera vez sin red usa la copia incluida en la app.
+
+### Generar el feed
+
+El exporte diario se deja en `data/app/entrada/`. Sin red:
+
+```bash
+python3 data/app/generar_feed.py
+```
+
+Opciones: `--entrada` y `--salida`. El esquema de esa carpeta y del JSON publicado está en `data/app/README.md`.
+
 ## Privacidad
 
 No hay cuentas, analítica, anuncios ni SDKs de terceros. Solo frameworks de Apple. La app no recoge datos. Compartir usa la hoja del sistema y el destino es una página de Lufy.

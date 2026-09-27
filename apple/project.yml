@@ -34,6 +34,9 @@ targets:
           - contenido.json
           - meta.json
         buildPhase: resources
+      - path: ../data/app/v1
+        buildPhase: resources
+        type: folder
     dependencies:
       - package: LufyCore
         product: LufyCore

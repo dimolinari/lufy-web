@@ -1,0 +1,5 @@
+votacion_id,asambleista_id,voto
+vot-ejemplo-1,ejemplo-1,afavor
+vot-ejemplo-1,ejemplo-2,en_contra
+vot-ejemplo-2,ejemplo-1,abstencion
+vot-ejemplo-2,ejemplo-2,ausente

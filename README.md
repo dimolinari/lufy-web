@@ -24,6 +24,6 @@ La cifra recaudada vive solo en `data/meta.json`. Para actualizarla, cambia `rai
 
 ## App para iPhone, iPad y Mac
 
-La app nativa está en `apple/`. No cambia las páginas HTML. El índice compartido es `data/contenido.json`: GitHub Pages lo sirve y la app lo lee; el HTML no lo usa. La meta de recaudación sigue en `data/meta.json`. Cómo generar el proyecto y firmarlo: `apple/README.md`.
+La app nativa está en `apple/`. No cambia las páginas HTML. El índice compartido es `data/contenido.json`: GitHub Pages lo sirve y la app lo lee; el HTML no lo usa. La meta de recaudación sigue en `data/meta.json`. El feed diario de la app está en `data/app/v1/` (el corte del repositorio es dato de ejemplo). Cómo generar el proyecto y firmarlo: `apple/README.md`.
 
 © 2026 Lufy.

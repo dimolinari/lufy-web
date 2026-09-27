@@ -6,4 +6,19 @@ import Foundation
 /// de enlaces de compra externos pueden exigir apagarlo.
 enum Configuracion {
     static let mostrarEnlacesKoFi = true
+
+    /// Buzón del botón «Solicitar corrección». Las dos partes son un dominio
+    /// de ejemplo: cámbialas por el buzón de Lufy antes de publicar.
+    static var correoCorrecciones: String {
+        ["correcciones", "lufy.example"].joined(separator: "@")
+    }
+
+    static func urlCorreccion(perfil: String) -> URL? {
+        guard perfil.range(of: "^[a-z0-9-]{1,64}$", options: .regularExpression) != nil else { return nil }
+        let asunto = "Corrección de perfil \(perfil)"
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let cuerpo = "id: \(perfil)\ncampo: nombre\n"
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        return URL(string: "mailto:\(correoCorrecciones)?subject=\(asunto)&body=\(cuerpo)")
+    }
 }

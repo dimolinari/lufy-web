@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "lufy",
+  "updated_at": "2026-09-27T00:00:00Z",
+  "files": [
+    {
+      "path": "asamblea.json",
+      "sha256": "2168f89c66ae7ea53aa1f08aefc91a40ba21ba0403c959f631a518a39f38c49d",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 2898
+    },
+    {
+      "path": "hallazgos.json",
+      "sha256": "be3ef86f48f7e1cc4a8b59671040518990125e260298a23784fd3653a3f76451",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 1124
+    },
+    {
+      "path": "votaciones/vot-ejemplo-1.json",
+      "sha256": "40238d443c1a96410eed21e216641e1782b4ffb9ab26b4615ed859eaae7c8656",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 564
+    },
+    {
+      "path": "votaciones/vot-ejemplo-2.json",
+      "sha256": "28b8d3e6568de9cc75f1584f7dbc792fbf1bb286be0fe3d6c4864ed4017c2409",
+      "updated_at": "2026-09-27T00:00:00Z",
+      "bytes": 575
+    }
+  ]
+}
