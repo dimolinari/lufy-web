@@ -4,12 +4,16 @@ import SwiftUI
 struct LufyApp: App {
     @State private var tienda = CatalogoTienda()
     @State private var feed = FeedTienda()
+    @State private var pagos = TiendaPagos()
+    @State private var seguimientos = SeguimientosTienda()
 
     var body: some Scene {
         WindowGroup {
             RaizLufy()
                 .environment(tienda)
                 .environment(feed)
+                .environment(pagos)
+                .environment(seguimientos)
         }
         #if os(macOS)
         .defaultSize(width: 1080, height: 760)
@@ -25,6 +29,19 @@ enum Seccion: String, CaseIterable, Identifiable {
     case apoya
     case historia
     case privacidad
+    case pago
+    case avisos
+
+    static var menu: [Seccion] {
+        allCases.filter { item in
+            switch item {
+            case .pago, .avisos:
+                Configuracion.capaDePagoActiva
+            default:
+                true
+            }
+        }
+    }
 
     var id: String { rawValue }
 
@@ -37,6 +54,8 @@ enum Seccion: String, CaseIterable, Identifiable {
         case .apoya: "Apoya"
         case .historia: "Historia"
         case .privacidad: "Privacidad"
+        case .pago: "Acceso anticipado"
+        case .avisos: "Avisos"
         }
     }
 
@@ -49,6 +68,8 @@ enum Seccion: String, CaseIterable, Identifiable {
         case .apoya: "heart"
         case .historia: "clock"
         case .privacidad: "hand.raised"
+        case .pago: "creditcard"
+        case .avisos: "bell"
         }
     }
 }
@@ -56,6 +77,8 @@ enum Seccion: String, CaseIterable, Identifiable {
 struct RaizLufy: View {
     @Environment(CatalogoTienda.self) private var tienda
     @Environment(FeedTienda.self) private var feed
+    @Environment(TiendaPagos.self) private var pagos
+    @Environment(SeguimientosTienda.self) private var seguimientos
 
     var body: some View {
         Group {
@@ -71,6 +94,13 @@ struct RaizLufy: View {
         .task {
             guard let origen = tienda.catalogo?.origen else { return }
             await feed.actualizarSiToca(origen: origen)
+        }
+        .task(id: "\(feed.actualizado ?? "")|\(pagos.suscrito)") {
+            await pagos.preparar(dossiers: feed.dossiers)
+            seguimientos.registrar(
+                piezas: feed.piezas,
+                puedeAvisar: Configuracion.capaDePagoActiva && pagos.suscrito
+            )
         }
     }
 }
@@ -113,7 +143,7 @@ struct RaizDividida: View {
 
     var body: some View {
         NavigationSplitView {
-            List(Seccion.allCases, selection: $seccion) { item in
+            List(Seccion.menu, selection: $seccion) { item in
                 Label(item.titulo, systemImage: item.simbolo)
                     .tag(Optional(item))
             }
@@ -129,6 +159,8 @@ struct RaizDividida: View {
                 case .apoya: PantallaApoyo()
                 case .historia: PantallaHistoria()
                 case .privacidad: PantallaPrivacidad()
+                case .pago: PantallaPago()
+                case .avisos: PantallaAvisos()
                 }
             }
         }

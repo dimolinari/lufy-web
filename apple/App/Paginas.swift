@@ -14,6 +14,18 @@ struct PantallaMas: View {
             } label: {
                 Label(Seccion.privacidad.titulo, systemImage: Seccion.privacidad.simbolo)
             }
+            if Configuracion.capaDePagoActiva {
+                NavigationLink {
+                    PantallaPago()
+                } label: {
+                    Label(Seccion.pago.titulo, systemImage: Seccion.pago.simbolo)
+                }
+                NavigationLink {
+                    PantallaAvisos()
+                } label: {
+                    Label(Seccion.avisos.titulo, systemImage: Seccion.avisos.simbolo)
+                }
+            }
         }
         .navigationTitle("Más")
         .background(Color("Fondo"))
@@ -116,13 +128,13 @@ struct PantallaDatos: View {
                         .foregroundStyle(Color("Suave"))
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), alignment: .top)], spacing: 12) {
                         ForEach(catalogo.archivo.cifras) { cifra in
-                            CifraTarjeta(cifra: cifra, origen: catalogo.origen)
+                            CifraTarjeta(cifra: cifra, origen: catalogo.origen, ruta: catalogo.datos.rutaWeb)
                         }
                     }
                     if RecoleccionFuentes.todasFaltan(catalogo.archivo.cifras.map(\.fuente)) {
                         NotaSinCopia(texto: catalogo.notaSinCopia)
                     }
-                    GraficoVista(grafico: catalogo.archivo.grafico, origen: catalogo.origen)
+                    GraficoVista(grafico: catalogo.archivo.grafico, origen: catalogo.origen, ruta: catalogo.datos.rutaWeb)
                     Text(catalogo.archivo.nota)
                         .font(.footnote)
                         .foregroundStyle(Color("Suave"))
@@ -203,11 +215,11 @@ private struct HiloLectura: View {
                 }
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), alignment: .top)], spacing: 12) {
                     ForEach(hilo.cifras) { cifra in
-                        CifraTarjeta(cifra: cifra, origen: catalogo.origen)
+                        CifraTarjeta(cifra: cifra, origen: catalogo.origen, ruta: hilo.rutaWeb)
                     }
                 }
                 ForEach(Array(hilo.bloques.enumerated()), id: \.offset) { _, bloque in
-                    BloqueVista(bloque: bloque, origen: catalogo.origen)
+                    BloqueVista(bloque: bloque, origen: catalogo.origen, ruta: hilo.rutaWeb)
                 }
                 FuenteVista(fuente: hilo.fuenteTarjeta, origen: catalogo.origen)
                 if RecoleccionFuentes.todasFaltan(fuentes) {
@@ -367,7 +379,7 @@ struct PantallaApoyo: View {
                         .font(.system(.title2, design: .serif))
                         .accessibilityAddTraits(.isHeader)
                     Text(catalogo.archivo.introduccionApoyo)
-                    GraficoVista(grafico: catalogo.archivo.grafico, origen: catalogo.origen)
+                    GraficoVista(grafico: catalogo.archivo.grafico, origen: catalogo.origen, ruta: catalogo.datos.rutaWeb)
                     Text(catalogo.archivo.notaGraficoApoyo)
                         .font(.footnote)
                         .foregroundStyle(Color("Suave"))
@@ -566,6 +578,7 @@ private func compartir(_ catalogo: Catalogo, ruta: String, mensaje: String) -> s
 struct BloqueVista: View {
     let bloque: Bloque
     let origen: String
+    let ruta: String
 
     var body: some View {
         switch bloque {
@@ -603,7 +616,7 @@ struct BloqueVista: View {
             }
             .tarjeta()
         case .grafico(let grafico):
-            GraficoVista(grafico: grafico, origen: origen)
+            GraficoVista(grafico: grafico, origen: origen, ruta: ruta)
         case .tabla(let tabla):
             TablaVista(tabla: tabla, origen: origen)
         case .columnas(let columnas):
@@ -707,6 +720,7 @@ struct BloqueVista: View {
 struct GraficoVista: View {
     let grafico: Grafico
     let origen: String
+    let ruta: String
     @Environment(\.accessibilityReduceMotion) private var reducir
 
     var body: some View {
@@ -750,6 +764,7 @@ struct GraficoVista: View {
             if let fuente = grafico.fuente {
                 FuenteVista(fuente: fuente, origen: origen)
             }
+            BotonTarjeta(tarjeta: try? TarjetasLufy.grafico(grafico, origen: origen, ruta: ruta))
         }
         .tarjeta()
     }

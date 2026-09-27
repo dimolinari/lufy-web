@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "ejemplo": true,
+  "updated_at": "2026-09-27T00:00:00Z",
+  "dossiers": [
+    {
+      "id": "dos-ejemplo-1",
+      "titulo": "Dossier de ejemplo",
+      "texto": "Dato de ejemplo. El archivo se publica en Lufy cuando existe. Esta ficha no afirma un hecho.",
+      "tema": "ejemplo",
+      "producto": "com.lufy.app.dossier.ejemplo",
+      "early_access_until": null,
+      "archivo": null,
+      "fuente": {
+        "institucion": "Lufy",
+        "documento": "Ficha de ejemplo",
+        "fecha": "2026-09-27",
+        "linea": "Fuente: ficha de ejemplo, 27 de septiembre de 2026.",
+        "archivo": null
+      }
+    }
+  ]
+}

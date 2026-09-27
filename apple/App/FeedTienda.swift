@@ -10,6 +10,7 @@ final class FeedTienda {
     private(set) var asamblea: IndiceAsamblea?
     private(set) var votaciones: [Votacion] = []
     private(set) var hallazgos: [HallazgoPublico] = []
+    private(set) var dossiers: [DossierPublico] = []
     private(set) var actualizado: String?
     private(set) var consultando = false
 
@@ -98,6 +99,50 @@ final class FeedTienda {
         identificadores.compactMap { id in hallazgos.first { $0.id == id } }
     }
 
+    var piezas: [PiezaFeed] {
+        var lista: [PiezaFeed] = []
+        for hallazgo in hallazgos {
+            lista.append(
+                PiezaFeed(
+                    id: "hallazgo:\(hallazgo.id)",
+                    titulo: hallazgo.titulo,
+                    lineaFuente: hallazgo.fuente.linea,
+                    sello: hallazgo.sello,
+                    legisladores: hallazgo.asambleistas,
+                    institucion: hallazgo.fuente.institucion,
+                    tema: hallazgo.tema
+                )
+            )
+        }
+        for votacion in votaciones {
+            lista.append(
+                PiezaFeed(
+                    id: "votacion:\(votacion.id)",
+                    titulo: votacion.titulo,
+                    lineaFuente: votacion.fuente.linea,
+                    sello: nil,
+                    legisladores: votacion.votos.map(\.asambleistaId),
+                    institucion: votacion.fuente.institucion,
+                    tema: ""
+                )
+            )
+        }
+        for dossier in dossiers {
+            lista.append(
+                PiezaFeed(
+                    id: "dossier:\(dossier.id)",
+                    titulo: dossier.titulo,
+                    lineaFuente: dossier.fuente.linea,
+                    sello: nil,
+                    legisladores: [],
+                    institucion: dossier.fuente.institucion,
+                    tema: dossier.tema
+                )
+            )
+        }
+        return lista
+    }
+
     private func cargarLocal(origen: String) {
         if let carpeta = Self.carpetaV1(),
            let cargado = leer(carpeta: carpeta, origen: origen) {
@@ -120,7 +165,7 @@ final class FeedTienda {
         aplicar(conjunto, fecha: fecha)
     }
 
-    private func leer(carpeta: URL, origen: String) -> (conjunto: (IndiceAsamblea, IndiceHallazgos, [Votacion]), fecha: String)? {
+    private func leer(carpeta: URL, origen: String) -> (conjunto: PaqueteFeed, fecha: String)? {
         let url = carpeta.appendingPathComponent("manifest.json")
         guard let datos = try? Data(contentsOf: url),
               let manifiesto = try? JSONDecoder().decode(ManifiestoFeed.self, from: datos),
@@ -155,24 +200,26 @@ final class FeedTienda {
         return nil
     }
 
-    private func aplicar(_ conjunto: (IndiceAsamblea, IndiceHallazgos, [Votacion]), fecha: String) {
-        asamblea = conjunto.0
-        hallazgos = conjunto.1.hallazgos
-        votaciones = conjunto.2.sorted { $0.fecha > $1.fecha }
+    private func aplicar(_ conjunto: PaqueteFeed, fecha: String) {
+        asamblea = conjunto.asamblea
+        hallazgos = conjunto.hallazgos.hallazgos
+        votaciones = conjunto.votaciones.sorted { $0.fecha > $1.fecha }
+        dossiers = conjunto.dossiers?.dossiers ?? []
         actualizado = fecha
     }
 
-    private static func conjunto(archivos: [String: Data], origen: String) -> (IndiceAsamblea, IndiceHallazgos, [Votacion])? {
+    private static func conjunto(archivos: [String: Data], origen: String) -> PaqueteFeed? {
         guard let asamblea = archivos["asamblea.json"], let hallazgos = archivos["hallazgos.json"] else { return nil }
         let sesiones = archivos.keys.filter { $0.hasPrefix("votaciones/") && $0.hasSuffix(".json") }.sorted().compactMap { ruta -> (ruta: String, datos: Data)? in
             guard let datos = archivos[ruta] else { return nil }
             return (ruta, datos)
         }
-        return try? ConjuntoAsamblea.validar(
+        return try? ConjuntoAsamblea.paquete(
             asamblea: asamblea,
             hallazgos: hallazgos,
             votaciones: sesiones,
-            origen: origen
+            origen: origen,
+            dossiers: archivos["dossiers.json"]
         )
     }
 

@@ -29,6 +29,7 @@ targets:
       - path: App
         excludes:
           - Info.plist
+          - Lufy.storekit
       - path: ../data
         includes:
           - contenido.json
@@ -64,5 +65,6 @@ schemes:
         Lufy: all
     run:
       config: Debug
+      storeKitConfiguration: App/Lufy.storekit
     archive:
       config: Release

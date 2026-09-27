@@ -134,6 +134,7 @@ struct PantallaPerfil: View {
     let identificador: String
     @Environment(FeedTienda.self) private var feed
     @Environment(CatalogoTienda.self) private var tienda
+    @Environment(TiendaPagos.self) private var pagos
     @Environment(\.openURL) private var openURL
 
     var body: some View {
@@ -167,6 +168,7 @@ struct PantallaPerfil: View {
                             .foregroundStyle(Color("Suave"))
                     }
                 }
+                BotonSeguir(clase: .legislador, clave: persona.id, titulo: "Seguir este perfil")
                 if let actualizado = feed.actualizado {
                     Text("Actualizado: \(actualizado)")
                         .font(.subheadline)
@@ -215,17 +217,20 @@ struct PantallaPerfil: View {
                 } else {
                     ForEach(votos, id: \.votacion.id) { item in
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(item.votacion.titulo).font(.headline)
-                            Text(etiqueta(item.voto))
-                                .font(.subheadline.weight(.semibold))
-                            Text("\(item.votacion.sesion) · \(item.votacion.acta) · \(item.votacion.fecha)")
-                                .font(.subheadline)
-                                .foregroundStyle(Color("Suave"))
-                            FuenteVista(fuente: item.votacion.fuente, origen: tienda.catalogo?.origen ?? "")
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(item.votacion.titulo).font(.headline)
+                                Text(etiqueta(item.voto))
+                                    .font(.subheadline.weight(.semibold))
+                                Text("\(item.votacion.sesion) · \(item.votacion.acta) · \(item.votacion.fecha)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(Color("Suave"))
+                                FuenteVista(fuente: item.votacion.fuente, origen: tienda.catalogo?.origen ?? "")
+                            }
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("\(item.votacion.titulo). Voto: \(etiqueta(item.voto)). \(item.votacion.acta).")
+                            BotonTarjeta(tarjeta: tarjetaVoto(persona: persona, item: item))
                         }
                         .tarjeta()
-                        .accessibilityElement(children: .combine)
-                        .accessibilityLabel("\(item.votacion.titulo). Voto: \(etiqueta(item.voto)). \(item.votacion.acta).")
                     }
                 }
                 Text("Asistencia")
@@ -243,18 +248,35 @@ struct PantallaPerfil: View {
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)
                 let ligados = feed.hallazgos(de: persona.hallazgos)
-                if ligados.isEmpty {
+                let visibles = ligados.filter { hallazgo in
+                    AccesoTemprano.visible(
+                        hasta: hallazgo.earlyAccessUntil,
+                        ahora: Date(),
+                        capaDePagoActiva: Configuracion.capaDePagoActiva,
+                        suscrito: pagos.suscrito
+                    )
+                }
+                let ocultos = ligados.count - visibles.count
+                if visibles.isEmpty && ocultos == 0 {
                     Text("Lufy no publicó un hallazgo sobre este perfil.")
                         .foregroundStyle(Color("Suave"))
                 } else {
-                    ForEach(ligados) { hallazgo in
+                    ForEach(visibles) { hallazgo in
                         VStack(alignment: .leading, spacing: 8) {
                             PastillaSello(sello: hallazgo.sello)
                             Text(hallazgo.titulo).font(.headline)
                             Text(hallazgo.texto)
                             FuenteVista(fuente: hallazgo.fuente, origen: tienda.catalogo?.origen ?? "")
+                            BotonTarjeta(tarjeta: tarjetaHallazgo(hallazgo))
+                            BotonSeguir(clase: .institucion, clave: hallazgo.fuente.institucion, titulo: "Seguir esta institución")
+                            BotonSeguir(clase: .tema, clave: hallazgo.tema, titulo: "Seguir este tema")
                         }
                         .tarjeta()
+                    }
+                    if ocultos > 0 {
+                        Text("Hay hallazgos en acceso anticipado. El resto del perfil sigue abierto.")
+                            .font(.footnote)
+                            .foregroundStyle(Color("Suave"))
                     }
                 }
                 Button("Solicitar corrección") {
@@ -285,13 +307,26 @@ struct PantallaPerfil: View {
     }
 
     private func etiqueta(_ voto: SentidoVoto) -> String {
-        switch voto {
-        case .afavor: "A favor"
-        case .enContra: "En contra"
-        case .abstencion: "Abstención"
-        case .ausente: "Ausente"
-        case .blanco: "En blanco"
-        }
+        voto.etiqueta
+    }
+
+    private func tarjetaVoto(
+        persona: Asambleista,
+        item: (votacion: Votacion, voto: SentidoVoto)
+    ) -> TarjetaCompartible? {
+        guard let origen = tienda.catalogo?.origen, let ruta = tienda.catalogo?.datos.rutaWeb else { return nil }
+        return try? TarjetasLufy.voto(
+            nombre: persona.nombre,
+            votacion: item.votacion,
+            sentido: item.voto,
+            origen: origen,
+            ruta: ruta
+        )
+    }
+
+    private func tarjetaHallazgo(_ hallazgo: HallazgoPublico) -> TarjetaCompartible? {
+        guard let origen = tienda.catalogo?.origen, let ruta = tienda.catalogo?.datos.rutaWeb else { return nil }
+        return try? TarjetasLufy.hallazgo(hallazgo, origen: origen, ruta: ruta)
     }
 }
 

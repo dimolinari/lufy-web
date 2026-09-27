@@ -94,6 +94,17 @@ public enum SentidoVoto: String, Decodable, Sendable, Equatable, CaseIterable {
     case abstencion
     case ausente
     case blanco
+
+    /// Texto fijo del sentido registrado. No es un sello.
+    public var etiqueta: String {
+        switch self {
+        case .afavor: "A favor"
+        case .enContra: "En contra"
+        case .abstencion: "Abstención"
+        case .ausente: "Ausente"
+        case .blanco: "En blanco"
+        }
+    }
 }
 
 public struct VotoRegistro: Decodable, Sendable, Equatable, Identifiable {
@@ -126,8 +137,66 @@ public struct HallazgoPublico: Decodable, Sendable, Equatable, Identifiable {
     public let sello: Sello
     public let titulo: String
     public let texto: String
+    public let tema: String
     public let asambleistas: [String]
     public let fuente: Fuente
+    public let earlyAccessUntil: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case sello
+        case titulo
+        case texto
+        case tema
+        case asambleistas
+        case fuente
+        case earlyAccessUntil = "early_access_until"
+    }
+}
+
+public struct DossierPublico: Decodable, Sendable, Equatable, Identifiable {
+    public let id: String
+    public let titulo: String
+    public let texto: String
+    public let tema: String
+    public let producto: String
+    public let earlyAccessUntil: String?
+    public let archivo: CopiaArchivada?
+    public let fuente: Fuente
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case titulo
+        case texto
+        case tema
+        case producto
+        case archivo
+        case fuente
+        case earlyAccessUntil = "early_access_until"
+    }
+}
+
+public struct IndiceDossiers: Decodable, Sendable, Equatable {
+    public static let schemaActual = 1
+
+    public let schema: Int
+    public let ejemplo: Bool
+    public let updatedAt: String
+    public let dossiers: [DossierPublico]
+
+    private enum CodingKeys: String, CodingKey {
+        case schema
+        case ejemplo
+        case updatedAt = "updated_at"
+        case dossiers
+    }
+}
+
+public struct PaqueteFeed: Sendable, Equatable {
+    public let asamblea: IndiceAsamblea
+    public let hallazgos: IndiceHallazgos
+    public let votaciones: [Votacion]
+    public let dossiers: IndiceDossiers?
 }
 
 public struct IndiceHallazgos: Decodable, Sendable, Equatable {
@@ -164,6 +233,23 @@ public enum ConjuntoAsamblea {
         votaciones: [(ruta: String, datos: Data)],
         origen: String
     ) throws -> (IndiceAsamblea, IndiceHallazgos, [Votacion]) {
+        let paquete = try paquete(
+            asamblea: datosAsamblea,
+            hallazgos: datosHallazgos,
+            votaciones: votaciones,
+            origen: origen,
+            dossiers: nil
+        )
+        return (paquete.asamblea, paquete.hallazgos, paquete.votaciones)
+    }
+
+    public static func paquete(
+        asamblea datosAsamblea: Data,
+        hallazgos datosHallazgos: Data,
+        votaciones: [(ruta: String, datos: Data)],
+        origen: String,
+        dossiers datosDossiers: Data? = nil
+    ) throws -> PaqueteFeed {
         try RevisionJSON.auditar(datosAsamblea)
         try RevisionJSON.auditar(datosHallazgos)
         for item in votaciones {
@@ -172,17 +258,35 @@ public enum ConjuntoAsamblea {
             }
             try RevisionJSON.auditar(item.datos)
         }
+        if let datosDossiers {
+            try RevisionJSON.auditar(datosDossiers)
+        }
         try exigirForma(datosAsamblea, tipo: .asamblea)
         try exigirForma(datosHallazgos, tipo: .hallazgos)
         for item in votaciones {
             try exigirForma(item.datos, tipo: .votacion)
         }
+        if let datosDossiers {
+            try exigirForma(datosDossiers, tipo: .dossiers)
+        }
 
         let asamblea = try decodificar(IndiceAsamblea.self, datosAsamblea)
         let indiceHallazgos = try decodificar(IndiceHallazgos.self, datosHallazgos)
         let sesiones = try votaciones.map { try decodificar(Votacion.self, $0.datos) }
-        try semantica(asamblea: asamblea, hallazgos: indiceHallazgos, votaciones: sesiones, origen: origen)
-        return (asamblea, indiceHallazgos, sesiones)
+        let indiceDossiers = try datosDossiers.map { try decodificar(IndiceDossiers.self, $0) }
+        try semantica(
+            asamblea: asamblea,
+            hallazgos: indiceHallazgos,
+            votaciones: sesiones,
+            dossiers: indiceDossiers,
+            origen: origen
+        )
+        return PaqueteFeed(
+            asamblea: asamblea,
+            hallazgos: indiceHallazgos,
+            votaciones: sesiones,
+            dossiers: indiceDossiers
+        )
     }
 
     private static func decodificar<T: Decodable>(_ tipo: T.Type, _ datos: Data) throws -> T {
@@ -199,6 +303,7 @@ public enum ConjuntoAsamblea {
         asamblea: IndiceAsamblea,
         hallazgos: IndiceHallazgos,
         votaciones: [Votacion],
+        dossiers: IndiceDossiers?,
         origen: String
     ) throws {
         guard asamblea.schema == IndiceAsamblea.schemaActual else { throw ErrorLufy.schema(asamblea.schema) }
@@ -263,6 +368,10 @@ public enum ConjuntoAsamblea {
             guard !hallazgo.titulo.isEmpty, !hallazgo.texto.isEmpty, !hallazgo.asambleistas.isEmpty else {
                 throw ErrorLufy.contenidoIncompleto("hallazgo")
             }
+            guard hallazgo.tema.count <= 80 else { throw ErrorLufy.contenidoIncompleto("tema") }
+            if let hasta = hallazgo.earlyAccessUntil {
+                guard AccesoTemprano.instante(hasta) != nil else { throw ErrorLufy.fechaInvalida(hasta) }
+            }
             guard Set(hallazgo.asambleistas).count == hallazgo.asambleistas.count else {
                 throw ErrorLufy.contenidoIncompleto("hallazgo")
             }
@@ -299,6 +408,34 @@ public enum ConjuntoAsamblea {
                 }
             }
         }
+
+        if let dossiers {
+            guard dossiers.schema == IndiceDossiers.schemaActual else { throw ErrorLufy.schema(dossiers.schema) }
+            guard dossiers.ejemplo == asamblea.ejemplo else { throw ErrorLufy.contenidoIncompleto("ejemplo") }
+            guard RitmoFeed.marcaValida(dossiers.updatedAt) else { throw ErrorLufy.fechaInvalida(dossiers.updatedAt) }
+            var idsDossier = Set<String>()
+            for dossier in dossiers.dossiers {
+                guard idsDossier.insert(dossier.id).inserted, identificador(dossier.id) else {
+                    throw ErrorLufy.contenidoIncompleto("dossier")
+                }
+                guard !dossier.titulo.isEmpty, !dossier.texto.isEmpty else {
+                    throw ErrorLufy.contenidoIncompleto("dossier")
+                }
+                guard dossier.tema.count <= 80 else { throw ErrorLufy.contenidoIncompleto("tema") }
+                guard dossier.producto.range(of: "^[a-z0-9.]{3,80}$", options: .regularExpression) != nil else {
+                    throw ErrorLufy.contenidoIncompleto("producto")
+                }
+                if dossiers.ejemplo {
+                    let titulo = dossier.titulo.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: Locale(identifier: "es"))
+                    guard titulo.contains("ejemplo") else { throw ErrorLufy.contenidoIncompleto("dossier de ejemplo") }
+                }
+                if let hasta = dossier.earlyAccessUntil {
+                    guard AccesoTemprano.instante(hasta) != nil else { throw ErrorLufy.fechaInvalida(hasta) }
+                }
+                try dossier.archivo?.validar(origen: origen)
+                try dossier.fuente.validar(origen: origen)
+            }
+        }
     }
 
     private static func identificador(_ texto: String) -> Bool {
@@ -309,6 +446,7 @@ public enum ConjuntoAsamblea {
         case asamblea
         case hallazgos
         case votacion
+        case dossiers
     }
 
     private static func exigirForma(_ datos: Data, tipo: TipoForma) throws {
@@ -352,8 +490,27 @@ public enum ConjuntoAsamblea {
                 throw ErrorLufy.contenidoIncompleto("hallazgos")
             }
             for hallazgo in lista {
-                try claves(hallazgo, ["id", "sello", "titulo", "texto", "asambleistas", "fuente"], "hallazgo")
+                try claves(
+                    hallazgo,
+                    ["id", "sello", "titulo", "texto", "tema", "asambleistas", "fuente", "early_access_until"],
+                    "hallazgo"
+                )
+                try acceso(hallazgo["early_access_until"])
                 try fuente(hallazgo["fuente"])
+            }
+        case .dossiers:
+            try claves(mapa, ["schema", "ejemplo", "updated_at", "dossiers"], "dossiers")
+            guard let lista = mapa["dossiers"] as? [[String: Any]] else {
+                throw ErrorLufy.contenidoIncompleto("dossiers")
+            }
+            for dossier in lista {
+                try claves(
+                    dossier,
+                    ["id", "titulo", "texto", "tema", "producto", "early_access_until", "archivo", "fuente"],
+                    "dossier"
+                )
+                try acceso(dossier["early_access_until"])
+                try fuente(dossier["fuente"])
             }
         case .votacion:
             try claves(mapa, ["schema", "id", "fecha", "titulo", "sesion", "acta", "fuente", "votos"], "votacion")
@@ -364,6 +521,13 @@ public enum ConjuntoAsamblea {
             for voto in votos {
                 try claves(voto, ["asambleista_id", "voto"], "voto")
             }
+        }
+    }
+
+    private static func acceso(_ valor: Any?) throws {
+        if valor is NSNull { return }
+        guard let texto = valor as? String, AccesoTemprano.instante(texto) != nil else {
+            throw ErrorLufy.fechaInvalida("acceso")
         }
     }
 

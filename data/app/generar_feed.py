@@ -25,6 +25,7 @@ CORREO = re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.IGNORECASE)
 FECHA = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 MARCA = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 ID = re.compile(r"^[a-z0-9-]{1,64}$")
+PRODUCTO = re.compile(r"^[a-z0-9.]{3,80}$")
 SELLOS = {"CONFIRMADO", "INDICIO", "ABIERTO", "HIPÓTESIS"}
 VOTOS = {"afavor", "en_contra", "abstencion", "ausente", "blanco"}
 LICENCIAS = {"dominio-publico", "cc0", "cc-by"}
@@ -59,6 +60,41 @@ def fallar(mensaje: str) -> None:
 
 def marca_valida(texto: str) -> bool:
     return bool(FECHA.match(texto) or MARCA.match(texto))
+
+
+def acceso_de(valor, donde: str):
+    if valor is None:
+        return None
+    if not isinstance(valor, str) or not marca_valida(valor):
+        fallar(f"{donde}: early_access_until inválido")
+    return valor
+
+
+def sumar_dias(marca: str, dias: int) -> str:
+    from datetime import datetime, timedelta, timezone
+
+    if "T" in marca:
+        base = datetime.strptime(marca, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        return (base + timedelta(days=dias)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    base = datetime.strptime(marca, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    return (base + timedelta(days=dias)).strftime("%Y-%m-%d")
+
+
+def dias_meta(meta: dict) -> int | None:
+    if "dias_acceso_anticipado" not in meta:
+        return None
+    dias = meta["dias_acceso_anticipado"]
+    if not isinstance(dias, int) or isinstance(dias, bool) or dias < 0 or dias > 366:
+        fallar("dias_acceso_anticipado inválido")
+    return dias
+
+
+def tema_de(item: dict, donde: str) -> str:
+    tema = item.get("tema", "")
+    if not isinstance(tema, str) or len(tema) > 80:
+        fallar(f"{donde}: tema inválido")
+    revisar_texto(tema, donde)
+    return tema
 
 
 def revisar_texto(texto: str, donde: str) -> None:
@@ -184,7 +220,7 @@ def foto_de(fila: dict[str, str]) -> dict | None:
     return {"ruta": ruta, "licencia": licencia, "atribucion": atribucion}
 
 
-def construir(entrada: Path) -> tuple[dict, dict, list[dict]]:
+def construir(entrada: Path) -> tuple[dict, dict, list[dict], dict]:
     meta_ruta = entrada / "meta.json"
     if not meta_ruta.is_file():
         fallar("falta meta.json")
@@ -203,6 +239,7 @@ def construir(entrada: Path) -> tuple[dict, dict, list[dict]]:
     revisar_texto(meta["aviso"], "aviso")
     if not marca_valida(meta["updated_at"]):
         fallar("updated_at inválido")
+    dias_meta(meta)
     periodo = meta["periodo"]
     if not isinstance(periodo, dict):
         fallar("periodo inválido")
@@ -229,8 +266,9 @@ def construir(entrada: Path) -> tuple[dict, dict, list[dict]]:
     else:
         personas = desde_csv(entrada)
 
-    hallazgos = hallazgos_de(entrada)
+    hallazgos = hallazgos_de(entrada, meta)
     votaciones = votaciones_de(entrada, {p["id"] for p in personas})
+    dossiers = dossiers_de(entrada, meta)
     citados: dict[str, list[str]] = {p["id"]: [] for p in personas}
     for hallazgo in hallazgos["hallazgos"]:
         for pid in hallazgo["asambleistas"]:
@@ -264,7 +302,7 @@ def construir(entrada: Path) -> tuple[dict, dict, list[dict]]:
         "updated_at": meta["updated_at"],
         "hallazgos": hallazgos["hallazgos"],
     }
-    return asamblea, indice, votaciones
+    return asamblea, indice, votaciones, dossiers
 
 
 def desde_csv(entrada: Path) -> list[dict]:
@@ -340,7 +378,7 @@ def desde_csv(entrada: Path) -> list[dict]:
     return personas
 
 
-def hallazgos_de(entrada: Path) -> dict:
+def hallazgos_de(entrada: Path, meta: dict) -> dict:
     ruta = entrada / "hallazgos.json"
     if not ruta.is_file():
         fallar("falta hallazgos.json")
@@ -353,8 +391,11 @@ def hallazgos_de(entrada: Path) -> dict:
     for item in lista:
         if not isinstance(item, dict):
             fallar("hallazgo inválido")
+        permitidas = {"id", "sello", "titulo", "texto", "tema", "asambleistas", "fuente", "early_access_until"}
         for clave in item:
             revisar_clave(clave, "hallazgo")
+            if clave not in permitidas:
+                fallar("campo de hallazgo no permitido")
         for campo in ("id", "sello", "titulo", "texto", "asambleistas", "fuente"):
             if campo not in item:
                 fallar("hallazgo incompleto")
@@ -384,13 +425,20 @@ def hallazgos_de(entrada: Path) -> dict:
             fallar("fecha de fuente inválida")
         for campo in ("institucion", "documento", "linea"):
             revisar_texto(str(fuente[campo]), "hallazgo")
+        if "early_access_until" in item:
+            acceso = acceso_de(item["early_access_until"], "hallazgo")
+        else:
+            dias = dias_meta(meta)
+            acceso = sumar_dias(meta["updated_at"], dias) if dias else None
         limpios.append(
             {
                 "id": item["id"],
                 "sello": item["sello"],
                 "titulo": item["titulo"],
                 "texto": item["texto"],
+                "tema": tema_de(item, "hallazgo"),
                 "asambleistas": list(item["asambleistas"]),
+                "early_access_until": acceso,
                 "fuente": {
                     "institucion": fuente["institucion"],
                     "documento": fuente["documento"],
@@ -401,6 +449,81 @@ def hallazgos_de(entrada: Path) -> dict:
             }
         )
     return {"hallazgos": limpios}
+
+
+def dossier_de(item, meta: dict) -> dict:
+    if not isinstance(item, dict):
+        fallar("dossier inválido")
+    permitidas = {"id", "titulo", "texto", "tema", "producto", "early_access_until", "archivo", "fuente"}
+    for clave in item:
+        revisar_clave(clave, "dossier")
+        if clave not in permitidas:
+            fallar("campo de dossier no permitido")
+    for campo in ("id", "titulo", "texto", "producto", "fuente"):
+        if campo not in item:
+            fallar("dossier incompleto")
+    if not ID.match(str(item["id"])):
+        fallar("id de dossier inválido")
+    if not PRODUCTO.match(str(item["producto"])):
+        fallar("producto de dossier inválido")
+    revisar_texto(str(item["titulo"]), "dossier")
+    revisar_texto(str(item["texto"]), "dossier")
+    if meta["ejemplo"] and "ejemplo" not in str(item["titulo"]).casefold():
+        fallar("en un feed de ejemplo el dossier tiene que decir Ejemplo")
+    fuente = item["fuente"]
+    if not isinstance(fuente, dict):
+        fallar("fuente de dossier inválida")
+    for campo in ("institucion", "documento", "fecha", "linea", "archivo"):
+        if campo not in fuente:
+            fallar("fuente de dossier incompleta")
+    if not FECHA.match(str(fuente["fecha"])):
+        fallar("fecha de fuente inválida")
+    for campo in ("institucion", "documento", "linea"):
+        revisar_texto(str(fuente[campo]), "dossier")
+    if "early_access_until" in item:
+        acceso = acceso_de(item["early_access_until"], "dossier")
+    else:
+        dias = dias_meta(meta)
+        acceso = sumar_dias(meta["updated_at"], dias) if dias else None
+    return {
+        "id": item["id"],
+        "titulo": item["titulo"],
+        "texto": item["texto"],
+        "tema": tema_de(item, "dossier"),
+        "producto": item["producto"],
+        "early_access_until": acceso,
+        "archivo": archivo_de(item.get("archivo"), "dossier"),
+        "fuente": {
+            "institucion": fuente["institucion"],
+            "documento": fuente["documento"],
+            "fecha": fuente["fecha"],
+            "linea": fuente["linea"],
+            "archivo": archivo_de(fuente["archivo"], "dossier"),
+        },
+    }
+
+
+def dossiers_de(entrada: Path, meta: dict) -> dict:
+    ruta = entrada / "dossiers.json"
+    lista = []
+    if ruta.is_file():
+        datos = leer_json(ruta)
+        cruda = datos.get("dossiers") if isinstance(datos, dict) else None
+        if not isinstance(cruda, list):
+            fallar("dossiers.json: falta la lista")
+        vistos = set()
+        for item in cruda:
+            limpio = dossier_de(item, meta)
+            if limpio["id"] in vistos:
+                fallar("dossier repetido")
+            vistos.add(limpio["id"])
+            lista.append(limpio)
+    return {
+        "schema": 1,
+        "ejemplo": meta["ejemplo"],
+        "updated_at": meta["updated_at"],
+        "dossiers": lista,
+    }
 
 
 def votaciones_de(entrada: Path, ids: set[str]) -> list[dict]:
@@ -451,7 +574,14 @@ def volcar(obj) -> bytes:
     return (json.dumps(obj, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
 
 
-def escribir(salida: Path, asamblea: dict, hallazgos: dict, votaciones: list[dict], marca: str) -> None:
+def escribir(
+    salida: Path,
+    asamblea: dict,
+    hallazgos: dict,
+    votaciones: list[dict],
+    dossiers: dict,
+    marca: str,
+) -> None:
     if salida.exists():
         for ruta in salida.rglob("*"):
             if ruta.is_file():
@@ -461,6 +591,7 @@ def escribir(salida: Path, asamblea: dict, hallazgos: dict, votaciones: list[dic
     archivos: list[tuple[str, bytes]] = [
         ("asamblea.json", volcar(asamblea)),
         ("hallazgos.json", volcar(hallazgos)),
+        ("dossiers.json", volcar(dossiers)),
     ]
     for votacion in votaciones:
         archivos.append((f"votaciones/{votacion['id']}.json", volcar(votacion)))
@@ -492,11 +623,12 @@ def main() -> None:
     parser.add_argument("--entrada", type=Path, default=raiz / "data" / "app" / "entrada")
     parser.add_argument("--salida", type=Path, default=raiz / "data" / "app" / "v1")
     args = parser.parse_args()
-    asamblea, hallazgos, votaciones = construir(args.entrada)
+    asamblea, hallazgos, votaciones, dossiers = construir(args.entrada)
     revisar_arbol(asamblea)
     revisar_arbol(hallazgos)
     revisar_arbol(votaciones)
-    escribir(args.salida, asamblea, hallazgos, votaciones, asamblea["updated_at"])
+    revisar_arbol(dossiers)
+    escribir(args.salida, asamblea, hallazgos, votaciones, dossiers, asamblea["updated_at"])
     print(f"Feed escrito en {args.salida} ({len(votaciones)} votaciones)")
 
 

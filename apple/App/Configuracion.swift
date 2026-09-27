@@ -1,4 +1,5 @@
 import Foundation
+import LufyCore
 
 /// Interruptor único de los enlaces de aporte y de compra.
 /// Las compilaciones locales lo dejan encendido. Antes de un envío a la
@@ -6,6 +7,14 @@ import Foundation
 /// de enlaces de compra externos pueden exigir apagarlo.
 enum Configuracion {
     static let mostrarEnlacesKoFi = true
+
+    /// Capa de pago. Apagada: nada se esconde y no hay compras ni avisos.
+    /// El contenido de base sigue gratis con el interruptor en cualquiera de los dos lados.
+    static let capaDePagoActiva = false
+
+    /// Convención del publicador (N días) al escribir `early_access_until`.
+    /// La app no suma estos días: obedece la fecha del feed.
+    static let diasAccesoAnticipado = AccesoTemprano.diasPorDefecto
 
     /// Buzón del botón «Solicitar corrección». Las dos partes son un dominio
     /// de ejemplo: cámbialas por el buzón de Lufy antes de publicar.

@@ -8,9 +8,11 @@
       "sello": "ABIERTO",
       "titulo": "Dato de ejemplo, todavía abierto",
       "texto": "Dato de ejemplo. Muestra el sello ABIERTO. No afirma un hecho sobre una persona.",
+      "tema": "ejemplo",
       "asambleistas": [
         "ejemplo-1"
       ],
+      "early_access_until": null,
       "fuente": {
         "institucion": "Lufy",
         "documento": "Nota de ejemplo 1",
@@ -24,9 +26,11 @@
       "sello": "HIPÓTESIS",
       "titulo": "Dato de ejemplo, solo una hipótesis",
       "texto": "Dato de ejemplo. Muestra el sello HIPÓTESIS. Sirve para saber dónde mirar. No sirve para concluir.",
+      "tema": "ejemplo",
       "asambleistas": [
         "ejemplo-2"
       ],
+      "early_access_until": null,
       "fuente": {
         "institucion": "Lufy",
         "documento": "Nota de ejemplo 2",

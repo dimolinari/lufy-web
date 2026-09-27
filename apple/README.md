@@ -103,6 +103,36 @@ Un `tipo` desconocido se omite. El resto del hilo se muestra. Subir `schema` sí
 
 Al cambiar una página o el CSV de campaña, actualiza `data/contenido.json` en el mismo cambio. `swift test` comprueba que las cifras de campaña del índice coinciden con `datos/cne-elecciones-generales-2025.csv`. No inventes una huella SHA-256: deja `archivo` en null hasta que el archivo esté en el repositorio.
 
+## Tarjetas para compartir
+
+Un hallazgo, una cifra, un gráfico o un voto registrado se puede exportar como imagen desde el botón Tarjeta. La hoja de compartir del sistema recibe un PNG de 1080×1920 (historias de X e Instagram). La tarjeta lleva el nombre Lufy, la línea de fuente tal cual está publicada, el enlace a una página de Lufy y un código QR de ese enlace.
+
+Si el ítem tiene sello, la tarjeta muestra exactamente CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS. Un voto y un gráfico no tienen sello: la tarjeta no inventa uno. El texto es el título, el detalle o el sentido registrado (A favor, En contra, Abstención, Ausente, En blanco). La app no redacta una acusación para la tarjeta. Si el texto publicado no pasa la revisión de palabras, el botón no aparece.
+
+Los perfiles de la Asamblea todavía no tienen página propia. Su QR apunta a la página de Datos de Lufy, que sí existe.
+
+## Capa de pago (apagada)
+
+`App/Configuracion.swift` tiene otro interruptor, además del de Ko-fi:
+
+```swift
+static let capaDePagoActiva = false
+```
+
+En `false` (el valor de esta versión) la app no esconde nada, no ofrece compras y no pide permiso de avisos. El contenido de base sigue gratis en los dos lados del interruptor.
+
+En `true`, StoreKit 2 ofrece:
+
+- Una suscripción auto-renovable, `com.lufy.app.suscripcion.mensual` (periodo P1M). Quien está suscrito ve los hallazgos con `early_access_until` en el futuro. Quien no, los ve cuando llega esa fecha. Sin fecha, el hallazgo sigue visible. Una fecha ilegible se esconde para quien no está suscrito.
+- Avisos, dentro de la app y como notificación local, cuando un perfil, una institución o un tema que la persona sigue recibe un ítem nuevo. El aviso copia el título publicado y, si lo hay, el sello. Un voto no lleva sello. La primera copia del feed no avisa. El permiso se pide solo desde Avisos, con el interruptor encendido y la suscripción activa. No hay push remoto ni entitlement de notificaciones.
+- Dossiers descargables. Cada uno es un producto no consumible (`producto` en el feed; el de ejemplo es `com.lufy.app.dossier.ejemplo`). Se baja si hay suscripción o si ese producto ya se compró, y solo cuando `archivo` trae una copia en Lufy. El ejemplo deja `archivo` en null.
+
+Los identificadores son de relleno. Cámbialos en App Store Connect y en `App/TiendaPagos.swift` antes de vender. Hace falta una cuenta de pago del Apple Developer Program: el Apple ID gratuito no vende suscripciones. El esquema de Xcode usa `App/Lufy.storekit` para probar en local, sin tienda real. No enciendas sandbox ni push para este paso.
+
+`early_access_until` es la fecha que obedece la app (día `AAAA-MM-DD` al inicio de ese día UTC, o `AAAA-MM-DDTHH:MM:SSZ`). `diasAccesoAnticipado` (7) y `dias_acceso_anticipado` en `meta.json` son la convención del publicador para calcular esa fecha al generar el feed. Si el hallazgo ya trae la clave, incluso en null, el generador no la pisa.
+
+Los seguimientos y la lista de avisos viven en Application Support (`Lufy/seguimientos/`), no en `UserDefaults`.
+
 ## Asamblea y feed diario
 
 La sección Asamblea lista perfiles públicos. El corte que viene en el repositorio es **dato de ejemplo**: los nombres son «Asambleísta Ejemplo 1» y «Asambleísta Ejemplo 2». La app muestra el aviso del feed en una franja. No son integrantes reales. Un voto no es un sello. Los hallazgos, si los hay, solo usan CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.
@@ -117,7 +147,8 @@ El feed es genérico. Otra app puede publicar el mismo manifiesto con otro `id` 
 | --- | --- |
 | `data/app/v1/manifest.json` | Lista de archivos, sha256, bytes y `updated_at` |
 | `data/app/v1/asamblea.json` | Perfiles |
-| `data/app/v1/hallazgos.json` | Hallazgos con sello |
+| `data/app/v1/hallazgos.json` | Hallazgos con sello, tema y `early_access_until` |
+| `data/app/v1/dossiers.json` | Fichas de dossier. El archivo sigue en null hasta que Lufy lo publique |
 | `data/app/v1/votaciones/<id>.json` | Una votación por archivo |
 
 Al abrir, la app consulta el manifiesto si la última consulta fue hace 24 horas o más (o si todavía no consultó). Solo baja los archivos cuyo sha256 cambió. Si la huella no coincide, se queda con la copia anterior. La pantalla muestra `Actualizado: AAAA-MM-DD`. La primera vez sin red usa la copia incluida en la app.
@@ -134,4 +165,4 @@ Opciones: `--entrada` y `--salida`. El esquema de esa carpeta y del JSON publica
 
 ## Privacidad
 
-No hay cuentas, analítica, anuncios ni SDKs de terceros. Solo frameworks de Apple. La app no recoge datos. Compartir usa la hoja del sistema y el destino es una página de Lufy.
+No hay cuentas, analítica, anuncios ni SDKs de terceros. Solo frameworks de Apple (incluida StoreKit 2, inactiva mientras `capaDePagoActiva` esté en false). La app no recoge datos. Compartir usa la hoja del sistema: una página de Lufy, o la imagen de la tarjeta con el enlace a esa página.

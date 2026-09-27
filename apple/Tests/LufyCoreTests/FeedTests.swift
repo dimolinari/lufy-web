@@ -72,6 +72,47 @@ final class FeedTests: XCTestCase {
         XCTAssertEqual(primera.hallazgos, ["hal-ejemplo-1"])
         XCTAssertEqual(primera.asistencia?.presente, 8)
         XCTAssertEqual(primera.asistencia?.sesiones, 10)
+        XCTAssertTrue(hallazgos.hallazgos.allSatisfy { $0.earlyAccessUntil == nil && $0.tema == "ejemplo" })
+    }
+
+    func testDossierDeEjemploYFechaObligatoria() throws {
+        let carpeta = feed().appendingPathComponent("v1")
+        let datosAsamblea = try Data(contentsOf: carpeta.appendingPathComponent("asamblea.json"))
+        let datosHallazgos = try Data(contentsOf: carpeta.appendingPathComponent("hallazgos.json"))
+        let datosDossiers = try Data(contentsOf: carpeta.appendingPathComponent("dossiers.json"))
+        var sesiones: [(ruta: String, datos: Data)] = []
+        for nombre in ["votaciones/vot-ejemplo-1.json", "votaciones/vot-ejemplo-2.json"] {
+            sesiones.append((nombre, try Data(contentsOf: carpeta.appendingPathComponent(nombre))))
+        }
+        let paquete = try ConjuntoAsamblea.paquete(
+            asamblea: datosAsamblea,
+            hallazgos: datosHallazgos,
+            votaciones: sesiones,
+            origen: origen,
+            dossiers: datosDossiers
+        )
+        let dossier = try XCTUnwrap(paquete.dossiers?.dossiers.first)
+        XCTAssertEqual(paquete.dossiers?.dossiers.count, 1)
+        XCTAssertEqual(dossier.id, "dos-ejemplo-1")
+        XCTAssertEqual(dossier.producto, "com.lufy.app.dossier.ejemplo")
+        XCTAssertNil(dossier.archivo)
+        XCTAssertNil(dossier.earlyAccessUntil)
+        XCTAssertEqual(dossier.tema, "ejemplo")
+
+        let objeto = try XCTUnwrap(JSONSerialization.jsonObject(with: datosHallazgos) as? [String: Any])
+        var lista = try XCTUnwrap(objeto["hallazgos"] as? [[String: Any]])
+        lista[0].removeValue(forKey: "early_access_until")
+        var mapa = objeto
+        mapa["hallazgos"] = lista
+        let sinFecha = try JSONSerialization.data(withJSONObject: mapa)
+        XCTAssertThrowsError(
+            try ConjuntoAsamblea.validar(
+                asamblea: datosAsamblea,
+                hallazgos: sinFecha,
+                votaciones: sesiones,
+                origen: origen
+            )
+        )
     }
 
     func testRechazaCedulaCorreoYSelloEnElVoto() throws {

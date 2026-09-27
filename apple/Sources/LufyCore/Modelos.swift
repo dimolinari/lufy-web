@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Sello: String, Decodable, Sendable, Equatable, CaseIterable {
+public enum Sello: String, Codable, Sendable, Equatable, CaseIterable {
     case confirmado = "CONFIRMADO"
     case indicio = "INDICIO"
     case abierto = "ABIERTO"

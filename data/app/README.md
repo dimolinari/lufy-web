@@ -37,7 +37,8 @@ Si existe `asambleistas.json` con una lista `asambleistas` ya anidada, se usa es
 - `proyectos.csv` (opcional): `asambleista_id`, `id`, `titulo`, `fecha`, `estado`, `institucion`, `documento`, `fecha_fuente`, `linea`.
 - `asistencia.csv` (opcional): `asambleista_id`, `sesiones`, `presente`, y la misma fuente.
 - `votaciones.csv` y `votos.csv`: la votación (`id`, `fecha`, `titulo`, `sesion`, `acta` y la fuente) y cada fila `votacion_id`, `asambleista_id`, `voto`. El voto es `afavor`, `en_contra`, `abstencion`, `ausente` o `blanco`. No lleva sello.
-- `hallazgos.json`: lista `hallazgos` con `id`, `sello`, `titulo`, `texto`, `asambleistas`, `fuente`.
+- `hallazgos.json`: lista `hallazgos` con `id`, `sello`, `titulo`, `texto`, `asambleistas`, `fuente`. Opcionales: `tema` (texto corto, o vacío) y `early_access_until` (null, `AAAA-MM-DD` o `AAAA-MM-DDTHH:MM:SSZ`). Si omites la fecha y `meta.json` trae `dias_acceso_anticipado` (entero de 0 a 366), el generador suma esos días a `updated_at`. La convención es 7. Si la clave ya está, aunque sea null, no se recalcula.
+- `dossiers.json` (opcional): lista `dossiers` con `id`, `titulo`, `texto`, `producto` (`com.lufy.app.dossier.ejemplo` en el corte de ejemplo), `fuente`, y opcionales `tema`, `early_access_until`, `archivo`. Sin este archivo, el feed publica la lista vacía. `archivo` queda null hasta que Lufy aloje el dossier. El producto es un identificador de tienda, no un enlace.
 
 `id` de perfil, proyecto, votación y hallazgo: minúsculas, dígitos y guiones, hasta 64 caracteres.
 
@@ -62,6 +63,8 @@ La línea de fuente es texto (institución, documento, fecha). `archivo` queda e
 
 `asamblea.json`: `schema`, `ejemplo`, `aviso`, `updated_at`, `periodo` (`id`, `etiqueta`, `inicio`, `fin`) y `asambleistas`. Cada perfil: `id`, `nombre`, `foto` (objeto o null), `provincia`, `circunscripcion`, `partido`, `bloque`, `comisiones`, `periodo`, `proyectos`, `asistencia` (objeto o null), `hallazgos` (ids). El generador rellena `hallazgos` a partir de `hallazgos.json`.
 
-`hallazgos.json`: `schema`, `ejemplo`, `updated_at`, `hallazgos`.
+`hallazgos.json`: `schema`, `ejemplo`, `updated_at`, `hallazgos`. Cada hallazgo incluye `tema` y `early_access_until` (null o fecha).
 
-`votaciones/<id>.json`: `schema`, `id`, `fecha`, `titulo`, `sesion`, `acta`, `fuente`, `votos` (`asambleista_id`, `voto`). Un archivo por votación, para no rebajar el resto cuando cambia una sola.
+`dossiers.json`: `schema`, `ejemplo`, `updated_at`, `dossiers`. Cada ficha: `id`, `titulo`, `texto`, `tema`, `producto`, `early_access_until`, `archivo` (objeto o null), `fuente`. Con la capa de pago apagada la app no ofrece esta lista. Con la capa encendida, un `early_access_until` futuro se esconde hasta la fecha, salvo suscripción o compra de ese producto.
+
+`votaciones/<id>.json`: `schema`, `id`, `fecha`, `titulo`, `sesion`, `acta`, `fuente`, `votos` (`asambleista_id`, `voto`). Un archivo por votación, para no rebajar el resto cuando cambia una sola. Un voto no lleva sello.

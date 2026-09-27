@@ -313,6 +313,7 @@ struct NotaSinCopia: View {
 struct CifraTarjeta: View {
     let cifra: Cifra
     let origen: String
+    let ruta: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -333,6 +334,7 @@ struct CifraTarjeta: View {
                     .foregroundStyle(Color("Suave"))
             }
             FuenteVista(fuente: cifra.fuente, origen: origen)
+            BotonTarjeta(tarjeta: try? TarjetasLufy.cifra(cifra, origen: origen, ruta: ruta))
         }
         .tarjeta()
     }
