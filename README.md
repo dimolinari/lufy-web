@@ -22,4 +22,8 @@ Reglas de contenido, con más detalle: `historia.html`.
 
 La cifra recaudada vive solo en `data/meta.json`. Para actualizarla, cambia `raised_usd` y la fecha `updated` (`AAAA-MM-DD`). `goal_usd` es la meta. No inventes montos, donantes ni conteos.
 
+## App para iPhone, iPad y Mac
+
+La app nativa está en `apple/`. No cambia las páginas HTML. El índice compartido es `data/contenido.json`: GitHub Pages lo sirve y la app lo lee; el HTML no lo usa. La meta de recaudación sigue en `data/meta.json`. Cómo generar el proyecto y firmarlo: `apple/README.md`.
+
 © 2026 Lufy.
