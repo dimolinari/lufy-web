@@ -1,0 +1,14 @@
+// Firma por defecto. El archivo local va al final y pisa estos ajustes.
+// No pongas aquí un identificador de equipo real: el de relleno no firma nada.
+//
+// xcodebuild también puede pasarlos sin regenerar el proyecto:
+//   xcodebuild LUFY_DEVELOPMENT_TEAM=ABCDE12345 LUFY_BUNDLE_ID_SUFFIX=.local
+
+LUFY_DEVELOPMENT_TEAM = ABCDE12345
+LUFY_BUNDLE_ID_PREFIX =
+LUFY_BUNDLE_ID_BASE = com.lufy.app
+LUFY_BUNDLE_ID_SUFFIX =
+DEVELOPMENT_TEAM = $(LUFY_DEVELOPMENT_TEAM)
+LUFY_BUNDLE_IDENTIFIER = $(LUFY_BUNDLE_ID_PREFIX)$(LUFY_BUNDLE_ID_BASE)$(LUFY_BUNDLE_ID_SUFFIX)
+
+#include? "Signing.local.xcconfig"

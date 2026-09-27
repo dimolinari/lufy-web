@@ -11,18 +11,18 @@ La app no abre sitios oficiales. Una línea de fuente solo abre una copia alojad
 ## Requisitos
 
 - Mac con macOS 26 y Xcode 26.
-- Destinos: iOS 17 y macOS 14. Swift 6.
+- Destinos: iOS 17 y macOS 14. Swift 6. `apple/Package.swift` declara esas mismas plataformas. Sin esa lista, SwiftPM compila `LufyCore` para un sistema anterior y Xcode falla (por ejemplo en `TimeZone.gmt`, que pide iOS 16 o macOS 13).
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen), para generar el proyecto. No hace falta commitear el `.xcodeproj`.
 
 Identificadores de relleno, a propósito:
 
-| Campo | Valor |
+| Campo | Valor de relleno |
 | --- | --- |
 | Nombre mostrado | Lufy |
 | Bundle ID | `com.lufy.app` |
 | Team ID | `ABCDE12345` |
 
-Hay que sustituir el team (y, si hace falta, el bundle) antes de instalar en un dispositivo. Ver más abajo.
+El bundle y el team viven en `apple/Signing.xcconfig`, no en `project.yml`. El de equipo no firma nada. El real no se escribe en el repositorio. Ver más abajo.
 
 ## Generar y abrir
 
@@ -35,22 +35,54 @@ xcodegen generate
 open Lufy.xcodeproj
 ```
 
-Pruebas del modelo, sin Xcode (también en Linux):
+Pruebas del modelo, sin abrir la app (también en Linux):
 
 ```bash
 cd apple
 swift test
 ```
 
+En Xcode, el esquema **LufyCoreTests** (o Product → Test con el esquema Lufy) corre las mismas pruebas en el simulador de iOS o en My Mac. El target de pruebas no lanza la app: solo enlaza `LufyCore`.
+
 El paquete `LufyCore` es la capa de datos. El target de la app vive en `App/` y depende de ese paquete.
+
+## Firma local
+
+`project.yml` no lleva `DEVELOPMENT_TEAM`. El proyecto apunta a `Signing.xcconfig`, y ese archivo incluye, si existe, `Signing.local.xcconfig`. El segundo está en `.gitignore`. Cambiarlo no exige volver a correr `xcodegen`.
+
+```bash
+cd apple
+cp Signing.local.xcconfig.example Signing.local.xcconfig
+```
+
+En el archivo local, descomenta y rellena solo lo que haga falta:
+
+```
+LUFY_DEVELOPMENT_TEAM = ABCDE12345
+LUFY_BUNDLE_ID_SUFFIX = .local
+LUFY_BUNDLE_ID_PREFIX = local.
+LUFY_BUNDLE_ID_BASE = com.lufy.app
+```
+
+`LUFY_DEVELOPMENT_TEAM` es el identificador de diez caracteres del Personal Team (Xcode → Signing & Capabilities). No lo subas. El bundle queda `prefijo + base + sufijo`. Con el sufijo `.local`, el id es `com.lufy.app.local`. Si no defines prefijo ni sufijo, sigue siendo `com.lufy.app`.
+
+Sin el archivo local, se puede pasar lo mismo al construir:
+
+```bash
+xcodebuild -scheme Lufy -destination 'platform=iOS Simulator,name=iPhone 16' \
+  LUFY_DEVELOPMENT_TEAM="$LUFY_DEVELOPMENT_TEAM" \
+  LUFY_BUNDLE_ID_SUFFIX="${LUFY_BUNDLE_ID_SUFFIX:-}"
+```
+
+`DEVELOPMENT_TEAM` y `PRODUCT_BUNDLE_IDENTIFIER` en la línea de `xcodebuild` también pisan el xcconfig. El `.xcodeproj` generado no se versiona.
 
 ## Instalar en el propio iPhone con un Apple ID gratuito
 
 1. Xcode → Settings → Accounts → añade el Apple ID.
 2. Abre el target **Lufy** → Signing & Capabilities.
 3. Marca **Automatically manage signing**.
-4. En Team elige **Personal Team**. El valor `ABCDE12345` de `project.yml` no firma nada: es un relleno. Para que sobreviva a `xcodegen generate`, cámbialo en `apple/project.yml` (`DEVELOPMENT_TEAM`) por el identificador de tu equipo y vuelve a generar. El equipo personal se ve en Xcode, en la misma pantalla de firma, como un ID de diez caracteres.
-5. Si Xcode dice que `com.lufy.app` no está disponible, cambia `PRODUCT_BUNDLE_IDENTIFIER` en `project.yml` (por ejemplo `com.lufy.app.local`) y genera otra vez. El nombre visible sigue siendo Lufy.
+4. En Team elige **Personal Team**. Si `Signing.local.xcconfig` ya tiene `LUFY_DEVELOPMENT_TEAM`, Xcode lo toma de ahí. El valor `ABCDE12345` del xcconfig versionado es un relleno y no firma. El equipo personal se ve en Xcode, en la misma pantalla de firma, como un ID de diez caracteres. No lo copies a un archivo que vaya a git.
+5. Si Xcode dice que `com.lufy.app` no está disponible, pon `LUFY_BUNDLE_ID_SUFFIX = .local` en `Signing.local.xcconfig`. El nombre visible sigue siendo Lufy. Los ids de la capa de pago (apagada) siguen siendo los de relleno `com.lufy.app.suscripcion.mensual` y `com.lufy.app.dossier.ejemplo` hasta que esa capa se encienda.
 6. Conecta el iPhone, desbloquéalo y confía en el ordenador.
 7. En el iPhone: Ajustes → Privacidad y seguridad → Modo de desarrollador → actívalo y reinicia.
 8. En Xcode elige el iPhone como destino y pulsa Run.

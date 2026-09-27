@@ -1,0 +1,11 @@
+// Copia este archivo a Signing.local.xcconfig (está en .gitignore).
+// No lo subas: el identificador de equipo apunta a la cuenta y no va en el repositorio.
+//
+// LUFY_DEVELOPMENT_TEAM = ABCDE12345
+//
+// Si com.lufy.app ya está ocupado, añade un sufijo o un prefijo. El punto va incluido.
+// LUFY_BUNDLE_ID_SUFFIX = .local
+// LUFY_BUNDLE_ID_PREFIX = local.
+//
+// Para cambiar la base entera:
+// LUFY_BUNDLE_ID_BASE = com.lufy.app

@@ -159,10 +159,29 @@ final class CatalogoTests: XCTestCase {
 
         let marca = pegar("dimo", "linari")
         let proyecto = try String(contentsOf: raiz.appendingPathComponent("apple/project.yml"), encoding: .utf8)
-        XCTAssertTrue(proyecto.contains("PRODUCT_BUNDLE_IDENTIFIER: com.lufy.app"))
-        XCTAssertTrue(proyecto.contains("DEVELOPMENT_TEAM: ABCDE12345"))
+        XCTAssertTrue(proyecto.contains("PRODUCT_BUNDLE_IDENTIFIER: $(LUFY_BUNDLE_IDENTIFIER)"))
         XCTAssertTrue(proyecto.contains("PRODUCT_NAME: Lufy"))
+        XCTAssertTrue(proyecto.contains("Signing.xcconfig"))
+        XCTAssertTrue(proyecto.contains("LufyCoreTests"))
+        XCTAssertFalse(proyecto.contains("DEVELOPMENT_TEAM"))
         XCTAssertFalse(proyecto.contains(marca))
+
+        let firma = try String(contentsOf: raiz.appendingPathComponent("apple/Signing.xcconfig"), encoding: .utf8)
+        XCTAssertTrue(firma.contains("LUFY_DEVELOPMENT_TEAM = ABCDE12345"))
+        XCTAssertTrue(firma.contains("LUFY_BUNDLE_ID_BASE = com.lufy.app"))
+        XCTAssertTrue(firma.contains("#include? \"Signing.local.xcconfig\""))
+        XCTAssertFalse(firma.contains(marca))
+
+        let ignorados = try String(contentsOf: raiz.appendingPathComponent("apple/.gitignore"), encoding: .utf8)
+        XCTAssertTrue(ignorados.contains("Signing.local.xcconfig"))
+        XCTAssertFalse(ignorados.contains("Signing.local.xcconfig.example"))
+
+        let paquete = try String(contentsOf: raiz.appendingPathComponent("apple/Package.swift"), encoding: .utf8)
+        XCTAssertTrue(paquete.contains(".iOS(.v17)"))
+        XCTAssertTrue(paquete.contains(".macOS(.v14)"))
+
+        let config = try String(contentsOf: raiz.appendingPathComponent("apple/App/Configuracion.swift"), encoding: .utf8)
+        XCTAssertTrue(config.contains("static let capaDePagoActiva = false"))
 
         let plist = try String(contentsOf: raiz.appendingPathComponent("apple/App/Info.plist"), encoding: .utf8)
         XCTAssertTrue(plist.contains("<string>Lufy</string>"))
