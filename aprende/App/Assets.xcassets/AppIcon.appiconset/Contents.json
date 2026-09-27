@@ -11,6 +11,11 @@
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "1024x1024"
+    },
+    {
+      "filename" : "AppIcon.png",
+      "idiom" : "vision",
+      "scale" : "2x"
     }
   ],
   "info" : {

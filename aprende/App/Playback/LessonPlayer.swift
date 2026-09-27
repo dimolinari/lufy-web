@@ -1,6 +1,8 @@
 import AVFoundation
 import Foundation
+#if os(iOS) || os(macOS)
 import MediaPlayer
+#endif
 import AprendeCore
 
 @MainActor
@@ -143,7 +145,9 @@ final class LessonPlayer {
         elapsed = 0
         finished = false
         lessonID = nil
+        #if os(iOS) || os(macOS)
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
+        #endif
     }
 
     private func prepareFile(url: URL) {
@@ -282,7 +286,7 @@ final class LessonPlayer {
     }
 
     private func activateSession() {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         let session = AVAudioSession.sharedInstance()
         try? session.setCategory(.playback, mode: .spokenAudio, options: [])
         try? session.setActive(true)
@@ -290,6 +294,7 @@ final class LessonPlayer {
     }
 
     private func configureRemoteCommands() {
+        #if os(iOS) || os(macOS)
         guard !remoteConfigured else { return }
         remoteConfigured = true
         let center = MPRemoteCommandCenter.shared()
@@ -329,9 +334,11 @@ final class LessonPlayer {
             Task { @MainActor in bridge.owner?.setSpeed(rate) }
             return .success
         }
+        #endif
     }
 
     fileprivate func publishNowPlaying() {
+        #if os(iOS) || os(macOS)
         guard lessonID != nil else { return }
         var info: [String: Any] = [
             MPMediaItemPropertyTitle: lessonTitle,
@@ -343,6 +350,7 @@ final class LessonPlayer {
             info[MPMediaItemPropertyPlaybackDuration] = duration
         }
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+        #endif
     }
 }
 
@@ -368,7 +376,7 @@ private final class SpeechDelegate: NSObject, AVSpeechSynthesizerDelegate, @unch
     }
 }
 
-private enum SpanishVoice {
+enum SpanishVoice {
     static func pick() -> AVSpeechSynthesisVoice? {
         let voices = AVSpeechSynthesisVoice.speechVoices()
         let preferred = ["es-MX", "es-419", "es-US", "es-ES", "es-AR", "es-CO", "es-CL"]

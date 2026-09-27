@@ -76,6 +76,7 @@ final class ContentTests: XCTestCase {
         XCTAssertTrue(project.contains("INFOPLIST_KEY_CFBundleDisplayName: \"\(brand.appName)\" # app-name"))
         XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: \(brand.bundleIdentifier) # ios-bundle"))
         XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: \(brand.macBundleIdentifier) # mac-bundle"))
+        XCTAssertTrue(project.contains("PRODUCT_BUNDLE_IDENTIFIER: \(brand.visionBundleIdentifier) # vision-bundle"))
         XCTAssertTrue(project.contains("DEVELOPMENT_TEAM: \(brand.developmentTeam) # team"))
     }
 

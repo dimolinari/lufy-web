@@ -32,6 +32,7 @@ public struct Brand: Codable, Equatable, Sendable {
     public var appName: String
     public var bundleIdentifier: String
     public var macBundleIdentifier: String
+    public var visionBundleIdentifier: String
     public var developmentTeam: String
     public var elevenlabs: ElevenLabsBrand
     public var storeKit: StoreKitBrand
@@ -41,6 +42,7 @@ public struct Brand: Codable, Equatable, Sendable {
         appName: String,
         bundleIdentifier: String,
         macBundleIdentifier: String,
+        visionBundleIdentifier: String = "com.lufy.aprende.vision",
         developmentTeam: String,
         elevenlabs: ElevenLabsBrand,
         storeKit: StoreKitBrand,
@@ -49,6 +51,7 @@ public struct Brand: Codable, Equatable, Sendable {
         self.appName = appName
         self.bundleIdentifier = bundleIdentifier
         self.macBundleIdentifier = macBundleIdentifier
+        self.visionBundleIdentifier = visionBundleIdentifier
         self.developmentTeam = developmentTeam
         self.elevenlabs = elevenlabs
         self.storeKit = storeKit

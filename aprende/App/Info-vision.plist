@@ -5,7 +5,9 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>Lufy usa la cámara solo para colocar el mapa, los gráficos y el hemiciclo sobre una mesa. No guarda ni envía esas imágenes.</string>
+	<string>Lufy usa la cámara solo para colocar el mapa, los gráficos y el hemiciclo en el espacio. No guarda ni envía esas imágenes.</string>
+	<key>NSWorldSensingUsageDescription</key>
+	<string>Lufy usa el espacio alrededor para apoyar el mapa y el hemiciclo en el salón. No guarda un plano de la habitación ni lo envía.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

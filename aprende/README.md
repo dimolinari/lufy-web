@@ -10,11 +10,12 @@ Esta carpeta no toca la web de Lufy.
 
 - `Sources/AprendeCore`: contenido, puntuación, XP, racha, repaso espaciado y la regla de cursos gratis o de pago.
 - `Tests/AprendeCoreTests`: pruebas que corren con `swift test`, también en Linux.
-- `App`: interfaz SwiftUI para iOS 17 y macOS 14.
+- `App`: interfaz SwiftUI para iOS 17, macOS 14 y visionOS 2. El mismo paquete `AprendeCore` arma el mapa, las barras y el hemiciclo.
 - `project.yml`: definición del proyecto para XcodeGen.
 - `scripts/generate_audio.py`: voz grabada opcional, con ElevenLabs. La app no lo necesita para funcionar.
 - `Sources/AprendeCore/Resources/Data`: series y el esquema de provincias, cada uno con su fuente.
 - `Sources/AprendeCore/Resources/Media`: cuatro fotos pequeñas y `credits.json`.
+- `Sources/AprendeCore/Resources/Spatial`: contornos de las 24 provincias, simplificados desde geoBoundaries (CC0). No hay elevación.
 - `scripts/setup.sh`: escribe el nombre en el proyecto de Xcode y lo genera.
 
 La versión 1 es gratis. El camino **Gobierno y lo público** trae la unidad completa: cinco lecciones (cómo se hace una ley, cómo compra el Estado, cómo se lee un contrato, cómo se pide información y una primera mirada a las eras). Los demás caminos publican una lección de muestra, y Finanzas publica dos:
@@ -78,7 +79,40 @@ La app de Mac:
 xcodebuild -scheme LufyAprendeMac -destination 'platform=macOS' build
 ```
 
-El identificador de paquete de partida es `com.lufy.aprende`. El team de partida es `XXXXXXXXXX`. Los dos son marcadores. Cámbialos en `brand.json` y vuelve a correr `./scripts/setup.sh` antes de firmar.
+Apple Vision Pro, en el simulador (no hace falta un visor):
+
+```bash
+xcodebuild -scheme LufyAprendeVision -showdestinations
+xcodebuild -scheme LufyAprendeVision -destination 'platform=visionOS Simulator,name=Apple Vision Pro' build
+```
+
+En Xcode, elige el esquema **LufyAprendeVision** y el destino **Apple Vision Pro**. La ventana principal trae las lecciones. Desde un mapa, un gráfico o el hemiciclo puedes abrir un **volumen** con el modelo y, si quieres, entrar al **salón**: ahí la narración suena con la voz del dispositivo mientras caminas alrededor. El simulador deja mirar y desplazarte sin un visor físico.
+
+El identificador de paquete de partida es `com.lufy.aprende`. El de Mac es `com.lufy.aprende.mac` y el de visionOS es `com.lufy.aprende.vision`. El team de partida es `XXXXXXXXXX`. Son marcadores. Cámbialos en `brand.json` y vuelve a correr `./scripts/setup.sh` antes de firmar.
+
+## Ver el mapa en el iPhone
+
+La realidad aumentada pide un iPhone o un iPad de verdad. El simulador de iOS no coloca modelos en una mesa.
+
+1. Compila el esquema **LufyAprende** en tu iPhone, con el mismo Apple ID de la sección de abajo.
+2. Abre la lección **Cuatro regiones** o **Veinticuatro provincias** y pulsa **Ver el mapa sobre la mesa**. En Economía y en Finanzas, cada gráfico tiene **Ver … en 3D**. En **Tu provincia**, el botón es **Ver el hemiciclo en 3D**.
+3. La primera vez, iOS pide la cámara. Las imágenes no se guardan ni se envían. El manifiesto de privacidad sigue diciendo que no se recolectan datos.
+4. Apunta a una mesa con luz y toca la pantalla para soltar el modelo. Después toca una provincia, una barra o un escaño para leer la ficha.
+5. **Volver a colocar** lo mueve de nuevo. **Ver sin cámara** gira el mismo modelo, que es también lo que aparece si el aparato no tiene AR.
+
+El grosor de las provincias es uniforme. No es la altitud de los Andes: las teselas SRTM públicas pesan unos 18 MB cada una y no van en la app. Galápagos está en un recuadro al oeste, no a la distancia real. La forma sale de geoBoundaries, gbOpen ECU ADM1, licencia CC0 (publicación `9469f09`, consultada el 27 de septiembre de 2026). La ficha de geoBoundaries nombra como fuente a geoBoundaries y Wikimedia Commons. La región (Costa, Sierra, Amazonía, Región Insular) lleva la marca **CONFIRMADO**: es la clasificación de la lección, no una altura.
+
+Las barras usan la serie de la lección. El verde es un número cero o positivo y el rojo es negativo. El color describe el signo. No es una recomendación. Si una serie dijera datos de ejemplo, la ficha no llevaría CONFIRMADO.
+
+El hemiciclo pinta el voto registrado en el archivo del día. La copia que viene con la app es **DATOS DE EJEMPLO**, con nombres ficticios. Un escaño gris claro no tiene registro en esa votación: no se inventa un «ausente».
+
+Para rehacer los contornos a partir del GeoJSON simplificado de geoBoundaries:
+
+```bash
+python3 scripts/build_boundaries.py ruta/geoBoundaries-ECU-ADM1_simplified.geojson
+```
+
+El script no llama a la red. El JSON que queda pesa unos 16 KB.
 
 ## Instalarla en un iPhone con un Apple ID gratis
 
@@ -140,11 +174,14 @@ Para cambiar el nombre de la app, edita `appName` en `brand.json` y corre `./scr
 
 ## Privacidad
 
-No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y los repasos se guardan en el dispositivo con SwiftData. `App/PrivacyInfo.xcprivacy` declara que no se rastrea y que no se recolectan datos.
+No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y los repasos se guardan en el dispositivo con SwiftData. `App/PrivacyInfo.xcprivacy` declara que no se rastrea y que no se recolectan datos. La cámara del iPhone, si la autorizas, solo sirve para apoyar el modelo en la mesa.
 
 ## Lo que hay que hacer a mano
 
-- Instalar Xcode 26 y XcodeGen, y compilar en un Mac. Aquí no hay Xcode: no se verificó `xcodebuild`, el simulador ni un iPhone.
+- Instalar Xcode 26 y XcodeGen, y compilar en un Mac. Aquí no hay Xcode: no se verificó `xcodebuild`, el simulador de iOS, un iPhone ni el simulador de visionOS.
+- Probar el mapa sobre una mesa en un iPhone físico. El simulador abre el modelo para girarlo, sin cámara.
+- Abrir el esquema LufyAprendeVision en el simulador Apple Vision Pro y entrar al salón. No hace falta un visor.
+- No leer el grosor del mapa como metros de altura. No hay modelo SRTM en el paquete.
 - Elegir el Personal Team y, si hace falta, otro bundle id.
 - Confiar el certificado en el iPhone y activar el modo de desarrollador.
 - Revisar los guiones antes de publicarlos. Citan la Constitución, la LOTAIP, la LOSNCP (Registro Oficial suplemento 140, 7 de octubre de 2025) y, en los gráficos, series del Banco Mundial consultadas el 27 de septiembre de 2026. Esas series no son el boletín del Banco Central ni el de deuda pública del Ministerio de Finanzas. Si una norma o una serie cambia, manda el texto nuevo.

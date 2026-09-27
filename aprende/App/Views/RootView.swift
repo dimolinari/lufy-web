@@ -81,6 +81,7 @@ struct PathView: View {
     @Environment(LearnerRepository.self) private var repository
     @Environment(PremiumStore.self) private var premium
     @Environment(LessonPlayer.self) private var player
+    @Environment(AsambleaStore.self) private var asamblea
     @State private var paywallCourse: Course?
     @State private var disclaimerCourse: Course?
     @State private var pendingLessonID: String?
@@ -113,6 +114,8 @@ struct PathView: View {
             .navigationDestination(for: String.self) { lessonID in
                 if lessonID == AsambleaSchema.provinceTool {
                     ProvinceAssemblyView()
+                } else if SpatialLink.parse(lessonID) != nil {
+                    SpatialStudyView(link: lessonID, directory: asamblea.directory)
                 } else {
                     LessonScreen(lessonID: lessonID)
                 }

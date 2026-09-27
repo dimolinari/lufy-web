@@ -20,6 +20,7 @@ def sync() -> None:
         "team": brand["developmentTeam"],
         "ios-bundle": brand["bundleIdentifier"],
         "mac-bundle": brand["macBundleIdentifier"],
+        "vision-bundle": brand["visionBundleIdentifier"],
         "app-name": f'"{brand["appName"]}"',
     }
     for tag, value in replacements.items():
@@ -31,6 +32,7 @@ def sync() -> None:
     print(f"Nombre de la app: {brand['appName']}")
     print(f"Bundle iOS: {brand['bundleIdentifier']}")
     print(f"Bundle Mac: {brand['macBundleIdentifier']}")
+    print(f"Bundle visionOS: {brand['visionBundleIdentifier']}")
     print(f"Team: {brand['developmentTeam']}")
 
 

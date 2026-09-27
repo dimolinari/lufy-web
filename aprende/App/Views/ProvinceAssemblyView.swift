@@ -29,6 +29,14 @@ struct ProvinceAssemblyView: View {
                         .background(LufyColor.card)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
+                NavigationLink(value: SpatialLink.hemicycle) {
+                    Text("Ver el hemiciclo en 3D")
+                        .font(.subheadline.weight(.semibold))
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(LufyColor.gold)
+                .accessibilityHint("Coloca los escaños de esta copia, coloreados por un voto registrado.")
                 Text(asamblea.directory.source.note)
                     .font(.footnote)
                     .foregroundStyle(LufyColor.muted)

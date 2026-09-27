@@ -7,6 +7,7 @@ let package = Package(
     platforms: [
         .iOS(.v17),
         .macOS(.v14),
+        .visionOS(.v2),
     ],
     products: [
         .library(name: "AprendeCore", targets: ["AprendeCore"]),
@@ -21,6 +22,7 @@ let package = Package(
                 .copy("Resources/Data"),
                 .copy("Resources/Media"),
                 .copy("Resources/Feed"),
+                .copy("Resources/Spatial"),
             ]
         ),
         .testTarget(

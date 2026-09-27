@@ -34,6 +34,7 @@ final class AsambleaStore {
             )
             statusMessage = "No hay copia local."
         }
+        SpatialHandoff.directory = directory
     }
 
     func refreshIfDue(manifestURL: URL?) async {
@@ -60,6 +61,7 @@ final class AsambleaStore {
                 return
             }
             directory = try PublicRoleGate.validate(data: payload)
+            SpatialHandoff.directory = directory
             lastSuccessDay = today
             Self.write(cacheURL, day: today, payload: payload)
             statusMessage = directory.exampleData

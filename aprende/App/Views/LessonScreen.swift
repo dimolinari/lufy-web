@@ -68,6 +68,31 @@ struct LessonScreen: View {
         .onAppear(perform: loadPlayer)
     }
 
+    @ViewBuilder
+    private func spatialLinks(_ lesson: Lesson) -> some View {
+        let charts = lesson.resolvedFigures.filter { $0.kind == "chart" }
+        if lesson.id == "cuatro-regiones" || lesson.id == "veinticuatro-provincias" {
+            NavigationLink(value: SpatialLink.map) {
+                Text("Ver el mapa sobre la mesa")
+                    .font(.subheadline.weight(.semibold))
+                    .frame(maxWidth: .infinity, minHeight: 44)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(LufyColor.gold)
+            .accessibilityHint("Abre las provincias en tres dimensiones. En un iPhone compatible se colocan sobre una mesa.")
+        }
+        ForEach(charts) { figure in
+            let name = library.figures.dataset(id: figure.ref)?.title ?? figure.ref
+            NavigationLink(value: SpatialLink.series(figure.ref)) {
+                Text("Ver \(name) en 3D")
+                    .font(.subheadline.weight(.semibold))
+                    .frame(maxWidth: .infinity, minHeight: 44)
+            }
+            .buttonStyle(.bordered)
+            .tint(LufyColor.gold)
+        }
+    }
+
     private func loadPlayer() {
         guard let lesson = found?.lesson else { return }
         if player.lessonID != lesson.id {
@@ -98,6 +123,7 @@ struct LessonScreen: View {
                 if !lesson.resolvedFigures.isEmpty {
                     LessonFigureStack(figures: lesson.resolvedFigures, library: library.figures)
                 }
+                spatialLinks(lesson)
                 if let status = player.statusMessage {
                     Text(status)
                         .font(.subheadline)
