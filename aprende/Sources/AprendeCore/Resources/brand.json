@@ -9,5 +9,8 @@
   },
   "storeKit": {
     "premiumProductIds": []
+  },
+  "asambleaFeed": {
+    "manifestURL": ""
   }
 }

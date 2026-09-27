@@ -37,6 +37,7 @@ public struct LearnerState: Codable, Equatable, Sendable {
     public var lessons: [String: LessonProgress]
     public var reviews: [String: ReviewCard]
     public var acknowledgedNotices: [String]
+    public var selectedDistrict: String?
 
     public init(
         totalXP: Int = 0,
@@ -44,7 +45,8 @@ public struct LearnerState: Codable, Equatable, Sendable {
         settings: LearnerSettings = LearnerSettings(),
         lessons: [String: LessonProgress] = [:],
         reviews: [String: ReviewCard] = [:],
-        acknowledgedNotices: [String] = []
+        acknowledgedNotices: [String] = [],
+        selectedDistrict: String? = nil
     ) {
         self.totalXP = totalXP
         self.streak = streak
@@ -52,10 +54,11 @@ public struct LearnerState: Codable, Equatable, Sendable {
         self.lessons = lessons
         self.reviews = reviews
         self.acknowledgedNotices = acknowledgedNotices
+        self.selectedDistrict = selectedDistrict
     }
 
     private enum CodingKeys: String, CodingKey {
-        case totalXP, streak, settings, lessons, reviews, acknowledgedNotices
+        case totalXP, streak, settings, lessons, reviews, acknowledgedNotices, selectedDistrict
     }
 
     public init(from decoder: Decoder) throws {
@@ -66,6 +69,7 @@ public struct LearnerState: Codable, Equatable, Sendable {
         lessons = try container.decode([String: LessonProgress].self, forKey: .lessons)
         reviews = try container.decode([String: ReviewCard].self, forKey: .reviews)
         acknowledgedNotices = try container.decodeIfPresent([String].self, forKey: .acknowledgedNotices) ?? []
+        selectedDistrict = try container.decodeIfPresent(String.self, forKey: .selectedDistrict)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -76,6 +80,7 @@ public struct LearnerState: Codable, Equatable, Sendable {
         try container.encode(lessons, forKey: .lessons)
         try container.encode(reviews, forKey: .reviews)
         try container.encode(acknowledgedNotices, forKey: .acknowledgedNotices)
+        try container.encodeIfPresent(selectedDistrict, forKey: .selectedDistrict)
     }
 
     public static let empty = LearnerState()

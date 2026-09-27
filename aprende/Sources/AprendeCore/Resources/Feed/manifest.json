@@ -1,0 +1,11 @@
+{
+  "schema": "lufy.asamblea.v1",
+  "updated_at": "2026-09-27",
+  "example_data": true,
+  "files": [
+    {
+      "name": "asamblea.json",
+      "sha256": "4bfa1fc47a40e642f968bcdb481b475b53138893eb8e5df772c94764bb84aa49"
+    }
+  ]
+}

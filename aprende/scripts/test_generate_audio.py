@@ -37,7 +37,7 @@ class GenerateAudioTests(unittest.TestCase):
 
     def test_real_course_matches_script_length(self):
         lessons = audio.load_lessons()
-        self.assertGreaterEqual(len(lessons), 13)
+        self.assertGreaterEqual(len(lessons), 14)
         self.assertEqual(len({lesson.lesson_id for lesson in lessons}), len(lessons))
         self.assertIn("como-se-hace-una-ley", {lesson.lesson_id for lesson in lessons})
         items = audio.plan_items(lessons, "eleven_v3", "", audio.CACHE_DIR, audio.AUDIO_DIR)

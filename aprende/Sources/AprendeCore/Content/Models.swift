@@ -92,6 +92,7 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
     public var summary: String
     public var access: CourseAccess
     public var disclaimer: String?
+    public var tool: String?
     public var units: [CourseUnit]
 
     public init(
@@ -100,6 +101,7 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
         summary: String,
         access: CourseAccess,
         disclaimer: String? = nil,
+        tool: String? = nil,
         units: [CourseUnit]
     ) {
         self.id = id
@@ -107,6 +109,7 @@ public struct Course: Codable, Equatable, Sendable, Identifiable {
         self.summary = summary
         self.access = access
         self.disclaimer = disclaimer
+        self.tool = tool
         self.units = units
     }
 

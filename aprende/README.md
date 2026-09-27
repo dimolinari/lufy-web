@@ -26,8 +26,17 @@ La versión 1 es gratis. El camino **Gobierno y lo público** trae la unidad com
 - Cultura y pueblos.
 - Economía.
 - Finanzas, con un aviso de que no es asesoría ni una recomendación de compra.
+- Conoce tu Asamblea: una lección sobre la institución y la pantalla **Tu provincia**.
 
 Hay gráficos para recorrer con el dedo, un esquema de provincias y una calculadora de interés compuesto. Las series numéricas salen del Banco Mundial y llevan institución, indicador y fecha. Si un archivo tuviera `exampleData: true`, la pantalla muestra **DATOS DE EJEMPLO**. Las fotos son pocas, de Wikimedia Commons, con autor y licencia en `Resources/Media/credits.json`.
+
+## Conoce tu Asamblea
+
+La pantalla **Tu provincia** lista asambleístas de una provincia, de la circunscripción nacional o del exterior: organización, comisiones y votos registrados, cada voto con su línea de fuente. Solo datos de la función pública. No hay fotos en la copia de ejemplo. La app no publica cédula, dirección, familia, patrimonio ni etiquetas sobre la conducta de una persona.
+
+El contrato del archivo diario está en `data/app/v1/SCHEMA.md`, en la raíz del repositorio, que es la ruta `/data/app/v1/` del sitio. Hoy `manifest.json` y `asamblea.json` son **datos de ejemplo**, con nombres ficticios. La app los trae para funcionar sin red. Comprueba la huella SHA-256 antes de reemplazar la copia guardada, consulta como mucho una vez por día civil del Ecuador, y si la descarga falla se queda con la copia anterior. La fecha sale en pantalla como «Actualizado: …».
+
+Para apuntar a un manifiesto publicado, pega su URL en `brand.json`, dentro de `asambleaFeed.manifestURL`. Si ese campo queda vacío, no hay ninguna consulta de red.
 
 Otras lecciones de cada camino aparecen como «Próximamente». No se pueden comprar. El código de StoreKit 2 ya está, pero no hay productos configurados y ningún curso publicado está bloqueado.
 
@@ -140,6 +149,8 @@ No hay cuenta, ni backend, ni analítica, ni rastreo. La racha, la experiencia y
 - Confiar el certificado en el iPhone y activar el modo de desarrollador.
 - Revisar los guiones antes de publicarlos. Citan la Constitución, la LOTAIP, la LOSNCP (Registro Oficial suplemento 140, 7 de octubre de 2025) y, en los gráficos, series del Banco Mundial consultadas el 27 de septiembre de 2026. Esas series no son el boletín del Banco Central ni el de deuda pública del Ministerio de Finanzas. Si una norma o una serie cambia, manda el texto nuevo.
 - Si más adelante se baja una tabla del INEC o del Ministerio de Finanzas, guardarla en `Resources/Data` con institución, conjunto y fecha. Sin eso, no pongas el número.
+- Sustituir `data/app/v1/asamblea.json` y su huella en `manifest.json` por el extracto real de la Asamblea antes de tratar esa URL como el padrón. El esquema está en `data/app/v1/SCHEMA.md` para unificarlo con la otra app. Mientras `example_data` sea verdadero, la pantalla sigue diciendo datos de ejemplo.
+- Poner la URL del manifiesto en `brand.json` si la lista debe actualizarse sola.
 - Crear la voz en ElevenLabs, poner su id en `brand.json` y decidir si se gastan créditos con `--yes`.
 - Descargar una voz española en el iPhone si se va a probar sin MP3.
 - Para la App Store, más adelante: ficha, capturas y el equipo de pago de Apple. El manifiesto de privacidad ya dice que no se recolectan datos.

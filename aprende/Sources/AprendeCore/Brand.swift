@@ -10,6 +10,14 @@ public struct ElevenLabsBrand: Codable, Equatable, Sendable {
     }
 }
 
+public struct AsambleaFeedBrand: Codable, Equatable, Sendable {
+    public var manifestURL: String
+
+    public init(manifestURL: String) {
+        self.manifestURL = manifestURL
+    }
+}
+
 public struct StoreKitBrand: Codable, Equatable, Sendable {
     public var premiumProductIds: [String]
 
@@ -27,6 +35,7 @@ public struct Brand: Codable, Equatable, Sendable {
     public var developmentTeam: String
     public var elevenlabs: ElevenLabsBrand
     public var storeKit: StoreKitBrand
+    public var asambleaFeed: AsambleaFeedBrand?
 
     public init(
         appName: String,
@@ -34,7 +43,8 @@ public struct Brand: Codable, Equatable, Sendable {
         macBundleIdentifier: String,
         developmentTeam: String,
         elevenlabs: ElevenLabsBrand,
-        storeKit: StoreKitBrand
+        storeKit: StoreKitBrand,
+        asambleaFeed: AsambleaFeedBrand? = nil
     ) {
         self.appName = appName
         self.bundleIdentifier = bundleIdentifier
@@ -42,6 +52,13 @@ public struct Brand: Codable, Equatable, Sendable {
         self.developmentTeam = developmentTeam
         self.elevenlabs = elevenlabs
         self.storeKit = storeKit
+        self.asambleaFeed = asambleaFeed
+    }
+
+    public var asambleaManifestURL: URL? {
+        let raw = asambleaFeed?.manifestURL.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        guard !raw.isEmpty else { return nil }
+        return URL(string: raw)
     }
 
     public static func load(from data: Data) throws -> Brand {

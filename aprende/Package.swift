@@ -20,6 +20,7 @@ let package = Package(
                 .copy("Resources/Audio"),
                 .copy("Resources/Data"),
                 .copy("Resources/Media"),
+                .copy("Resources/Feed"),
             ]
         ),
         .testTarget(

@@ -1,0 +1,121 @@
+{
+  "schema": "lufy.asamblea.v1",
+  "example_data": true,
+  "updated_at": "2026-09-27",
+  "source": {
+    "institution": "Copia de ejemplo",
+    "dataset": "Roles públicos imaginarios para probar la pantalla",
+    "date": "2026-09-27",
+    "note": "DATOS DE EJEMPLO. Los nombres, las organizaciones y los votos son ficticios. No es el registro de la Asamblea Nacional."
+  },
+  "legislators": [
+    {
+      "id": "ejemplo-guayas-1",
+      "public_name": "María Ejemplo Costa",
+      "district_kind": "province",
+      "district": "Guayas",
+      "party": "Organización de ejemplo Costa",
+      "committees": [
+        "Comisión de ejemplo de educación"
+      ],
+      "votes": [
+        {
+          "date": "2026-09-01",
+          "title": "Texto imaginario sobre calendarios escolares",
+          "choice": "afavor",
+          "source": "Acta de ejemplo, no oficial, 1 de septiembre de 2026"
+        }
+      ]
+    },
+    {
+      "id": "ejemplo-guayas-2",
+      "public_name": "Pedro Ejemplo Puerto",
+      "district_kind": "province",
+      "district": "Guayas",
+      "party": "Organización de ejemplo Costa",
+      "committees": [
+        "Comisión de ejemplo de fiscalización"
+      ],
+      "votes": [
+        {
+          "date": "2026-09-01",
+          "title": "Texto imaginario sobre calendarios escolares",
+          "choice": "encontra",
+          "source": "Acta de ejemplo, no oficial, 1 de septiembre de 2026"
+        }
+      ]
+    },
+    {
+      "id": "ejemplo-pichincha-1",
+      "public_name": "Lucía Ejemplo Andes",
+      "district_kind": "province",
+      "district": "Pichincha",
+      "party": "Movimiento de muestra Sierra",
+      "committees": [
+        "Comisión de ejemplo de justicia"
+      ],
+      "votes": [
+        {
+          "date": "2026-09-12",
+          "title": "Texto imaginario sobre un informe de comisión",
+          "choice": "abstencion",
+          "source": "Acta de ejemplo, no oficial, 12 de septiembre de 2026"
+        }
+      ]
+    },
+    {
+      "id": "ejemplo-manabi-1",
+      "public_name": "Jorge Ejemplo Marea",
+      "district_kind": "province",
+      "district": "Manabí",
+      "party": "Organización de ejemplo Litoral",
+      "committees": [
+        "Comisión de ejemplo de descentralización"
+      ],
+      "votes": [
+        {
+          "date": "2026-09-12",
+          "title": "Texto imaginario sobre un informe de comisión",
+          "choice": "ausente",
+          "source": "Acta de ejemplo, no oficial, 12 de septiembre de 2026"
+        }
+      ]
+    },
+    {
+      "id": "ejemplo-nacional-1",
+      "public_name": "Sofía Ejemplo Nacional",
+      "district_kind": "national",
+      "district": "Nacional",
+      "party": "Bancada de ejemplo nacional",
+      "committees": [
+        "Comisión de ejemplo de régimen económico"
+      ],
+      "votes": [
+        {
+          "date": "2026-09-20",
+          "title": "Texto imaginario de un segundo debate",
+          "choice": "blanco",
+          "source": "Acta de ejemplo, no oficial, 20 de septiembre de 2026"
+        }
+      ]
+    },
+    {
+      "id": "ejemplo-exterior-1",
+      "public_name": "Diego Ejemplo Exterior",
+      "district_kind": "exterior",
+      "district": "Exterior",
+      "party": "Organización de ejemplo Exterior",
+      "committees": [
+        "Comisión de ejemplo de relaciones internacionales"
+      ],
+      "votes": [
+        {
+          "date": "2026-09-20",
+          "title": "Texto imaginario de un segundo debate",
+          "choice": "afavor",
+          "source": "Acta de ejemplo, no oficial, 20 de septiembre de 2026"
+        }
+      ]
+    }
+  ]
+}

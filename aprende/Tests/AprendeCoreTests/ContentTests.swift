@@ -6,7 +6,7 @@ final class ContentTests: XCTestCase {
         let catalog = try ContentLoader.loadBundled()
         let expected = [
             "ecuador-publico", "historia", "geografia", "provincias",
-            "naturaleza", "cultura", "economia", "finanzas",
+            "naturaleza", "cultura", "economia", "finanzas", "asamblea",
         ]
         XCTAssertEqual(catalog.courses.map(\.id), expected)
         let course = try XCTUnwrap(catalog.course(id: "ecuador-publico"))
@@ -19,6 +19,8 @@ final class ContentTests: XCTestCase {
         let finance = try XCTUnwrap(catalog.course(id: "finanzas"))
         XCTAssertEqual(finance.disclaimer, StudyNotice.finance)
         XCTAssertEqual(finance.lessonsInOrder.count, 2)
+        let assembly = try XCTUnwrap(catalog.course(id: "asamblea"))
+        XCTAssertEqual(assembly.tool, AsambleaSchema.provinceTool)
         let figures = try FigureLibrary.loadBundled()
         try FigureLibrary.validate(catalog: catalog, library: figures)
         XCTAssertTrue(figures.datasets.contains { $0.id == "inflacion-anual" && $0.exampleData == false })

@@ -21,6 +21,7 @@ struct RootView: View {
     @State private var repository: LearnerRepository?
     @State private var premium = PremiumStore(productIDs: [])
     @State private var player = LessonPlayer()
+    @State private var asamblea = AsambleaStore()
     @State private var errorMessage: String?
 
     var body: some View {
@@ -31,6 +32,7 @@ struct RootView: View {
                     .environment(repository)
                     .environment(premium)
                     .environment(player)
+                    .environment(asamblea)
             } else if let errorMessage {
                 ContentUnavailableView(
                     "No se pudo abrir el camino",
@@ -91,7 +93,7 @@ struct PathView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         WineHeader(
                             title: library.brand.appName,
-                            subtitle: "Historia, territorio, economía y finanzas. Escucha, mira el número y responde."
+                            subtitle: "Historia, territorio, economía, finanzas y la Asamblea. Escucha, mira el número y responde."
                         )
                         progressStrip
                         ForEach(library.catalog.courses) { course in
@@ -109,7 +111,11 @@ struct PathView: View {
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .navigationDestination(for: String.self) { lessonID in
-                LessonScreen(lessonID: lessonID)
+                if lessonID == AsambleaSchema.provinceTool {
+                    ProvinceAssemblyView()
+                } else {
+                    LessonScreen(lessonID: lessonID)
+                }
             }
             .sheet(item: $paywallCourse) { course in
                 PaywallView(courseTitle: course.title)
@@ -185,6 +191,14 @@ struct PathView: View {
                 }
                 .font(.subheadline.weight(.semibold))
                 .frame(minHeight: 44)
+            }
+            if course.tool == AsambleaSchema.provinceTool {
+                Button("Tu provincia") {
+                    path.append(AsambleaSchema.provinceTool)
+                }
+                .font(.subheadline.weight(.semibold))
+                .frame(minHeight: 44)
+                .accessibilityHint("Abre la lista de asambleístas de una provincia.")
             }
             ForEach(course.units) { unit in
                 Text(unit.title)
