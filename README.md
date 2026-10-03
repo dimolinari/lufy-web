@@ -15,7 +15,7 @@ Web estática de Lufy: el libro «El verdadero poder político. Ecuador 1972–2
 - Las publicaciones en X enlazan a la página de Lufy (el inicio, un hilo o el libro), no al documento en un sitio oficial.
 - El sitio se publica solo con el nombre Lufy: sin nombre personal, cédula, teléfono ni correos personales.
 - El contenido principal es gratis. Solo se publican datos oficiales verificados. No hay acusaciones: cada hallazgo va con CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.
-- En Datos hay siete fichas: Mishel Andrea Mancheno Dávila, Luis Esteban Torres Cobo, Bertha Vélez Vélez, Rosa Cecilia Baltazar Yucailla, Edwin Estuardo Jarrín Rivadeneira, Carlos Alfredo Pulley Iturralde y Mauricio Xavier Ordóñez Fuentes. Cada dato va como ABIERTO: la copia archivada con SHA-256 no está en el repositorio y no se inventa la huella. Las fotos están en `assets/img/`.
+- En Datos hay ocho fichas: Mishel Andrea Mancheno Dávila, Luis Esteban Torres Cobo, Bertha Vélez Vélez, Rosa Cecilia Baltazar Yucailla, Edwin Estuardo Jarrín Rivadeneira, Carlos Alfredo Pulley Iturralde, Mauricio Xavier Ordóñez Fuentes y Rosa Alegría Torres Cadena. Torres Cadena y Torres Cobo son personas distintas. Cada dato va como ABIERTO: la copia archivada con SHA-256 no está en el repositorio y no se inventa la huella. Las fotos están en `assets/img/`.
 
 Reglas de contenido, con más detalle: `historia.html`.
 
