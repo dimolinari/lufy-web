@@ -421,7 +421,7 @@
           "ocr": false,
           "valor": "Sin total nacional",
           "numero": null,
-          "detalle": "2.497 de 6.457 PDF (38,7 %) son escaneos sin texto. En 212 cuentas legibles, los ingresos suman $1.121.944,70: es un piso, no un total.",
+          "detalle": "2.497 de 6.457 PDF (38,7 %) son escaneos sin texto. En 212 cuentas legibles, los ingresos suman $1.121.944,70: es un piso, no un total. Las seis cifras por dignidad están redondeadas al dólar. Redondeadas, suman $1.121.945. El piso exacto sigue siendo $1.121.944,70.",
           "fuente": {
             "institucion": "Consejo Nacional Electoral",
             "documento": "Transparencia del Financiamiento Político, proceso 132",
@@ -1048,7 +1048,7 @@
           "titulo": "Todas las dignidades: por qué no hay un total nacional",
           "parrafos": [
             "No es posible dar un total nacional confiable de la 1.ª vuelta: 2.497 de 6.457 PDF (38,7 %) son escaneos sin texto. ABIERTO.",
-            "En las 212 cuentas de campaña que tienen todos sus reportes de ingresos con texto legible, los ingresos declarados suman $1.121.944,70. Es un piso, no un total. CONFIRMADO como piso de ese subconjunto."
+            "En las 212 cuentas de campaña que tienen todos sus reportes de ingresos con texto legible, los ingresos declarados suman $1.121.944,70. Es un piso, no un total. CONFIRMADO como piso de ese subconjunto. Las seis cifras por dignidad están redondeadas al dólar. Redondeadas, suman $1.121.945. El piso exacto sigue siendo $1.121.944,70."
           ],
           "fuente": {
             "institucion": "Consejo Nacional Electoral",
@@ -1061,7 +1061,7 @@
         {
           "tipo": "grafico",
           "titulo": "Ingresos declarados por dignidad, solo cuentas con todos sus reportes legibles",
-          "nota": "Una sola escala. No es un total nacional. El par de cuentas (legibles de totales) va junto al nombre.",
+          "nota": "Una sola escala. No es un total nacional. El par de cuentas (legibles de totales) va junto al nombre. Las seis cifras por dignidad están redondeadas al dólar. Redondeadas, suman $1.121.945. El piso exacto sigue siendo $1.121.944,70.",
           "escala": "compartida",
           "leyenda": [],
           "grupos": [
