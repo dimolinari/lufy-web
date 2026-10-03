@@ -14,11 +14,11 @@ presidencial_1a_vuelta,Sociedad Patriótica,0.00,0.00,3002200.00,,,
 presidencial_1a_vuelta_suma,12 organizaciones con reportes completos,596455.65,534609.69,,,,No incluye CREO ni organizaciones sin reportes quincenales
 presidencial_2a_vuelta,Revolución Ciudadana - RETO,248434.82,222309.91,,,,2 reportes quincenales
 presidencial_2a_vuelta,ADN,,116563.11,,,,Gasto leído por OCR y verificado contra la imagen. El índice no lista reportes de ingresos de esta vuelta
-dignidad_piso_1a_vuelta,Asambleístas provinciales,364370,,,111,229,Solo cuentas con todos los reportes de ingresos legibles
-dignidad_piso_1a_vuelta,Presidente y Vicepresidente,362648,,,10,13,Solo cuentas con todos los reportes de ingresos legibles
-dignidad_piso_1a_vuelta,Asambleístas nacionales,200502,,,10,12,Solo cuentas con todos los reportes de ingresos legibles
-dignidad_piso_1a_vuelta,Asambleístas por circunscripción,182466,,,62,106,Solo cuentas con todos los reportes de ingresos legibles
-dignidad_piso_1a_vuelta,Asambleístas del exterior,9538,,,15,16,Solo cuentas con todos los reportes de ingresos legibles
-dignidad_piso_1a_vuelta,Parlamentarios andinos,2421,,,4,7,Solo cuentas con todos los reportes de ingresos legibles
-dignidad_piso_1a_vuelta,Suma del subconjunto legible,1121944.70,,,212,,Piso. No es un total nacional
+dignidad_piso_1a_vuelta,Asambleístas provinciales,364370,,,111,229,Redondeado al dólar. Solo cuentas con todos los reportes de ingresos legibles
+dignidad_piso_1a_vuelta,Presidente y Vicepresidente,362648,,,10,13,Redondeado al dólar. Solo cuentas con todos los reportes de ingresos legibles
+dignidad_piso_1a_vuelta,Asambleístas nacionales,200502,,,10,12,Redondeado al dólar. Solo cuentas con todos los reportes de ingresos legibles
+dignidad_piso_1a_vuelta,Asambleístas por circunscripción,182466,,,62,106,Redondeado al dólar. Solo cuentas con todos los reportes de ingresos legibles
+dignidad_piso_1a_vuelta,Asambleístas del exterior,9538,,,15,16,Redondeado al dólar. Solo cuentas con todos los reportes de ingresos legibles
+dignidad_piso_1a_vuelta,Parlamentarios andinos,2421,,,4,7,Redondeado al dólar. Solo cuentas con todos los reportes de ingresos legibles
+dignidad_piso_1a_vuelta,Suma del subconjunto legible,1121944.70,,,212,,"Piso. No es un total nacional. Las seis cifras por dignidad están redondeadas al dólar. Redondeadas, suman $1.121.945. El piso exacto sigue siendo $1.121.944,70."
 limite_legal,Binomio presidencial,,,5494525.60,,,Límite de gasto aprobado el 17 de agosto de 2024. No cubre la publicidad del Fondo de Promoción Electoral
