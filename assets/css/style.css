@@ -429,6 +429,7 @@ tbody tr:nth-child(even){background:#fbf8f2}
   margin:0 0 .4rem;
   display:block;
 }
+.retrato-ancho{max-width:min(100%,36rem)}
 .libro-cab{display:grid;gap:1.25rem;align-items:start;margin-bottom:1rem}
 .apoyo-mini{
   background:var(--vino);
