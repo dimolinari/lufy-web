@@ -1,0 +1,7 @@
+slot,estado,cifra,documento_necesario,notas
+saldo_deuda_publica,ABIERTO,,"Ministerio de Finanzas, boletín de deuda pública, saldo a una fecha de corte y entidades incluidas","No hay copia archivada en el repositorio. No se publica un monto."
+composicion,ABIERTO,,"Ministerio de Finanzas, boletín de deuda pública, tabla de composición del mismo corte","No hay copia archivada en el repositorio. No se publica un monto."
+cociente_tamano_economia,ABIERTO,,"Ministerio de Finanzas, boletín de deuda pública, cociente del mismo corte; si no lo trae, saldo y medida de la economía, cada uno archivado","No hay copia archivada en el repositorio. No se publica un monto."
+servicio_deuda,ABIERTO,,"Proforma presupuestaria o presupuesto aprobado del Estado que desglose capital e intereses, con ejercicio y fecha","No hay copia archivada en el repositorio. No se publica un monto."
+serie_historica,ABIERTO,,"Una copia archivada del boletín o de la serie oficial por cada fecha","Un punto sin documento no entra. No se publica un monto."
+saldo_historico_resumen_libro_cap11,ABIERTO,,"Documento oficial que respalda la frase de deuda externa del capítulo 11 del libro, con institución, título y fecha","El resumen está en libro.html. El monto no se republica en este hilo."
