@@ -15,7 +15,7 @@ Web estática de Lufy: el libro «El verdadero poder político. Ecuador 1972–2
 - Las publicaciones en X enlazan a la página de Lufy (el inicio, un hilo o el libro), no al documento en un sitio oficial.
 - El sitio se publica solo con el nombre Lufy: sin nombre personal, cédula, teléfono ni correos personales.
 - El contenido principal es gratis. Solo se publican datos oficiales verificados. No hay acusaciones: cada hallazgo va con CONFIRMADO, INDICIO, ABIERTO o HIPÓTESIS.
-- En Datos hay dos fichas: Mishel Andrea Mancheno Dávila y Luis Esteban Torres Cobo. Cada dato va como ABIERTO: la copia archivada con SHA-256 no está en el repositorio y no se inventa la huella. Los retratos están en `assets/img/mishel-andrea-mancheno-davila.png` y `assets/img/luis-esteban-torres-cobo.jpg`.
+- En Datos hay tres fichas: Mishel Andrea Mancheno Dávila, Luis Esteban Torres Cobo y Bertha Vélez Vélez. Cada dato va como ABIERTO: la copia archivada con SHA-256 no está en el repositorio y no se inventa la huella. Los retratos están en `assets/img/`.
 
 Reglas de contenido, con más detalle: `historia.html`.
 
