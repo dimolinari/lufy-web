@@ -136,6 +136,13 @@ public struct Grafico: Decodable, Sendable, Equatable {
         guard maximo > 0 else { return 0 }
         return min(1, max(0, barra.valor / maximo))
     }
+
+    /// Ancho del relleno. Una fracción de 0 o menos mide 0; un valor
+    /// positivo conserva `minimoVisible` para que el trazo no desaparezca.
+    public static func anchoRelleno(fraccion: Double, anchoPista: Double, minimoVisible: Double = 4) -> Double {
+        guard fraccion > 0 else { return 0 }
+        return max(minimoVisible, anchoPista * fraccion)
+    }
 }
 
 public struct ColumnaTabla: Decodable, Sendable, Equatable, Identifiable {

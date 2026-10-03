@@ -797,16 +797,22 @@ private struct BarraGrafico: View {
                     .accessibilityHidden(true)
             } else {
                 GeometryReader { geo in
+                    let ancho = CGFloat(Grafico.anchoRelleno(
+                        fraccion: fraccion,
+                        anchoPista: Double(geo.size.width)
+                    ))
                     ZStack(alignment: .leading) {
                         Capsule().fill(Color("Papel2"))
-                        Capsule()
-                            .fill(relleno)
-                            .frame(width: max(4, geo.size.width * fraccion))
-                            .overlay {
-                                if barra.tono == .oroRaya || barra.tono == .vinoRaya {
-                                    Rayas().clipShape(Capsule())
+                        if ancho > 0 {
+                            Capsule()
+                                .fill(relleno)
+                                .frame(width: ancho)
+                                .overlay {
+                                    if barra.tono == .oroRaya || barra.tono == .vinoRaya {
+                                        Rayas().clipShape(Capsule())
+                                    }
                                 }
-                            }
+                        }
                     }
                 }
                 .frame(height: 12)

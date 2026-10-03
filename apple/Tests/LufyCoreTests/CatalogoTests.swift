@@ -122,6 +122,40 @@ final class CatalogoTests: XCTestCase {
         XCTAssertEqual(adn, 224500 / 244802.52, accuracy: 0.001)
     }
 
+    func testBarraEnCeroNoReservaRelleno() throws {
+        let (catalogo, _) = try cargar()
+        let hilo = try XCTUnwrap(catalogo.hilo(id: "campana-cne-2025"))
+        let ingresos = try XCTUnwrap(grafico(hilo, tituloCon: "Ingresos declarados, Presidente"))
+        let patriotaIngresos = try XCTUnwrap(ingresos.grupos.first { $0.nombre == "Sociedad Patriótica" })
+        let barraIngresos = try XCTUnwrap(patriotaIngresos.barras.first { $0.etiqueta == "Ingresos" })
+        XCTAssertEqual(barraIngresos.valor, 0, accuracy: 0.0001)
+        XCTAssertEqual(barraIngresos.texto, "$0,00")
+        let fraccionIngresos = ingresos.fraccion(grupo: patriotaIngresos, barra: barraIngresos)
+        XCTAssertEqual(fraccionIngresos, 0, accuracy: 0.0001)
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: fraccionIngresos, anchoPista: 280), 0, accuracy: 0.0001)
+
+        let gasto = try XCTUnwrap(grafico(hilo, tituloCon: "Gasto declarado frente al presupuesto"))
+        let patriotaGasto = try XCTUnwrap(gasto.grupos.first { $0.nombre == "Sociedad Patriótica" })
+        let barraGasto = try XCTUnwrap(patriotaGasto.barras.first { $0.etiqueta == "Gasto" })
+        XCTAssertEqual(barraGasto.valor, 0, accuracy: 0.0001)
+        XCTAssertEqual(barraGasto.texto, "$0,00")
+        let fraccionGasto = gasto.fraccion(grupo: patriotaGasto, barra: barraGasto)
+        XCTAssertEqual(fraccionGasto, 0, accuracy: 0.0001)
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: fraccionGasto, anchoPista: 280), 0, accuracy: 0.0001)
+
+        let popular = try XCTUnwrap(ingresos.grupos.first { $0.nombre == "Unidad Popular" })
+        let barraPopular = try XCTUnwrap(popular.barras.first)
+        let fraccionPopular = ingresos.fraccion(grupo: popular, barra: barraPopular)
+        XCTAssertGreaterThan(fraccionPopular, 0)
+        XCTAssertLessThan(280 * fraccionPopular, 4)
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: fraccionPopular, anchoPista: 280), 4, accuracy: 0.0001)
+
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: 0, anchoPista: 280), 0, accuracy: 0.0001)
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: -0.2, anchoPista: 280), 0, accuracy: 0.0001)
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: 0.5, anchoPista: 280), 140, accuracy: 0.0001)
+        XCTAssertEqual(Grafico.anchoRelleno(fraccion: 1, anchoPista: 280), 280, accuracy: 0.0001)
+    }
+
     func testRechazaEnlaceOficialYEsquema() throws {
         let (_, datos) = try cargar()
         var texto = String(decoding: datos, as: UTF8.self)
@@ -231,6 +265,15 @@ final class CatalogoTests: XCTestCase {
 
     private func pegar(_ partes: String...) -> String {
         partes.joined()
+    }
+
+    private func grafico(_ hilo: Hilo, tituloCon prefijo: String) -> Grafico? {
+        for bloque in hilo.bloques {
+            if case .grafico(let grafico) = bloque, grafico.titulo.hasPrefix(prefijo) {
+                return grafico
+            }
+        }
+        return nil
     }
 
     private func tablaPresidencial(_ hilo: Hilo) -> Tabla? {
