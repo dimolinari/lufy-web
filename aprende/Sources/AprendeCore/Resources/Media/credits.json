@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tortuga-galapagos",
+    "file": "tortuga-galapagos.jpg",
+    "title": "Tortuga gigante de Galápagos",
+    "author": "Bernard Gagno",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceURL": "https://commons.wikimedia.org/wiki/File:Chelonoidis_vicina_04.jpg"
+  },
+  {
+    "id": "cotopaxi",
+    "file": "cotopaxi.jpg",
+    "title": "Volcán Cotopaxi",
+    "author": "Bernard Gagno",
+    "license": "CC BY-SA 3.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceURL": "https://commons.wikimedia.org/wiki/File:Cotopaxi_01.jpg"
+  },
+  {
+    "id": "amazonia-tena",
+    "file": "amazonia-tena.jpg",
+    "title": "Selva amazónica cerca de Tena",
+    "author": "Jay",
+    "license": "CC BY 2.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+    "sourceURL": "https://commons.wikimedia.org/wiki/File:Amazon_Rainforest_in_Tena,_Ecuador.jpg"
+  },
+  {
+    "id": "quito-centro",
+    "file": "quito-centro.jpg",
+    "title": "Edificio del centro histórico de Quito",
+    "author": "David Adam Kess",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceURL": "https://commons.wikimedia.org/wiki/File:(Centro_Historico_de_Quito)_antique_building,_historic_center_of_quito.JPG"
+  }
+]

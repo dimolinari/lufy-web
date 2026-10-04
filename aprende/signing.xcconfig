@@ -1,0 +1,8 @@
+// Valores de partida, copiados de brand.json por scripts/sync_brand.py.
+// El team de aquí es un marcador. El team real y un bundle id distinto
+// van en signing.local.xcconfig, que no se versiona.
+LUFY_DEVELOPMENT_TEAM = XXXXXXXXXX
+LUFY_IOS_BUNDLE_ID = com.lufy.aprende
+LUFY_MAC_BUNDLE_ID = com.lufy.aprende.mac
+LUFY_VISION_BUNDLE_ID = com.lufy.aprende.vision
+#include? "signing.local.xcconfig"

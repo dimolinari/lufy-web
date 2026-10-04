@@ -1,0 +1,437 @@
+{
+  "id": "ecuador-publico",
+  "title": "Gobierno y lo público",
+  "summary": "La unidad completa de esta versión: cómo se hace una ley, cómo compra el Estado, cómo se lee un contrato, cómo se pide información y una primera mirada a las eras.",
+  "access": "free",
+  "units": [
+    {
+      "id": "primeros-pasos",
+      "title": "Primeros pasos",
+      "summary": "Un camino corto. Cada lección se escucha y después se responde.",
+      "lessons": [
+        {
+          "id": "como-se-hace-una-ley",
+          "title": "Cómo se hace una ley",
+          "summary": "Quién propone un proyecto, quién lo debate y lo vota, quién lo sanciona u objeta, y dónde se publica.",
+          "script": "Hay una idea sobre la mesa. Alguien cree que el Ecuador necesita una regla nueva, una ley, y esa idea todavía no obliga a nadie. Para obligar tiene que caminar un camino público, con nombres de cargo y no de personas. Esta lección recorre ese camino. Quién propone. Quién discute. Quién vota. Quién firma o devuelve el texto. Y dónde se publica para que la regla exista.\n\nEl poder público está repartido en cinco funciones. La Legislativa hace las leyes y se ejerce por la Asamblea Nacional, que es unicameral y tiene su sede en Quito. La Ejecutiva dirige la administración pública, con la Presidencia y la Vicepresidencia de la República, los ministerios y las instituciones que ejecutan las políticas. La Judicial administra justicia. La Electoral organiza el sufragio. La de Transparencia y Control Social vigila que el poder rinda cuentas. Nadie en el Estado puede hacer más de lo que la Constitución y la ley le encargan. Una ley nace, sobre todo, del encuentro entre la Asamblea y la Presidencia.\n\nQuince asambleístas salen de una circunscripción nacional. Cada provincia elige dos y puede sumar más según su población. La ley define también a quienes representan al exterior. Ellas y ellos, elegidos para cuatro años, debaten y votan.\n\nQuién puede presentar un proyecto es una lista cerrada. Las asambleístas y los asambleístas, si los respalda una bancada o al menos el cinco por ciento de los miembros de la Asamblea. La Presidenta o el Presidente de la República. Las otras funciones del Estado, cada una en lo que le toca. La Corte Constitucional, la Procuraduría General del Estado, la Fiscalía General del Estado, la Defensoría del Pueblo y la Defensoría Pública, en las materias de su competencia. Y la ciudadanía. Personas en goce de derechos políticos, u organizaciones sociales, con el respaldo de al menos el cero punto veinticinco por ciento del padrón electoral nacional. Quien presenta el proyecto puede participar en el debate, en persona o mediante una delegación.\n\nHay una llave que solo tiene la Presidencia. Solo ella puede presentar proyectos que creen, modifiquen o supriman impuestos, que aumenten el gasto público, o que cambien la división político administrativa del país.\n\nEl proyecto debe tratar de una sola materia. Se entrega a quien preside la Asamblea con una exposición de motivos, el articulado, y la lista clara de lo que la nueva ley derogaría o reformaría. Si falta eso, no se tramita. Luego se reparte, se publica un extracto y pasa a comisión. Quien tenga interés, o crea que sus derechos pueden afectarse, puede ir a exponer sus argumentos.\n\nEl pleno somete el proyecto a dos debates. Hay leyes orgánicas y leyes ordinarias. Las orgánicas regulan, por ejemplo, la organización de las instituciones creadas por la Constitución, el ejercicio de los derechos, los gobiernos autónomos descentralizados y el sistema electoral. Para expedirlas, reformarlas, derogarlas o interpretarlas con carácter general hace falta la mayoría absoluta de los miembros de la Asamblea. Las ordinarias no pueden modificar ni prevalecer sobre una orgánica.\n\nSi el pleno aprueba el texto, la Asamblea lo envía a la Presidencia para que lo sancione o lo objete con fundamentos. Hay treinta días desde la recepción. Si la Presidencia sanciona, o si deja pasar ese plazo sin objetar, la ley se promulga y se publica en el Registro Oficial. Sin esa publicación, el texto aprobado todavía no es una ley que la gente pueda leer y cumplir.\n\nLa objeción puede ser total. La Asamblea no lo retoma al día siguiente. Espera un año desde la objeción. Cumplido el año, puede ratificar el proyecto en un solo debate, con el voto favorable de las dos terceras partes de sus miembros, y lo envía al Registro Oficial.\n\nLa objeción también puede ser parcial. La Presidencia presenta un texto alternativo, sin materias nuevas. La Asamblea tiene treinta días. Puede aceptar la objeción y enmendar el proyecto con la mayoría de las personas asistentes a la sesión, o ratificar el texto original con las dos terceras partes de sus miembros. Si no examina la objeción en ese plazo, se entiende que la aceptó, y la Presidencia promulga y publica.\n\nSi la objeción se funda en una inconstitucionalidad total o parcial, decide primero la Corte Constitucional, en treinta días. Si todo el proyecto es inconstitucional, se archiva. Si el problema es parcial, la Asamblea corrige y el texto vuelve a la sanción. Si la Corte no encuentra inconstitucionalidad, la Asamblea promulga y ordena la publicación.\n\nEn materia económica, la Presidencia puede calificar un proyecto de urgente. La Asamblea tiene treinta días para aprobarlo, modificarlo o negarlo. Si calla, la Presidencia lo promulga como decreto ley y lo publica en el Registro Oficial.\n\nCuando termines de escuchar, responderás unas preguntas cortas. Si fallas alguna, volverá otro día, para que la regla se quede. Esto es educación cívica. Describe cargos e instituciones. No acusa a ninguna persona.",
+          "sources": [
+            "Constitución de la República del Ecuador, arts. 118, 132, 133, 134, 135, 136, 137, 138, 139 y 140. Publicación original: Registro Oficial 449, 20 de octubre de 2008, con reformas posteriores.",
+            "Constitución de la República del Ecuador, arts. 141 y 225, sobre la Función Ejecutiva y las cinco funciones del sector público."
+          ],
+          "questions": [
+            {
+              "id": "ley-impuestos",
+              "kind": "multipleChoice",
+              "prompt": "¿Quién puede presentar un proyecto de ley que cree, modifique o suprima impuestos?",
+              "explanation": "El artículo 135 reserva a la Presidencia los proyectos que crean, modifican o suprimen impuestos, aumentan el gasto público o cambian la división político-administrativa.",
+              "options": [
+                {
+                  "id": "corte",
+                  "text": "La Corte Constitucional, en cualquier materia"
+                },
+                {
+                  "id": "presidencia",
+                  "text": "Solo la Presidenta o el Presidente de la República"
+                },
+                {
+                  "id": "cualquier",
+                  "text": "Cualquier asambleísta, aunque no tenga respaldo"
+                },
+                {
+                  "id": "contraloria",
+                  "text": "La Contraloría General del Estado"
+                }
+              ],
+              "correctOptionId": "presidencia"
+            },
+            {
+              "id": "ley-dos-debates",
+              "kind": "trueFalse",
+              "prompt": "En la Asamblea Nacional, un proyecto de ley se somete a dos debates.",
+              "explanation": "El artículo 137 dice que el proyecto de ley será sometido a dos debates.",
+              "correct": true
+            },
+            {
+              "id": "ley-camino",
+              "kind": "order",
+              "prompt": "Ordena el camino ordinario de una ley, desde la idea hasta que puede leerse como norma.",
+              "explanation": "Primero está la iniciativa del artículo 134. Luego los dos debates y la votación. La Presidencia sanciona u objeta en treinta días. La publicación en el Registro Oficial es la que promulga la ley.",
+              "items": [
+                {
+                  "id": "propone",
+                  "text": "Alguien con iniciativa presenta el proyecto"
+                },
+                {
+                  "id": "debate",
+                  "text": "La Asamblea lo debate dos veces y lo vota"
+                },
+                {
+                  "id": "sancion",
+                  "text": "La Presidencia lo sanciona u objeta"
+                },
+                {
+                  "id": "registro",
+                  "text": "Se publica en el Registro Oficial"
+                }
+              ],
+              "correctOrder": [
+                "propone",
+                "debate",
+                "sancion",
+                "registro"
+              ]
+            },
+            {
+              "id": "ley-objecion-total",
+              "kind": "fillBlank",
+              "prompt": "Si la Presidencia objeta totalmente el proyecto, la Asamblea debe esperar un ______ antes de poder ratificarlo.",
+              "explanation": "El artículo 138 dice que, ante una objeción total, la Asamblea solo puede volver a considerar el proyecto después de un año, y ratificarlo con dos tercios.",
+              "acceptedAnswers": [
+                "año",
+                "ano"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "como-compra-el-estado",
+          "title": "Cómo compra el Estado",
+          "summary": "Del plan anual al portal: quién conduce la contratación pública y qué procedimiento corresponde.",
+          "script": "Cada año, el Estado compra. Compra medicinas, puentes, uniformes, estudios, sistemas y obras. Esa compra no es un favor ni un secreto de pasillo. Es un procedimiento con nombre, con papeles y con un portal donde otras personas pueden mirar. Esta lección explica cómo está armado ese procedimiento en la ley, sin señalar a nadie.\n\nLa norma que ordena estas compras es la Ley Orgánica del Sistema Nacional de Contratación Pública. El conjunto de principios, reglas, actores y herramientas se llama Sistema Nacional de Contratación Pública. El órgano técnico que lo conduce es el Servicio Nacional de Contratación Pública, el SERCOP. El SERCOP administra el Portal de Contratación Pública. Ese portal es el lugar oficial donde se publican las fases de una compra, salvo lo que la propia ley manda reservar. También existe el Registro Único de Proveedores. Para ofertar en los procedimientos de la ley, una persona natural, una empresa o un consorcio tiene que estar inscrito y habilitado en ese registro, con las excepciones que el reglamento señale.\n\nLa ley pide que el interés público esté por encima del interés privado, y enumera principios para vigilar la integridad de los procedimientos y de los contratos. Entre ellos están la legalidad, el trato justo, la participación nacional, la seguridad jurídica, la concurrencia, la igualdad, la sostenibilidad, la simplificación, la transparencia, la integridad, el resultado, y el mejor valor por dinero. No son adornos de un discurso. Son la vara con la que se lee un proceso.\n\nAntes de invitar a ofertar, la entidad tiene que saber qué necesita. La fase preparatoria incluye estudios y diseños completos, especificaciones o términos de referencia, y un presupuesto referencial, aprobados por quien corresponda. También hace falta una certificación presupuestaria. Sin plata prevista, no se abre el procedimiento. Las entidades planifican esas necesidades en su Plan Anual de Contratación y lo publican. Un plan publicado no garantiza que la compra sea buena. Sí permite que cualquiera vea qué se pensaba comprar.\n\nLuego viene la fase precontractual. Los pliegos explican cómo participar. Llevan la información técnica, económica y legal. Planos, estudios, parámetros de calificación y condiciones del futuro contrato. El trámite corre por las herramientas informáticas del SERCOP. Al final, la adjudicación es el acto administrativo con el que la máxima autoridad, o quien ella delegue, elige a la oferta que representa el mejor valor por dinero, entre las que cumplieron los parámetros objetivos de los pliegos. Esa resolución tiene que estar motivada. Se notifica, y solo se impugna por los caminos que la ley prevé.\n\nNo toda compra usa el mismo procedimiento. La ley distingue varios, y el umbral en dólares puede cambiar si la ley cambia. Por eso esta lección cita el texto reformado que se publicó en el Registro Oficial el siete de octubre de dos mil veinticinco, y no una cifra suelta de memoria.\n\nSi el bien o el servicio está en el Catálogo Electrónico, la entidad compra por ese catálogo. El catálogo nace de convenios marco con proveedores seleccionados. La entidad debe consultarlo antes de abrir otro procedimiento de bienes o servicios. Si lo que necesita no está catalogado, puede usar una subasta inversa electrónica, en la que los proveedores pujan hacia la baja por el portal. La licitación sirve para bienes, obras y servicios, distintos de la consultoría, cuando la subasta inversa no es el camino idóneo y el objeto no está en el catálogo. La consultoría, cuando el presupuesto referencial supera los diez mil dólares, se contrata por concurso público.\n\nLa ínfima cuantía es la compra pequeña. En ese texto de la ley, cubre bienes, servicios, consultoría u obra por un valor igual o inferior a diez mil dólares de los Estados Unidos, siempre que no consten en el catálogo. No puede usarse para partir un contrato grande en pedazos y esquivar un procedimiento más exigente. El SERCOP vigila esa práctica.\n\nHay además ferias inclusivas, compras corporativas de varias entidades, régimen especial para ciertos objetos, y contrataciones de emergencia. La emergencia no apaga la publicación. La entidad publica la resolución que la declara, los contratos, y al cierre un informe de lo comprado y lo gastado. Si no publica, el SERCOP avisa a la Contraloría General del Estado.\n\nEl orden que conviene recordar es simple. Primero la necesidad, los estudios y el presupuesto. Después el plan y el procedimiento, con pliegos y ofertas. Luego la adjudicación motivada. Al final, el contrato. En la siguiente lección se abre ese contrato y se lee como un documento, no como un rumor.\n\nEsto es educación cívica. Explica una ley. No acusa a ninguna persona ni a ninguna empresa.",
+          "sources": [
+            "Ley Orgánica del Sistema Nacional de Contratación Pública, arts. 3, 6, 7, 19, 23, 24, 27, 28, 30 y 43 a 50. Reforma publicada en el Registro Oficial suplemento 140, 7 de octubre de 2025.",
+            "Los umbrales en dólares son los de ese texto. Si la ley cambia, manda el texto nuevo."
+          ],
+          "questions": [
+            {
+              "id": "compra-portal",
+              "kind": "multipleChoice",
+              "prompt": "¿Qué institución administra el Portal de Contratación Pública?",
+              "explanation": "El SERCOP es el órgano técnico del Sistema Nacional de Contratación Pública y administra el portal donde corren los procedimientos electrónicos.",
+              "options": [
+                {
+                  "id": "cne",
+                  "text": "El Consejo Nacional Electoral"
+                },
+                {
+                  "id": "sercop",
+                  "text": "El Servicio Nacional de Contratación Pública, SERCOP"
+                },
+                {
+                  "id": "asamblea",
+                  "text": "La Asamblea Nacional"
+                },
+                {
+                  "id": "inec",
+                  "text": "El Instituto Nacional de Estadística y Censos"
+                }
+              ],
+              "correctOptionId": "sercop"
+            },
+            {
+              "id": "compra-estudios",
+              "kind": "trueFalse",
+              "prompt": "Antes de abrir un procedimiento, la entidad debe contar con estudios y con una certificación presupuestaria.",
+              "explanation": "Los artículos 23 y 24 exigen estudios completos, según la naturaleza de la compra, y certificación de que hay recursos para cubrir la obligación.",
+              "correct": true
+            },
+            {
+              "id": "compra-fases",
+              "kind": "order",
+              "prompt": "Ordena las fases de una compra pública, de la necesidad al papel firmado.",
+              "explanation": "La fase preparatoria deja lista la necesidad y el presupuesto. La precontractual compara ofertas. La adjudicación elige. El contrato fija la obligación.",
+              "items": [
+                {
+                  "id": "necesidad",
+                  "text": "Estudios, especificaciones y presupuesto"
+                },
+                {
+                  "id": "pliegos",
+                  "text": "Pliegos, ofertas y puja o evaluación"
+                },
+                {
+                  "id": "adjudicacion",
+                  "text": "Adjudicación motivada"
+                },
+                {
+                  "id": "contrato",
+                  "text": "Suscripción del contrato"
+                }
+              ],
+              "correctOrder": [
+                "necesidad",
+                "pliegos",
+                "adjudicacion",
+                "contrato"
+              ]
+            },
+            {
+              "id": "compra-rup",
+              "kind": "fillBlank",
+              "prompt": "Para ofertar, el proveedor se inscribe en el Registro Único de ______.",
+              "explanation": "El artículo 19 llama Registro Único de Proveedores, RUP, al registro donde deben inscribirse y habilitarse quienes participan, salvo las excepciones del reglamento.",
+              "acceptedAnswers": [
+                "Proveedores",
+                "proveedores"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "como-leer-un-contrato",
+          "title": "Cómo leer un contrato público",
+          "summary": "Partes, objeto, precio, garantías, administrador y las formas en que el contrato termina.",
+          "script": "Un contrato público es una promesa escrita entre quien compra para el Estado y quien se obliga a entregar algo. La ley lo trata como contrato administrativo. No hace falta ser abogada ni abogado para leer las primeras páginas con atención. Esta lección enseña qué buscar y qué cifras trae la norma. No juzga ningún contrato concreto.\n\nEmpieza por la carátula. Ahí están las partes. De un lado, la entidad contratante. Del otro, el contratista, que puede ser una persona, una empresa o un consorcio. Si es un consorcio, sus miembros responden de forma solidaria por la oferta y por el contrato. Anota el código del procedimiento en el portal, la fecha y el objeto. El objeto es la frase que dice qué se compra. Una obra, un bien, un servicio o una consultoría. Si el objeto es vago, el resto del papel se vuelve difícil de controlar. Las adendas pueden corregir errores o ajustar la voluntad por causas imprevistas o técnicas. No pueden cambiar el objeto ni el alcance, ni subir el precio o el plazo.\n\nSigue el precio y el plazo. El precio puede ser un valor único o un cuadro de precios unitarios. El plazo dice cuándo empieza, cuándo termina y, a veces, el cronograma. La forma de pago importa tanto como el monto. Si hay anticipo, el contratista tiene que rendir antes una garantía por el mismo valor del anticipo. La ley exige además una cláusula de tramitación de pago. Si la entidad se demora sin justificación, no puede exigir que el contratista siga avanzando como si nada. Esa demora se imputa a la entidad.\n\nLuego vienen las garantías. La de fiel cumplimiento se rinde antes o al firmar, por un monto equivalente al cinco por ciento del valor del contrato. Asegura el cumplimiento y responde frente a terceros por obligaciones ligadas a ese contrato. En la obra cubre también la buena ejecución y la calidad de los materiales. Hay excepciones, como ciertas compraventas de inmuebles o de bienes que se entregan al pagar. Si la oferta económica de una obra queda diez por ciento o más por debajo del presupuesto referencial, la garantía sube en un veinte por ciento de la diferencia entre el presupuesto y el contrato. El reglamento puede extender ese refuerzo a ciertos servicios.\n\nLa garantía puede tomar tres formas. Una garantía incondicional, irrevocable y de cobro inmediato, de un banco del país. Una fianza en póliza de seguros, con las mismas condiciones, emitida en el país. O un certificado de depósito a plazo, endosado a la orden de la entidad, con vigencia mayor que la ejecución prevista. Para cobrarla basta el requerimiento escrito de la entidad. Una cláusula que invente un trámite previo se tiene por no escrita. En equipos, maquinaria o vehículos puede exigirse, además, una garantía técnica del fabricante o del vendedor.\n\nDespués busca quién administra. La ley obliga a pactar las funciones del administrador del contrato y de quien fiscaliza. Esas personas cuidan cláusulas, cronograma, plazos y costos. Si hay fiscalización, el contrato debe prever el reemplazo inmediato de quien no cumple esa función. También es obligatoria la cláusula de multas. Las multas castigan el retardo, se calculan por día sobre la obligación incumplida y respetan el debido proceso. Deben imponerse a tiempo. Hacerlo junto con la terminación del contrato, o después, es ilegal según la norma.\n\nCierra con el final. El contrato termina por cumplimiento, por mutuo acuerdo, por sentencia o laudo que declare la nulidad o lo resuelva a pedido del contratista, por declaración unilateral de la entidad si hay incumplimiento, por colusión demostrada antes de la firma, o por muerte del contratista o disolución de la persona jurídica que no sea una decisión interna voluntaria. El contratista no puede ceder el contrato. La ley le prohíbe transferir los derechos y las obligaciones a otra persona. Esa prohibición vale para el contrato en general. Quien firmó sigue siendo quien responde ante la entidad contratante.\n\nAl recibir se firma un acta. En bienes y servicios, incluida la consultoría, hay una sola recepción, con efecto de recepción definitiva. La liquidación anota lo ejecutado, lo pagado y lo que todavía se debe. Solo con la liquidación se extingue el negocio. Esos papeles se contrastan con los pliegos, la oferta y la resolución de adjudicación del portal.\n\nLeer no es acusar. Es comparar el papel con la ley. En la siguiente lección verás cómo pedir la información pública que el contrato no muestra.",
+          "sources": [
+            "Ley Orgánica del Sistema Nacional de Contratación Pública, arts. 25, 74, 82, 83, 84, 85, 86, 90, 92, 93, 94, 95 y 106. Reforma del Registro Oficial suplemento 140, 7 de octubre de 2025."
+          ],
+          "questions": [
+            {
+              "id": "contrato-garantia",
+              "kind": "multipleChoice",
+              "prompt": "¿A cuánto equivale, por regla general, la garantía de fiel cumplimiento?",
+              "explanation": "El artículo 85 fija la garantía de fiel cumplimiento en un monto equivalente al cinco por ciento del valor del contrato, con reglas especiales para ciertas obras de precio bajo.",
+              "options": [
+                {
+                  "id": "uno",
+                  "text": "Al uno por ciento del presupuesto del Estado"
+                },
+                {
+                  "id": "cinco",
+                  "text": "Al cinco por ciento del valor del contrato"
+                },
+                {
+                  "id": "mitad",
+                  "text": "A la mitad del anticipo"
+                },
+                {
+                  "id": "total",
+                  "text": "Al cien por ciento del contrato, siempre"
+                }
+              ],
+              "correctOptionId": "cinco"
+            },
+            {
+              "id": "contrato-cesion",
+              "kind": "trueFalse",
+              "prompt": "El contratista puede ceder libremente el contrato a otra persona.",
+              "explanation": "El artículo 90 prohíbe al contratista ceder los derechos y obligaciones del contrato. Quien firmó sigue obligado frente a la entidad.",
+              "correct": false
+            },
+            {
+              "id": "contrato-lectura",
+              "kind": "order",
+              "prompt": "Ordena una lectura tranquila del contrato, de la carátula al cierre.",
+              "explanation": "Primero se identifica quién contrata y qué se compra. Después el dinero y el tiempo. Luego las garantías. Al final, quién vigila la ejecución y cómo puede terminar.",
+              "items": [
+                {
+                  "id": "partes",
+                  "text": "Partes, código y objeto"
+                },
+                {
+                  "id": "precio",
+                  "text": "Precio, plazo y forma de pago"
+                },
+                {
+                  "id": "garantias",
+                  "text": "Garantías, incluido el cinco por ciento"
+                },
+                {
+                  "id": "cierre",
+                  "text": "Administrador, multas y forma de terminar"
+                }
+              ],
+              "correctOrder": [
+                "partes",
+                "precio",
+                "garantias",
+                "cierre"
+              ]
+            },
+            {
+              "id": "contrato-liquidacion",
+              "kind": "fillBlank",
+              "prompt": "Solo con la ______ se extingue el negocio del contrato.",
+              "explanation": "Los artículos 94 y 95 tratan la liquidación como el acto que anota lo ejecutado, lo pagado y lo pendiente, y con el cual se extingue el negocio.",
+              "acceptedAnswers": [
+                "liquidación",
+                "liquidacion"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "como-pedir-informacion",
+          "title": "Cómo pedir información pública",
+          "summary": "Qué dice la Constitución, cómo se escribe una solicitud LOTAIP y qué pasa si no responden.",
+          "script": "Hay datos del Estado que no están en un discurso. Están en un informe, en un contrato, en un presupuesto, en un acta. La Constitución reconoce el derecho a buscar y recibir información, y el derecho a acceder a la información que generan las entidades públicas, o las privadas que manejan fondos del Estado o hacen funciones públicas. La reserva solo cabe cuando la ley la establece de manera expresa. Y si se trata de una violación de derechos humanos, ninguna entidad pública puede negar la información.\n\nLa ley que desarrolla ese derecho se llama Ley Orgánica de Transparencia y Acceso a la Información Pública. Se la conoce por la sigla LOTAIP. Es la Ley veinticuatro, publicada en el Registro Oficial el dieciocho de mayo de dos mil cuatro. Su primer artículo dice que el acceso a la información pública es un derecho de las personas que el Estado garantiza. La información que está en poder de las instituciones públicas, y de otros entes que la propia ley señala, es pública. Las excepciones son las de la ley, no las de la comodidad de una oficina.\n\nLa LOTAIP separa dos ideas que a veces se mezclan. La información confidencial es la información pública personal, la que nace de los derechos personalísimos y no está sujeta al principio de publicidad. Pedir un contrato no es pedir la vida privada de una persona. La información reservada es otra cosa. La ley la limita a documentos calificados de forma motivada por razones de defensa nacional, en los casos que ella enumera, y a lo que otras leyes vigentes declaren reservado. Esa reserva no es eterna por capricho. La ley habla de un período de hasta quince años desde la clasificación, y de desclasificar cuando desaparecen las causas. Hay una regla que conviene grabarse. La clasificación de reserva no puede hacerse después de que la información ya fue pedida.\n\nPedir tiene una forma. La solicitud es escrita y va dirigida a quien titula la institución. Tiene que identificar a la persona que pide y ubicar, con claridad, los datos o los temas. No hace falta una fórmula mágica. Sí hace falta decir qué se busca, para que la oficina no responda al vacío. Quien titula la entidad es responsable de recibir y contestar. El plazo es perentorio. Diez días. Puede prorrogarse por cinco días más, solo por causas justificadas, y esas causas se informan a quien pidió. El plazo corre en días, no en días hábiles escondidos. Si necesitas el dato para una fecha, cuenta desde el inicio.\n\nLa institución puede entregar la información, puede decir con fundamento que no la tiene, o puede negar el acceso si de verdad cae en una excepción. Lo que no puede hacer es callar y dejar que el silencio reemplace a la respuesta. La falta de respuesta en el plazo, el rechazo expreso, o una respuesta inexacta, son formas de negar el acceso. Si la respuesta llega incompleta, se puede pedir la corrección a la misma institución. La ley le da otro plazo de diez días para atender ese nuevo pedido.\n\nSi aun así no hay una respuesta adecuada, entra la Defensoría del Pueblo. La LOTAIP le encarga promover y vigilar este derecho. Quien pidió puede solicitar su intervención. Esa gestión tiene que ser oportuna. La propia ley limita su duración. No sustituye, por sí sola, a un juez. Si hace falta, existe la vía judicial de acceso a la información pública. Ante el juez, si la entidad alega reserva o confidencialidad, tiene que demostrarlo con documentos. Si el juez concluye que la información no era reservada ni confidencial en los términos de la ley, dispone que se entregue.\n\nConviene guardar copia de la solicitud, de la fecha en que entró, y de cualquier prórroga. Esos papeles son el reloj del procedimiento. También conviene pedir el soporte en el que la información existe. Un archivo, una tabla, un escaneo. La ley no obliga a la institución a fabricar un estudio nuevo que no tiene. Sí obliga a entregar lo que ya posee, salvo excepción.\n\nHay además transparencia que no espera un pedido. Las instituciones deben difundir, en un portal o por medios a disposición del público, un mínimo de información actualizada. Estructura, directorio, y otros rubros que la ley lista. Eso se llama, en la práctica, transparencia activa. La solicitud es la transparencia a pedido. Las dos conviven.\n\nEsta herramienta no sirve para husmear datos personales ni para armar una acusación. Sirve para leer cómo se usa lo público, con el documento en la mano. Lufy enseña el camino. La respuesta, cuando llega, se lee con la misma calma con la que se lee una ley.",
+          "sources": [
+            "Constitución de la República del Ecuador, art. 18, numerales 1 y 2.",
+            "Ley Orgánica de Transparencia y Acceso a la Información Pública, Ley 24, Registro Oficial suplemento 337, 18 de mayo de 2004, arts. 1, 6, 9, 17, 18 y 19."
+          ],
+          "questions": [
+            {
+              "id": "lotaip-plazo",
+              "kind": "multipleChoice",
+              "prompt": "¿En qué plazo debe contestar la institución una solicitud de acceso a la información pública?",
+              "explanation": "El artículo 9 de la LOTAIP fija diez días, con una prórroga de cinco días por causas justificadas e informadas a la persona solicitante.",
+              "options": [
+                {
+                  "id": "diez",
+                  "text": "En diez días, prorrogables por cinco más si justifica la causa y se la informa a quien pidió"
+                },
+                {
+                  "id": "ano",
+                  "text": "En un año, sin aviso"
+                },
+                {
+                  "id": "hora",
+                  "text": "En una hora, siempre"
+                },
+                {
+                  "id": "nunca",
+                  "text": "No tiene plazo: puede contestar cuando quiera"
+                }
+              ],
+              "correctOptionId": "diez"
+            },
+            {
+              "id": "lotaip-reserva-tarde",
+              "kind": "trueFalse",
+              "prompt": "La institución puede declarar reservado un documento después de que alguien ya lo pidió.",
+              "explanation": "El artículo 18 dice que la clasificación de reserva no puede hacerse después de la solicitud de información.",
+              "correct": false
+            },
+            {
+              "id": "lotaip-pasos",
+              "kind": "order",
+              "prompt": "Ordena el camino de un pedido de información, si la primera respuesta no alcanza.",
+              "explanation": "La solicitud del artículo 19 abre el plazo del artículo 9. Si la respuesta no llega o no alcanza, la Defensoría vigila el derecho y, de ser necesario, decide un juez.",
+              "items": [
+                {
+                  "id": "escrito",
+                  "text": "Solicitud escrita, con identidad y tema"
+                },
+                {
+                  "id": "plazo",
+                  "text": "La institución contesta dentro del plazo"
+                },
+                {
+                  "id": "defensoria",
+                  "text": "Si no basta, se pide apoyo a la Defensoría del Pueblo"
+                },
+                {
+                  "id": "juez",
+                  "text": "Si hace falta, un juez de acceso a la información"
+                }
+              ],
+              "correctOrder": [
+                "escrito",
+                "plazo",
+                "defensoria",
+                "juez"
+              ]
+            },
+            {
+              "id": "lotaip-confidencial",
+              "kind": "fillBlank",
+              "prompt": "La información pública personal, que no está sujeta a publicidad, se llama información ______.",
+              "explanation": "El artículo 6 llama confidencial a la información pública personal derivada de los derechos personalísimos. No es lo mismo que la información reservada por defensa u otra ley.",
+              "acceptedAnswers": [
+                "confidencial"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "historia-por-eras",
+          "title": "El Ecuador por eras",
+          "summary": "Un mapa de instituciones y fechas, de los pueblos anteriores a la colonia a la Constitución de 2008.",
+          "script": "La historia del Ecuador no cabe en una tarde. Sí cabe el mapa de las eras. No para memorizar reyes ni para juzgar a nadie. Para saber en qué siglo estás cuando lees un documento. Cada era deja una institución. Esta lección nombra esas instituciones y unas pocas fechas. No cuenta delitos. Una persona, tenga el siglo que tenga, no se explica con un apodo.\n\nAntes de la colonia, este territorio no era un solo Estado con el nombre de hoy. Había pueblos y naciones distintas, con lenguas y gobiernos propios. Llamar Ecuador a esa época es poner una palabra moderna sobre un mapa antiguo. La Constitución de dos mil ocho reconoce esa raíz y habla del buen vivir, el sumak kawsay, como horizonte de convivencia.\n\nLa era colonial llega con el imperio español. En mil quinientos sesenta y tres se crea la Real Audiencia de Quito. Era un tribunal y, a la vez, un gobierno sobre una jurisdicción grande, dentro del virreinato. Quito, Guayaquil y Cuenca no vivían la misma historia al mismo ritmo. Debajo de la audiencia había cabildos, pueblos indígenas, esclavitud y comercio. Nombrar la audiencia no borra esa desigualdad. Evita contar la colonia como si hubiera sido un único decreto.\n\nEl ciclo de la independencia se abre en el siglo diecinueve. El diez de agosto de mil ochocientos nueve, la Primera Junta de Quito reclama el gobierno en nombre del rey Fernando séptimo. No es todavía el Estado ecuatoriano. Es el primer gran quiebre local del orden colonial. Guayaquil proclama su independencia el nueve de octubre de mil ochocientos veinte. El veinticuatro de mayo de mil ochocientos veintidós, la Batalla de Pichincha sella la independencia de Quito. Esas provincias entran luego en la Gran Colombia.\n\nEn mil ochocientos treinta el Distrito del Sur se separa de esa unión y se organiza el Estado del Ecuador. Ahí empieza la república como Estado propio, con constitución y presidencia. El siglo que sigue es inestable. Hay varias constituciones, guerras y regiones que jalan en distinto sentido. El hecho de era es este. El país ya existe como Estado, y su regla escrita cambia varias veces.\n\nLa Revolución liberal de mil ochocientos noventa y cinco abre otro ciclo. Su huella institucional, para esta lección, es la Constitución de mil novecientos seis, que empuja un Estado más laico. No hace falta convertir a los jefes de ese ciclo en estatuas ni en villanos para entender el cambio de norma.\n\nEn el siglo veinte, el nueve de julio de mil novecientos veinticinco, la Revolución juliana, un movimiento cívico militar, desplaza al gobierno de entonces y abre reformas del Estado. Entre mil novecientos setenta y dos y mil novecientos setenta y nueve hay gobiernos militares de facto, fuera de una elección presidencial. En mil novecientos setenta y nueve la presidencia vuelve a una persona elegida por el voto popular. Ese retorno es el hito. La lección no reparte culpas de esos años.\n\nEl cambio que todavía se toca todos los días llega en el año dos mil. En enero, el Ecuador anuncia que el sucre deja de ser la moneda y que el dólar de los Estados Unidos pasa a ser la moneda oficial. La ley que organiza esa transformación se publica en el Registro Oficial en marzo de ese año. Desde entonces, contratos y presupuesto se leen en dólares.\n\nLa era constitucional actual se abre en dos mil ocho. El veintiocho de septiembre, la ciudadanía aprueba en referéndum la Constitución elaborada en Montecristi. Se publica en el Registro Oficial cuatrocientos cuarenta y nueve, el veinte de octubre de dos mil ocho. Es la Constitución vigente, con las reformas que ella misma permite. Organiza las cinco funciones del Estado, el camino de la ley y el derecho a la información pública.\n\nSi ordenas las eras, el mapa queda así. Pueblos anteriores a la colonia. Real Audiencia, desde mil quinientos sesenta y tres. Independencia, entre mil ochocientos nueve y mil ochocientos veintidós. República, desde mil ochocientos treinta. Revolución liberal, desde mil ochocientos noventa y cinco. Y la Constitución de dos mil ocho, la casa de las reglas de hoy. Las otras lecciones de esta unidad viven dentro de esa casa. Por eso la historia no es un adorno. Es el estante donde se guarda cada documento.",
+          "sources": [
+            "Real Audiencia de Quito, creada en 1563.",
+            "Hitos de independencia: Primera Junta de Quito, 10 de agosto de 1809; independencia de Guayaquil, 9 de octubre de 1820; Batalla de Pichincha, 24 de mayo de 1822. Organización del Estado del Ecuador en 1830.",
+            "Constitución liberal de 1906. Revolución juliana, 9 de julio de 1925. Retorno al voto presidencial en 1979.",
+            "Ley para la Transformación Económica del Ecuador, Registro Oficial suplemento 34, 13 de marzo de 2000.",
+            "Constitución de la República del Ecuador, aprobada en referéndum el 28 de septiembre de 2008 y publicada en el Registro Oficial 449 el 20 de octubre de 2008."
+          ],
+          "questions": [
+            {
+              "id": "historia-constitucion",
+              "kind": "multipleChoice",
+              "prompt": "¿Qué Constitución organiza hoy las cinco funciones del Estado?",
+              "explanation": "La Constitución vigente fue aprobada en referéndum el 28 de septiembre de 2008 y publicada en el Registro Oficial 449 el 20 de octubre de 2008. Las reformas posteriores se hacen por los caminos que esa Constitución prevé.",
+              "options": [
+                {
+                  "id": "1830",
+                  "text": "La primera constitución republicana, de 1830, sin reformas posibles"
+                },
+                {
+                  "id": "1906",
+                  "text": "Solo la Constitución de 1906"
+                },
+                {
+                  "id": "2008",
+                  "text": "La Constitución de 2008, aprobada en Montecristi, con las reformas que ella permite"
+                },
+                {
+                  "id": "1563",
+                  "text": "La real audiencia de 1563"
+                }
+              ],
+              "correctOptionId": "2008"
+            },
+            {
+              "id": "historia-audiencia",
+              "kind": "trueFalse",
+              "prompt": "La Real Audiencia de Quito se crea en 1563.",
+              "explanation": "En 1563 se crea la Real Audiencia de Quito, tribunal y gobierno de la era colonial en esta jurisdicción.",
+              "correct": true
+            },
+            {
+              "id": "historia-eras",
+              "kind": "order",
+              "prompt": "Ordena estas eras de la más antigua a la más reciente.",
+              "explanation": "La audiencia es de 1563. La independencia corre entre 1809 y 1822. El Estado propio se organiza en 1830. La Constitución de Montecristi es de 2008.",
+              "items": [
+                {
+                  "id": "audiencia",
+                  "text": "Real Audiencia de Quito"
+                },
+                {
+                  "id": "independencia",
+                  "text": "Juntas y batallas de la independencia"
+                },
+                {
+                  "id": "republica",
+                  "text": "Estado del Ecuador, desde 1830"
+                },
+                {
+                  "id": "montecristi",
+                  "text": "Constitución de 2008"
+                }
+              ],
+              "correctOrder": [
+                "audiencia",
+                "independencia",
+                "republica",
+                "montecristi"
+              ]
+            },
+            {
+              "id": "historia-dolar",
+              "kind": "fillBlank",
+              "prompt": "En el año 2000 el Ecuador reemplazó el sucre por el ______ de los Estados Unidos.",
+              "explanation": "En enero de 2000 se anuncia el reemplazo del sucre. La Ley para la Transformación Económica del Ecuador se publica en el Registro Oficial suplemento 34, el 13 de marzo de 2000.",
+              "acceptedAnswers": [
+                "dólar",
+                "dolar",
+                "dolar estadounidense"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

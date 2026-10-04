@@ -1,0 +1,94 @@
+{
+  "id": "asamblea",
+  "title": "Conoce tu Asamblea",
+  "summary": "Cómo está armada la Asamblea Nacional y, en Tu provincia, el registro público de cada curul.",
+  "access": "free",
+  "tool": "tu-provincia",
+  "units": [
+    {
+      "id": "la-institucion",
+      "title": "La institución",
+      "summary": "Una lección de muestra y la lista por provincia.",
+      "lessons": [
+        {
+          "id": "como-trabaja-la-asamblea",
+          "title": "Cómo trabaja la Asamblea",
+          "summary": "De dónde sale cada curul, qué hace una comisión y cómo se cita un voto.",
+          "script": "La Asamblea Nacional es la institución que debate y vota las leyes. Esta lección explica cómo está armada y cómo se lee un voto. No califica a nadie. Quien ocupa una curul y quien sigue la sesión desde casa necesitan el mismo mapa.\n\nLa Asamblea es unicameral y tiene su sede en Quito. Sus integrantes se eligen para cuatro años. Quince salen de una circunscripción nacional. Cada provincia elige dos y puede sumar más escaños según su población. La ley define también a quienes representan a las ecuatorianas y los ecuatorianos en el exterior. Esa cuenta importa porque un asambleísta de provincia no habla por todo el país, y uno de la circunscripción nacional no reemplaza a los de una provincia. Son cargos distintos.\n\nEl trabajo diario no ocurre solo en el pleno. Un proyecto entra, se reparte y una comisión lo estudia antes de que el pleno lo debata. La comisión escucha a quien tenga interés y devuelve un informe. El pleno, después, somete el texto a dos debates. Las leyes orgánicas piden la mayoría absoluta de los miembros de la Asamblea. Las ordinarias no pueden imponerse sobre una orgánica. Si el pleno aprueba, el texto va a la Presidencia para la sanción o la objeción. Ese camino ya tiene su propia lección. Aquí el foco es otro: la institución y el registro del voto.\n\nCada votación deja constancia. A favor, en contra, abstención, ausencia o voto en blanco son formas de quedar en el acta. No son un juicio moral. Son el registro de lo que la sesión anotó. Esta app, en la pantalla Tu provincia, muestra ese registro cuando viene en el archivo público: partido u organización, comisiones y votos recientes, cada uno con una línea de fuente. Si la fuente no está, el voto no se publica. Si el archivo dice datos de ejemplo, los nombres son imaginarios y no corresponden a una curul real.\n\nLa pantalla agrupa por provincia. También se puede mirar la circunscripción nacional y la del exterior, porque esas personas no caben dentro de una sola provincia. Lo que no aparece, a propósito, es la vida privada. No hay cédula, ni dirección, ni familia, ni patrimonio, ni una etiqueta sobre la honradez de nadie. El dato es el cargo público y lo que el registro de la sesión dice que votó.\n\nEl archivo se actualiza, como mucho, una vez al día. La app comprueba la huella del archivo antes de reemplazar la copia que ya tenía. Si la huella no coincide, se queda con la copia anterior y lo dice. Arriba de la lista verás la fecha de esa copia: actualizado, y el día. Conviene leer esa fecha antes de citar un voto en una conversación.\n\nQuien legisla puede usar la misma pantalla para ver cómo queda publicado su voto de función pública. Quien no legisla puede usarla para seguir a la provincia sin convertir un acta en un insulto. Las dos lecturas caben. La lección que sigue, cuando el camino crezca, podrá explicar una comisión con más detalle. Hoy basta con saber de dónde sale cada curul, qué hace la comisión antes del pleno, y que un voto se cita con su fuente o no se cita.",
+          "sources": [
+            "Constitución de la República del Ecuador, art. 118: Asamblea unicameral con sede en Quito, integrada por quince asambleístas nacionales, dos por provincia más los que correspondan a la población, y la representación del exterior que defina la ley. Período de cuatro años.",
+            "Constitución de la República del Ecuador, arts. 132, 133 y 137, sobre la formación de la ley, las leyes orgánicas y los dos debates."
+          ],
+          "questions": [
+            {
+              "id": "asamblea-sede",
+              "kind": "multipleChoice",
+              "prompt": "¿Dónde tiene su sede la Asamblea Nacional?",
+              "explanation": "El artículo 118 fija la sede en Quito y dice que la Asamblea es unicameral.",
+              "options": [
+                {
+                  "id": "quito",
+                  "text": "En Quito"
+                },
+                {
+                  "id": "guayaquil",
+                  "text": "En Guayaquil"
+                },
+                {
+                  "id": "cuenca",
+                  "text": "En Cuenca"
+                },
+                {
+                  "id": "exterior",
+                  "text": "Solo en el exterior"
+                }
+              ],
+              "correctOptionId": "quito"
+            },
+            {
+              "id": "asamblea-juicio",
+              "kind": "trueFalse",
+              "prompt": "Un voto en contra, en el acta, es una declaración de culpabilidad.",
+              "explanation": "A favor, en contra, abstención, ausencia o blanco son formas de constar en el registro de la sesión. No son un juicio sobre la persona.",
+              "correct": false
+            },
+            {
+              "id": "asamblea-camino",
+              "kind": "order",
+              "prompt": "Ordena el tramo de un proyecto dentro de la Asamblea, antes de llegar a la Presidencia.",
+              "explanation": "Primero lo estudia una comisión. Después el pleno lo debate dos veces. Al final queda el registro del voto.",
+              "items": [
+                {
+                  "id": "comision",
+                  "text": "La comisión estudia el proyecto"
+                },
+                {
+                  "id": "pleno",
+                  "text": "El pleno lo debate dos veces"
+                },
+                {
+                  "id": "acta",
+                  "text": "El voto queda en el registro"
+                }
+              ],
+              "correctOrder": [
+                "comision",
+                "pleno",
+                "acta"
+              ]
+            },
+            {
+              "id": "asamblea-nacional",
+              "kind": "fillBlank",
+              "prompt": "Quince asambleístas salen de la circunscripción ______.",
+              "explanation": "El artículo 118 reserva quince escaños a la circunscripción nacional, además de los provinciales y de los del exterior.",
+              "acceptedAnswers": [
+                "nacional"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

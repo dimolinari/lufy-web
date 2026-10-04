@@ -1,0 +1,43 @@
+{
+  "courses": [
+    "ecuador-publico.json",
+    "historia.json",
+    "geografia.json",
+    "provincias.json",
+    "naturaleza.json",
+    "cultura.json",
+    "economia.json",
+    "finanzas.json",
+    "conoce-asamblea.json"
+  ],
+  "planned": [
+    {
+      "id": "caminos-completos",
+      "title": "El resto de cada camino",
+      "summary": "Salvo Gobierno y lo público, que trae cinco lecciones, cada ruta publica una muestra. Las siguientes todavía no están escritas.",
+      "access": "free",
+      "offering": "core"
+    },
+    {
+      "id": "cursos-extra",
+      "title": "Cursos extra",
+      "summary": "Caminos que no forman parte del núcleo. La suscripción los abre. El núcleo sigue gratis.",
+      "access": "premium",
+      "offering": "extra"
+    },
+    {
+      "id": "datos-nuevos",
+      "title": "Lecciones del dato más reciente",
+      "summary": "Cuando entra una serie nueva, la suscripción la abre antes. Las lecciones ya publicadas no esperan ese pago.",
+      "access": "premium",
+      "offering": "early-data"
+    },
+    {
+      "id": "audiolibros",
+      "title": "Audiolibros narrados",
+      "summary": "Cursos con la narración grabada. Sin la suscripción, el núcleo sigue con la voz del dispositivo o el audio que ya trae.",
+      "access": "premium",
+      "offering": "narrated"
+    }
+  ]
+}

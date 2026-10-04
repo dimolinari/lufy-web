@@ -1,0 +1,193 @@
+{
+  "id": "finanzas",
+  "title": "Finanzas",
+  "summary": "Presupuesto personal, interés y riesgo, y después el presupuesto, el déficit, la deuda y el PIB. Sin asesoría.",
+  "access": "free",
+  "units": [
+    {
+      "id": "para-leer-numeros",
+      "title": "Para leer números",
+      "summary": "Dos lecciones. La primera abre la segunda.",
+      "lessons": [
+        {
+          "id": "presupuesto-interes-y-riesgo",
+          "title": "Presupuesto, interés y riesgo",
+          "summary": "Cómo armar un presupuesto personal, qué hace el interés compuesto y por qué esto no es una recomendación de compra.",
+          "script": "Antes de los números de un país vienen los de una casa. Un presupuesto es una lista honesta: qué entra, qué sale y qué queda. El sueldo, un bono, una remesa o la venta de algo son entradas. El arriendo, la comida, el bus y la deuda son salidas. Si las salidas ganan siempre, el presupuesto avisa. No juzga a la persona. Lufy no sabe tu vida y no va a pedirte los datos.\n\nAhorrar es apartar una parte antes de que se gaste, no lo que sobre por accidente el domingo. No hay aquí una cuenta recomendada ni un banco favorito. Hay un hábito. El interés es el precio de usar dinero en el tiempo. Si guardas y te pagan un interés, el saldo puede crecer. Si debes y te cobran un interés, el saldo de la deuda también crece. La misma palabra sirve para los dos lados. El lado cambia quién paga.\n\nEl interés compuesto es interés sobre el interés ya acumulado. La calculadora de esta pantalla deja mover el monto inicial, la tasa anual, los años y un aporte mensual. El resultado es una cuenta con esas reglas, no una promesa de un banco. Una tasa más alta en el deslizador no significa que exista un producto así, ni que te convenga buscarlo. Sirve para ver que el tiempo pesa. Una deuda con interés compuesto pesa del mismo modo, en contra.\n\nLa inflación es la subida general de precios. Si los precios suben y tu dinero no, compras menos. El gráfico de inflación del Ecuador, en el otro camino, usa la serie del Banco Mundial. No es una meta de política ni un pronóstico. Crédito es recibir hoy y devolver después, casi siempre con interés. Pagar solo el mínimo de una deuda revolvente alarga el plazo y el costo. Esta frase no nombra una tarjeta. Nombra el mecanismo.\n\nUna acción es una parte de una empresa. Un bono es un préstamo a un Estado o a una empresa, que se compromete a devolver y a pagar un interés. Un índice junta muchos precios para mostrar cómo se mueve un conjunto, no una sola compañía. Ninguna de esas tres palabras es una orden de compra. No hay aquí un código de bolsa, ni una lista de ganadores, ni una operación de práctica con dinero real. Diversificar es no poner todo en un solo lugar. Baja la chance de que un único fracaso se lleve el total. No elimina el riesgo. Quien diga que lo elimina está vendiendo otra cosa.\n\nEl aviso de este camino se queda: educación, no asesoría. Si un número de la calculadora te sorprende, cambia el deslizador y mira de nuevo. El repaso de las preguntas vuelve otro día. Tu dinero, no.",
+          "sources": [
+            "Definiciones educativas de presupuesto, interés simple y compuesto, inflación, crédito, acción, bono e índice. No son una oferta ni una recomendación.",
+            "La calculadora aplica una tasa mensual igual a la tasa anual dividida entre doce, y suma el aporte al final de cada mes. Es un modelo, no un producto financiero."
+          ],
+          "questions": [
+            {
+              "id": "fin-compuesto",
+              "kind": "multipleChoice",
+              "prompt": "¿Qué hace el interés compuesto?",
+              "explanation": "Calcula interés también sobre el interés ya acumulado. En una deuda, ese mismo mecanismo aumenta lo que se debe.",
+              "options": [
+                {
+                  "id": "solo-banco",
+                  "text": "Obliga a usar un banco concreto"
+                },
+                {
+                  "id": "sobre-interes",
+                  "text": "Calcula interés sobre el interés ya acumulado"
+                },
+                {
+                  "id": "borra-riesgo",
+                  "text": "Elimina el riesgo de perder"
+                },
+                {
+                  "id": "es-ley",
+                  "text": "Es una ley del Ecuador que fija tu sueldo"
+                }
+              ],
+              "correctOptionId": "sobre-interes"
+            },
+            {
+              "id": "fin-asesoria",
+              "kind": "trueFalse",
+              "prompt": "Esta lección recomienda una acción, un bono o un índice para comprar.",
+              "explanation": "Define las tres ideas. No hay orden de compra ni asesoría.",
+              "correct": false
+            },
+            {
+              "id": "fin-presupuesto",
+              "kind": "order",
+              "prompt": "Ordena los pasos de un presupuesto personal sencillo.",
+              "explanation": "Primero se anota lo que entra. Después lo que sale. Al final se mira qué queda, antes de prometer un ahorro imposible.",
+              "items": [
+                {
+                  "id": "entra",
+                  "text": "Anotar lo que entra"
+                },
+                {
+                  "id": "sale",
+                  "text": "Anotar lo que sale"
+                },
+                {
+                  "id": "queda",
+                  "text": "Mirar qué queda"
+                }
+              ],
+              "correctOrder": [
+                "entra",
+                "sale",
+                "queda"
+              ]
+            },
+            {
+              "id": "fin-bono",
+              "kind": "fillBlank",
+              "prompt": "Un ______ es un préstamo a un Estado o a una empresa, no una parte de la propiedad.",
+              "explanation": "La acción es una parte de la empresa. El bono es deuda.",
+              "acceptedAnswers": [
+                "bono"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "calculator",
+              "ref": "interes-compuesto"
+            }
+          ]
+        },
+        {
+          "id": "presupuesto-deficit-deuda-pib",
+          "title": "Presupuesto, déficit, deuda y PIB",
+          "summary": "Cuatro palabras de las finanzas de un país, y dos gráficos que no son el boletín del Ministerio de Finanzas.",
+          "script": "El presupuesto del Estado es un plan anual. Estima ingresos y autoriza gastos. En el Ecuador, la Función Ejecutiva prepara la proforma y la Asamblea la examina. Hay un detalle que ya viste en el camino de las leyes: solo la Presidencia puede presentar proyectos que creen impuestos o que aumenten el gasto público. El presupuesto vive en esa misma lógica. No es un discurso. Es una ley, o un proyecto de ley, con números.\n\nEl déficit aparece cuando los gastos de un período superan a los ingresos de ese período. El superávit es el caso contrario. Un déficit no es, por sí solo, un escándalo ni una virtud. Es una resta. Cómo se financia, a qué plazo y para qué gasto, son las preguntas siguientes. Esta lección no las responde con una consigna.\n\nLa deuda es lo acumulado de esos préstamos, más la deuda vieja que sigue viva. Un déficit puede sumar deuda. Pagar deuda usa ingresos que entonces no van a otra cosa. Hay muchas deudas, y no miden lo mismo. El gráfico de esta pantalla es la deuda externa total como porcentaje del ingreso nacional bruto, según las estadísticas del Banco Mundial. No es el boletín de deuda pública del Ministerio de Finanzas. Si alguien cita esta curva como si fuera ese boletín, está mezclando papeles. La app lo dice debajo del gráfico para que no haga falta adivinar.\n\nEl producto interno bruto, el PIB, estima lo producido dentro del país en un período. El crecimiento del PIB puede ser positivo o negativo. En el gráfico de barras, el verde es una subida y el rojo es una caída. Los colores describen el signo de la serie. No dicen si un gobierno lo hizo bien. Un año rojo, como el de la pandemia en esa serie, es una caída medida, no una acusación. El PIB en dólares corrientes es otra serie, más grande cada vez que suben precios o cantidades. Tampoco es la caja del Tesoro.\n\nConviene separar cuatro cajones. El presupuesto es el plan de la caja pública. El déficit es la resta de un año. La deuda es el saldo de lo prestado. El PIB es el tamaño de la actividad, no el tamaño del ministerio. Las remesas y las exportaciones, que viste en el camino de economía, pueden mover hogares y empresas sin ser, ellas solas, el presupuesto.\n\nNo hay aquí una opinión sobre si la deuda está alta o baja, ni una recomendación de bonos del Estado. Esos juicios piden el boletín oficial, el destino del gasto y un criterio que esta app no va a disfrazar de clase. Cuando el Ministerio de Finanzas o el Banco Central publiquen una serie y se la pueda guardar con fecha, podrá entrar como otro archivo. Hasta entonces, el gráfico dice su fuente y se queda en ella.\n\nRecorre el gráfico con el dedo. El número grande es el valor del año que estás tocando. La línea de abajo es la institución, el indicador y la fecha de la consulta. Esa línea es parte de la lección, no una nota al pie decorativa.",
+          "sources": [
+            "Constitución de la República del Ecuador, art. 135: solo la Presidencia presenta proyectos que creen impuestos o aumenten el gasto público. La proforma presupuestaria la prepara la Función Ejecutiva y la examina la Asamblea.",
+            "Banco Mundial, DT.DOD.DECT.GN.ZS, deuda externa total como porcentaje del ingreso nacional bruto, 2014–2024. No es el boletín de deuda pública del Ministerio de Finanzas.",
+            "Banco Mundial, NY.GDP.MKTP.KD.ZG, crecimiento anual del PIB, y NY.GDP.MKTP.CD, PIB en dólares corrientes."
+          ],
+          "questions": [
+            {
+              "id": "pais-deuda-grafico",
+              "kind": "multipleChoice",
+              "prompt": "¿Qué muestra el gráfico de deuda de esta lección?",
+              "explanation": "Muestra la deuda externa total del Banco Mundial como porcentaje del ingreso nacional bruto, no el boletín del Ministerio de Finanzas.",
+              "options": [
+                {
+                  "id": "boletin",
+                  "text": "El boletín de deuda pública del Ministerio de Finanzas"
+                },
+                {
+                  "id": "externa",
+                  "text": "La deuda externa total del Banco Mundial, como porcentaje del INB"
+                },
+                {
+                  "id": "tu-deuda",
+                  "text": "La deuda de tu hogar"
+                },
+                {
+                  "id": "solo-petroleo",
+                  "text": "Solo la deuda de las gasolineras"
+                }
+              ],
+              "correctOptionId": "externa"
+            },
+            {
+              "id": "pais-pib",
+              "kind": "trueFalse",
+              "prompt": "El PIB es lo mismo que el dinero que tiene en caja el Ministerio de Finanzas.",
+              "explanation": "El PIB estima la actividad del país. La caja del ministerio es el presupuesto y su ejecución.",
+              "correct": false
+            },
+            {
+              "id": "pais-conceptos",
+              "kind": "order",
+              "prompt": "Ordena estas ideas de la más inmediata a la más acumulada.",
+              "explanation": "El presupuesto es el plan del año. El déficit es la resta de ese período. La deuda es lo que se va acumulando.",
+              "items": [
+                {
+                  "id": "presupuesto",
+                  "text": "Presupuesto del año"
+                },
+                {
+                  "id": "deficit",
+                  "text": "Déficit, si los gastos superan a los ingresos"
+                },
+                {
+                  "id": "deuda",
+                  "text": "Deuda acumulada"
+                }
+              ],
+              "correctOrder": [
+                "presupuesto",
+                "deficit",
+                "deuda"
+              ]
+            },
+            {
+              "id": "pais-deficit",
+              "kind": "fillBlank",
+              "prompt": "Hay déficit cuando los gastos de un período superan a los ______ de ese período.",
+              "explanation": "El déficit es una resta: gastos mayores que ingresos en un período.",
+              "acceptedAnswers": [
+                "ingresos"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "chart",
+              "ref": "crecimiento-pib"
+            },
+            {
+              "kind": "chart",
+              "ref": "deuda-externa"
+            },
+            {
+              "kind": "chart",
+              "ref": "pib"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "disclaimer": "finanzas"
+}

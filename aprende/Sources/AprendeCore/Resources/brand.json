@@ -1,0 +1,25 @@
+{
+  "appName": "Lufy Aprende",
+  "bundleIdentifier": "com.lufy.aprende",
+  "macBundleIdentifier": "com.lufy.aprende.mac",
+  "visionBundleIdentifier": "com.lufy.aprende.vision",
+  "developmentTeam": "XXXXXXXXXX",
+  "elevenlabs": {
+    "modelId": "eleven_v3",
+    "voiceId": ""
+  },
+  "storeKit": {
+    "subscriptionsEnabled": false,
+    "premiumProductIds": [],
+    "subscriptionProductIds": [
+      "com.lufy.aprende.plus.monthly",
+      "com.lufy.aprende.plus.yearly"
+    ]
+  },
+  "share": {
+    "inviteURL": ""
+  },
+  "asambleaFeed": {
+    "manifestURL": ""
+  }
+}

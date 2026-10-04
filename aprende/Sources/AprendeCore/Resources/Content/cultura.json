@@ -1,0 +1,101 @@
+{
+  "id": "cultura",
+  "title": "Cultura y pueblos",
+  "summary": "Lo que la Constitución reconoce, y lo que una foto de Quito no puede representar.",
+  "access": "free",
+  "units": [
+    {
+      "id": "reconocimiento",
+      "title": "Reconocimiento",
+      "summary": "Una lección de muestra.",
+      "lessons": [
+        {
+          "id": "pueblos-y-nacionalidades",
+          "title": "Pueblos, lenguas y una república intercultural",
+          "summary": "Qué dice la Constitución sobre pueblos y nacionalidades, y qué no cabe en una sola foto de Quito.",
+          "script": "La Constitución dice que el Ecuador es un Estado intercultural y plurinacional. Esas dos palabras no son un adorno del preámbulo. Cambian la idea de que habría una sola cultura correcta y las demás serían folclor. Intercultural quiere decir relación entre culturas. Plurinacional quiere decir que dentro del mismo Estado se reconocen naciones y pueblos, con derechos, no solo con trajes para una foto.\n\nEl castellano es el idioma oficial. El castellano, el kichwa y el shuar son idiomas oficiales de relación intercultural. Los demás idiomas ancestrales son de uso oficial para los pueblos indígenas en las zonas donde habitan, en los términos que fija la ley. Una persona puede pasar la vida en Guayaquil en castellano y eso no borra el kichwa de la Sierra ni el shuar de la Amazonía. Tampoco al revés.\n\nLa Constitución reconoce a las comunas, comunidades, pueblos y nacionalidades indígenas, y les garantiza derechos que el texto enumera: mantener su identidad, sus tierras, sus propias formas de organización, y ser consultados antes de un plan que pueda afectarlas. Esta lección no resume cada numeral. Invita a leerlos cuando haga falta un trámite o una noticia. También reconoce al pueblo afroecuatoriano y al pueblo montubio, y protege a los pueblos en aislamiento voluntario. No son la misma figura jurídica. Meterlos en una sola frase bonita es perder el artículo.\n\nNo voy a decir aquí cuántas nacionalidades y cuántos pueblos hay, porque ese conteo depende del registro que se cite y del año. Sin el documento del Consejo o del instituto que lleve la lista, un número redondo sería un adorno. Lo que sí puedes llevarte es la diferencia de categorías: nacionalidad o pueblo indígena, pueblo afroecuatoriano, pueblo montubio, y pueblos en aislamiento.\n\nLa cultura cotidiana también es regional, y no solo indígena. En la Costa está la historia afroecuatoriana del Pacífico, con la marimba como memoria sonora. En la Sierra hay fiestas de cosecha y de santos que se mezclaron con calendarios más antiguos. En la Amazonía, la organización de un pueblo no cabe en el horario de una oficina de Quito. En Galápagos, la cultura es de provincia isleña, reciente si se la compara con un ayllu, y atada a las reglas del parque.\n\nLa foto de esta lección muestra un edificio del centro histórico de Quito. Quito también está en la lista de Patrimonio Mundial, desde mil novecientos setenta y ocho, el mismo año que Galápagos, por su centro colonial. La foto tiene autor y licencia. No representa a todos los pueblos del país. Es una fachada de una ciudad. Usarla como si fuera el Ecuador entero repetiría el error que la Constitución intenta corregir.\n\nEstudiar cultura, en esta app, no es coleccionar postales. Es poder decir qué reconoce la Constitución, qué lengua es oficial de relación intercultural, y qué no se puede deducir de una sola imagen.",
+          "sources": [
+            "Constitución de la República del Ecuador, arts. 1 y 2, sobre el Estado intercultural y plurinacional y sobre los idiomas.",
+            "Constitución de la República del Ecuador, arts. 56 a 60, sobre pueblos y nacionalidades indígenas, pueblo afroecuatoriano, pueblo montubio y pueblos en aislamiento.",
+            "UNESCO, Patrimonio Mundial: ciudad de Quito, centro histórico, 1978.",
+            "Fotografía del centro histórico: crédito de autor y licencia en la propia lección."
+          ],
+          "questions": [
+            {
+              "id": "cultura-idiomas",
+              "kind": "multipleChoice",
+              "prompt": "Además del castellano, ¿qué dos idiomas nombra la Constitución como oficiales de relación intercultural?",
+              "explanation": "El artículo 2 nombra al castellano, al kichwa y al shuar como idiomas oficiales de relación intercultural.",
+              "options": [
+                {
+                  "id": "kichwa-shuar",
+                  "text": "El kichwa y el shuar"
+                },
+                {
+                  "id": "ingles-frances",
+                  "text": "El inglés y el francés"
+                },
+                {
+                  "id": "solo-castellano",
+                  "text": "Ninguno: solo el castellano existe"
+                },
+                {
+                  "id": "latin",
+                  "text": "El latín y el griego"
+                }
+              ],
+              "correctOptionId": "kichwa-shuar"
+            },
+            {
+              "id": "cultura-foto",
+              "kind": "trueFalse",
+              "prompt": "La foto del centro de Quito representa a todos los pueblos y nacionalidades del país.",
+              "explanation": "Es una fachada de una ciudad patrimonio. No resume al país intercultural.",
+              "correct": false
+            },
+            {
+              "id": "cultura-lectura",
+              "kind": "order",
+              "prompt": "Ordena una lectura tranquila de este tema.",
+              "explanation": "Primero el tipo de Estado. Después las lenguas. Al final, los sujetos de derechos que la Constitución nombra por separado.",
+              "items": [
+                {
+                  "id": "estado",
+                  "text": "Estado intercultural y plurinacional"
+                },
+                {
+                  "id": "lenguas",
+                  "text": "Castellano, kichwa y shuar"
+                },
+                {
+                  "id": "pueblos",
+                  "text": "Pueblos indígenas, afroecuatoriano, montubio y pueblos en aislamiento"
+                }
+              ],
+              "correctOrder": [
+                "estado",
+                "lenguas",
+                "pueblos"
+              ]
+            },
+            {
+              "id": "cultura-estado",
+              "kind": "fillBlank",
+              "prompt": "La Constitución define al Ecuador como un Estado intercultural y ______.",
+              "explanation": "El artículo 1 usa las dos palabras: intercultural y plurinacional.",
+              "acceptedAnswers": [
+                "plurinacional"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "photo",
+              "ref": "quito-centro"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "economia",
+  "title": "Economía",
+  "summary": "Dolarización, petróleo, exportaciones y remesas, con series del Banco Mundial.",
+  "access": "free",
+  "units": [
+    {
+      "id": "cuentas",
+      "title": "Cuentas del país",
+      "summary": "Una lección de muestra.",
+      "lessons": [
+        {
+          "id": "dolar-petroleo-y-cuentas",
+          "title": "Dólar, petróleo, exportaciones y remesas",
+          "summary": "Qué cambió con la dolarización y cómo leer cuatro gráficos sin confundirlos con el presupuesto.",
+          "script": "En enero del año dos mil, el sucre deja de ser la moneda de la vida diaria y el Ecuador pasa a usar el dólar de los Estados Unidos. La Ley para la Transformación Económica del Ecuador se publica en el Registro Oficial, suplemento treinta y cuatro, el trece de marzo de ese año. Dolarizar no es un consejo de inversión. Es una decisión ya tomada, que organiza precios, salarios y contratos. El Banco Central no emite los dólares. No puede fabricar billetes para tapar un hueco del gobierno. Esa es la consecuencia más importante para las finanzas públicas, y se estudia con calma en el camino de finanzas.\n\nLos gráficos de esta lección vienen del Banco Mundial, con la fecha de consulta escrita debajo. No son el boletín del Banco Central ni la proforma del Ministerio de Finanzas. Si un decimal no coincide con el que viste en un noticiero, mira la fuente antes de corregir el gráfico de memoria. La inflación anual, en esa serie, muestra un pico en el año dos mil y después una caída. El pico pertenece a la crisis del fin del sucre. No lo cites como si lo hubiera publicado otra institución.\n\nEl petróleo sigue pesando en la conversación pública. El gráfico no muestra el precio del barril. Muestra las rentas del petróleo como porcentaje del producto interno bruto, y la serie del Banco Mundial llega hasta dos mil veintiuno. Una renta alta no es, por sí sola, un presupuesto bien hecho. Es una medida de cuánto de la actividad económica se relaciona con ese recurso. El presupuesto del Estado es otro papel: ingresos que la ley estima y gastos que la ley autoriza.\n\nLas exportaciones de bienes y servicios son otra línea. Entran banano, camarón, cacao, petróleo, y también servicios. El gráfico las suma en miles de millones de dólares corrientes. No digas que esa curva es solo crudo. Las remesas son un tercer flujo: dinero que envían personas que viven fuera. No es una exportación. No paga, por sí solo, la deuda. Es ingreso de hogares. Confundir las tres curvas es el error que esta lección quiere evitar.\n\nEl producto interno bruto, el PIB, aparece en el camino de finanzas con más cuidado. Aquí basta una frase. El PIB estima el valor de lo producido en un período. No es la caja del Ministerio de Finanzas. Un país puede tener un PIB grande y un presupuesto apretado, o al revés, según cómo se miren los precios y los impuestos.\n\nNada de esto dice si conviene comprar un bono, guardar dólares bajo el colchón o entrar a un fondo. Lufy no hace eso. El gráfico se puede recorrer con el dedo. Cada punto es un año y un valor de la serie citada. Si algún archivo de la app dijera datos de ejemplo, no lo tomes como cifra oficial. Estos no lo dicen, porque salieron de la API pública del Banco Mundial.\n\nCuando respondas, separa cuatro palabras: inflación, rentas del petróleo, exportaciones y remesas. Si las mezclas, el repaso te las devuelve.",
+          "sources": [
+            "Ley para la Transformación Económica del Ecuador, Registro Oficial suplemento 34, 13 de marzo de 2000.",
+            "Banco Mundial, indicador FP.CPI.TOTL.ZG, inflación anual. Consulta del 27 de septiembre de 2026. No es el índice del Banco Central del Ecuador.",
+            "Banco Mundial, NY.GDP.PETR.RT.ZS, rentas del petróleo como porcentaje del PIB, serie hasta 2021.",
+            "Banco Mundial, NE.EXP.GNFS.CD, exportaciones de bienes y servicios, y BX.TRF.PWKR.CD.DT, remesas personales recibidas."
+          ],
+          "questions": [
+            {
+              "id": "eco-dolar",
+              "kind": "multipleChoice",
+              "prompt": "¿Qué institución deja de poder fabricar la moneda del país cuando el Ecuador dolariza?",
+              "explanation": "El país usa el dólar de los Estados Unidos. El Banco Central no emite esos billetes.",
+              "options": [
+                {
+                  "id": "bce",
+                  "text": "El Banco Central del Ecuador no emite los dólares"
+                },
+                {
+                  "id": "asamblea",
+                  "text": "La Asamblea imprime los billetes"
+                },
+                {
+                  "id": "inec",
+                  "text": "El INEC fija el tipo de cambio cada mañana"
+                },
+                {
+                  "id": "sercop",
+                  "text": "El portal de compras emite la moneda"
+                }
+              ],
+              "correctOptionId": "bce"
+            },
+            {
+              "id": "eco-remesa",
+              "kind": "trueFalse",
+              "prompt": "Una remesa es lo mismo que una exportación de petróleo.",
+              "explanation": "La remesa es dinero que envían personas desde fuera. La exportación es venta de bienes o servicios.",
+              "correct": false
+            },
+            {
+              "id": "eco-lectura",
+              "kind": "order",
+              "prompt": "Ordena lo que conviene mirar antes de citar un gráfico de esta lección.",
+              "explanation": "Primero el nombre de la serie. Después la institución. Al final, el año del punto que estás señalando.",
+              "items": [
+                {
+                  "id": "serie",
+                  "text": "Qué mide la serie"
+                },
+                {
+                  "id": "fuente",
+                  "text": "Qué institución la publica"
+                },
+                {
+                  "id": "ano",
+                  "text": "De qué año es el punto"
+                }
+              ],
+              "correctOrder": [
+                "serie",
+                "fuente",
+                "ano"
+              ]
+            },
+            {
+              "id": "eco-petroleo",
+              "kind": "fillBlank",
+              "prompt": "El gráfico del petróleo de esta lección muestra rentas como porcentaje del ______, no el precio del barril.",
+              "explanation": "El indicador del Banco Mundial es rentas del petróleo como porcentaje del PIB.",
+              "acceptedAnswers": [
+                "PIB",
+                "pib"
+              ]
+            }
+          ],
+          "figures": [
+            {
+              "kind": "chart",
+              "ref": "inflacion-anual"
+            },
+            {
+              "kind": "chart",
+              "ref": "rentas-petroleo"
+            },
+            {
+              "kind": "chart",
+              "ref": "exportaciones"
+            },
+            {
+              "kind": "chart",
+              "ref": "remesas"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

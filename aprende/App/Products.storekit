@@ -1,0 +1,119 @@
+{
+  "identifier" : "F3B1C2A0",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "0",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "es_ES",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "ECU",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      }
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "PLUSGROUP",
+      "localizations" : [
+
+      ],
+      "name" : "Lufy Plus",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "PLUSMONTH",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Cursos extra, lecciones del dato más reciente y audiolibros narrados. El núcleo sigue gratis.",
+              "displayName" : "Lufy Plus mensual",
+              "locale" : "es_ES"
+            }
+          ],
+          "productID" : "com.lufy.aprende.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Lufy Plus mensual",
+          "subscriptionGroupID" : "PLUSGROUP",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "24.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "PLUSYEAR",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Cursos extra, lecciones del dato más reciente y audiolibros narrados, por un año. El núcleo sigue gratis.",
+              "displayName" : "Lufy Plus anual",
+              "locale" : "es_ES"
+            }
+          ],
+          "productID" : "com.lufy.aprende.plus.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Lufy Plus anual",
+          "subscriptionGroupID" : "PLUSGROUP",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
